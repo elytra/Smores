@@ -12,6 +12,6 @@ public class SmoresCreativeTab extends CreativeTabs {
 
     @Override
     public ItemStack getTabIconItem() {
-        return new ItemStack(ItemRegistry.itemIngot, 0);
+        return new ItemStack(ItemRegistry.itemIngot, 1, 0);
     }
 }
