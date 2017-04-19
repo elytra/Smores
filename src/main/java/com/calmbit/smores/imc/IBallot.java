@@ -1,6 +1,8 @@
 package com.calmbit.smores.imc;
 
-public interface IBallot<T, V extends Enum> {
+import com.sun.javaws.exceptions.InvalidArgumentException;
+
+public interface IBallot<T, V> {
     void registerCandidate(T candidate);
-    void voteInBallot(T candidate, V option);
+    void voteInBallot(T candidate, V option) throws InvalidArgumentException;
 }
