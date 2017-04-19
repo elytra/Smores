@@ -32,6 +32,11 @@ public class BlockMetalOre extends BlockBase {
     }
 
     @Override
+    public int damageDropped(IBlockState state) {
+        return getMetaFromState(state);
+    }
+
+    @Override
     @SuppressWarnings("deprecation")
     public IBlockState getStateFromMeta(int meta) {
         return this.getDefaultState().withProperty(METAL_TYPE, EnumMetalType.values()[meta]);
