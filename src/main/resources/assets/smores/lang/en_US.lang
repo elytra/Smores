@@ -1,0 +1,61 @@
+############# PURE METALS #############
+item.ingot_copper.name=Copper Ingot
+item.ingot_tin.name=Tin Ingot
+item.ingot_lead.name=Lead Ingot
+item.ingot_silver.name=Silver Ingot
+item.ingot_platinum.name=Platinum Ingot
+item.ingot_mithril.name=Mithril Ingot
+item.ingot_zinc.name=Zinc Ingot
+
+############# ODDBALL #############
+item.ingot_mercury.name=Mercury
+
+############# ALLOYS #############
+item.ingot_electrum.name=Electrum Ingot
+item.ingot_invar.name=Invar Ingot
+item.ingot_steel.name=Steel Ingot
+item.ingot_bronze.name=Bronze Ingot
+item.ingot_brass.name=Brass Ingot
+
+############# DUSTS #############
+item.dust_copper.name=Copper Dust
+item.dust_tin.name=Tin Dust
+item.dust_lead.name=Lead Dust
+item.dust_silver.name=Silver Dust
+item.dust_platinum.name=Platinum Dust
+item.dust_mithril.name=Mithril Dust
+item.dust_zinc.name=Zinc Dust
+item.dust_electrum.name=Electrum Dust
+item.dust_invar.name=Invar Dust
+item.dust_steel.name=Steel Dust
+item.dust_bronze.name=Bronze Dust
+item.dust_brass.name=Brass Dust
+
+item.dust_sulfur.name=Sulfur
+item.dust_nitre.name=Nitre
+
+
+############# PLATES #############
+item.plate_copper.name=Copper Plate
+item.plate_tin.name=Tin Plate
+item.plate_lead.name=Lead Plate
+item.plate_silver.name=Silver Plate
+item.plate_platinum.name=Platinum Plate
+item.plate_mithril.name=Mithril Plate
+item.plate_zinc.name=Zinc Plate
+item.plate_electrum.name=Electrum Plate
+item.plate_invar.name=Invar Plate
+item.plate_steel.name=Steel Plate
+item.plate_bronze.name=Bronze Plate
+item.plate_brass.name=Brass Plate
+
+############# ORES #############
+item.ore_copper.name=Copper Ore
+item.ore_tin.name=Tin Ore
+item.ore_lead.name=Lead Ore
+item.ore_silver.name=Silver Ore
+item.ore_platinum.name=Platinum Ore
+item.ore_zinc.name=Zinc Ore
+
+############# MISC #############
+itemGroup.smores=Smores
