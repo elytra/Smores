@@ -46,7 +46,7 @@ public class ItemDust extends ItemBase implements IOreDict {
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        return "dust_" + materials.get(stack.getItemDamage()).toString().toLowerCase();
+        return super.getUnlocalizedName(stack) + " _" + materials.get(stack.getItemDamage()).toString().toLowerCase();
     }
 
     @Override

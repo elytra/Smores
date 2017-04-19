@@ -1,0 +1,53 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "all": "smores:blocks/ore_undefined"
+        }
+    },
+    "variants": {
+        "normal": {
+            "model": "cube_all"
+        },
+        "metal_type": {
+            "copper": {
+                "textures": {
+                    "all": "smores:blocks/ore_copper"
+                }
+            },
+            "tin": {
+                "textures": {
+                    "all": "smores:blocks/ore_tin"
+                }
+            },
+            "silver": {
+                "textures": {
+                    "all": "smores:blocks/ore_silver"
+                }
+            },
+            "mithril": {
+                "textures": {
+                    "all": "smores:blocks/ore_mithril"
+                }
+            },
+            "lead": {
+                "textures": {
+                    "all": "smores:blocks/ore_lead"
+                }
+            },
+            "zinc": {
+                "textures": {
+                    "all": "smores:blocks/ore_zinc"
+                }
+            },
+            "nickel": {
+                "textures": {
+                    "all": "smores:blocks/ore_nickel"
+                }
+            }
+        },
+        "inventory": {
+            "model": "cube_all"
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "all": "smores:blocks/ore_undefined"
+        }
+    },
+    "variants": {
+        "normal": {
+            "model": "cube_all"
+        },
+        "gem_type": {
+            "ruby": {
+                "textures": {
+                    "all": "smores:blocks/ore_ruby"
+                }
+            },
+            "sapphire": {
+                "textures": {
+                    "all": "smores:blocks/ore_sapphire"
+                }
+            },
+            "peridot": {
+                "textures": {
+                    "all": "smores:blocks/ore_peridot"
+                }
+            }
+        },
+        "inventory": {
+            "model": "cube_all"
+        }
+    }
+}

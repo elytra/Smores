@@ -10,6 +10,12 @@ item.ingot_zinc.name=Zinc Ingot
 ############# ODDBALL #############
 item.ingot_mercury.name=Mercury
 
+
+############# GEMS #############
+item.gem_ruby.name=Ruby
+item.gem_sapphire.name=Sapphire
+item.gem_peridot.name=Peridot
+
 ############# ALLOYS #############
 item.ingot_electrum.name=Electrum Ingot
 item.ingot_invar.name=Invar Ingot

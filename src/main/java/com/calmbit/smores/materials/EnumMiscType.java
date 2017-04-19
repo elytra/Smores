@@ -2,12 +2,14 @@ package com.calmbit.smores.materials;
 
 
 public enum EnumMiscType implements IIngotProducing, IOreGenerating {
-    MERCURY("Mercury");
+    MERCURY("Mercury", 0);
 
     private String materialName;
+    private int id;
 
-    EnumMiscType(String materialName) {
+    EnumMiscType(String materialName, int id) {
         this.materialName = materialName;
+        this.id = id;
     }
 
     public String getIngotDictEntry() {
@@ -16,5 +18,10 @@ public enum EnumMiscType implements IIngotProducing, IOreGenerating {
 
     public String getOreDictEntry() {
         return "ore"+materialName;
+    }
+
+    @Override
+    public int getId() {
+        return id;
     }
 }

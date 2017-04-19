@@ -1,14 +1,27 @@
 package com.calmbit.smores.materials;
 
-public enum EnumGemType implements IGemProducing, IOreGenerating {
-    RUBY("Ruby"),
-    SAPPHIRE("Sapphire"),
-    PERIDOT("Peridot");
+import net.minecraft.util.IStringSerializable;
+
+public enum EnumGemType implements IGemProducing, IOreGenerating, IStringSerializable {
+    RUBY("Ruby", 0),
+    SAPPHIRE("Sapphire", 1),
+    PERIDOT("Peridot", 2);
 
     private String materialName;
+    private int id;
 
-    EnumGemType(String materialName) {
+    EnumGemType(String materialName, int id) {
         this.materialName = materialName;
+        this.id = id;
+    }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return materialName.toLowerCase();
     }
 
     @Override
