@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "smores:items/ingot_mithril"
+        "layer0": "smores:items/plate_zinc"
     }
 }
