@@ -13,6 +13,7 @@ public class ItemRegistry {
     public static ItemBase itemGem;
     public static ItemBase itemDust;
     public static ItemBase itemPlate;
+    public static ItemBase itemGear;
 
     public static void init()
     {
@@ -20,6 +21,7 @@ public class ItemRegistry {
         itemGem = registerItem(new ItemGem()).setCreativeTab(Smores.smoresCreativeTab);
         itemDust = registerItem(new ItemDust()).setCreativeTab(Smores.smoresCreativeTab);
         itemPlate = registerItem(new ItemPlate()).setCreativeTab(Smores.smoresCreativeTab);
+        itemGear = registerItem(new ItemGear()).setCreativeTab(Smores.smoresCreativeTab);
     }
 
     private static <T extends Item> T registerItem(T item)

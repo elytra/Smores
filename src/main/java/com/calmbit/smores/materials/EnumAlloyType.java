@@ -1,6 +1,6 @@
 package com.calmbit.smores.materials;
 
-public enum EnumAlloyType implements IIngotProducing, IDustProducing, IPlateProducing{
+public enum EnumAlloyType implements IIngotProducing, IDustProducing, IPlateProducing, IGearProducing{
 
     ELECTRUM("Electrum"),
     INVAR("Invar"),
@@ -28,5 +28,11 @@ public enum EnumAlloyType implements IIngotProducing, IDustProducing, IPlateProd
     @Override
     public String getPlateDictEntry() {
         return "plate"+this.materialName;
+    }
+
+
+    @Override
+    public String getGearDictEntry() {
+        return "gear"+this.materialName;
     }
 }
