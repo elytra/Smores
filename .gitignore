@@ -1,9 +1,21 @@
+# Gradle (but not gradlew!)
 .gradle/
+
+# Eclipse-generated files
+.project
+.classpath
+.settings/
+
+# Built artifacts
 build/
 out/
 run/
+
+# Non-java files
 *.txt
 *.iml
 *.ipr
 *.iws
+
+# System-created cruft
 **/Thumbs.db
