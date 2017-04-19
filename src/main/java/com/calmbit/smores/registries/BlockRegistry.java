@@ -12,11 +12,11 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
+
 public class BlockRegistry {
 
     public static BlockBase blockMetalOre;
     public static BlockBase blockGemOre;
-
     public static void init()
     {
         blockMetalOre = registerBlock(new BlockMetalOre(), ItemBlockMetalOre.class).setCreativeTab(Smores.smoresCreativeTab);

@@ -2,14 +2,12 @@ package com.calmbit.smores;
 
 import com.calmbit.smores.generic.SmoresCreativeTab;
 import com.calmbit.smores.proxy.CommonProxy;
-import com.calmbit.smores.registries.BlockRegistry;
-import com.calmbit.smores.registries.FluidRegistry;
-import com.calmbit.smores.registries.ItemRegistry;
-import com.calmbit.smores.registries.RecipeRegistry;
+import com.calmbit.smores.registries.*;
 import com.calmbit.smores.world.WorldGen;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -41,19 +39,25 @@ public class Smores {
         ItemRegistry.init();
         FluidRegistry.init();
         proxy.init();
-        RecipeRegistry.init();
-        GameRegistry.registerWorldGenerator(new WorldGen(), 3);
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
-
+        GameRegistry.registerWorldGenerator(new WorldGen(), 3);
+        RecipeRegistry.init();
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
 
+    }
+
+    @Mod.EventHandler
+    public void onIMC(FMLInterModComms.IMCEvent event) {
+        for(FMLInterModComms.IMCMessage message : event.getMessages()) {
+            
+        }
     }
 }
