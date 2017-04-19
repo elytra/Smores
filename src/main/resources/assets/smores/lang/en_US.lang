@@ -2,6 +2,7 @@
 item.ingot_copper.name=Copper Ingot
 item.ingot_tin.name=Tin Ingot
 item.ingot_lead.name=Lead Ingot
+item.ingot_nickel.name=Nickel Ingot
 item.ingot_silver.name=Silver Ingot
 item.ingot_platinum.name=Platinum Ingot
 item.ingot_mithril.name=Mithril Ingot
@@ -10,6 +11,21 @@ item.ingot_zinc.name=Zinc Ingot
 ############# ODDBALL #############
 item.ingot_mercury.name=Mercury
 
+############# ORES #############
+tile.metal_ore_copper.name=Copper Ore
+tile.metal_ore_tin.name=Tin Ore
+tile.metal_ore_lead.name=Lead Ore
+tile.metal_ore_nickel.name=Nickel Ore
+tile.metal_ore_silver.name=Silver Ore
+tile.metal_ore_platinum.name=Platinum Ore
+tile.metal_ore_mithril.name=Mithril Ore
+tile.metal_ore_zinc.name=Zinc Ore
+tile.gem_ore_ruby.name=Ruby Ore
+tile.gem_ore_sapphire.name=Sapphire Ore
+tile.gem_ore_peridot.name=Peridot Ore
+tile.nether_ore_mercury.name=Mercury Ore
+tile.nether_ore_sulfur.name=Sulfur Ore
+tile.nether_ore_nitre.name=Nitre Ore
 
 ############# GEMS #############
 item.gem_ruby.name=Ruby
@@ -27,6 +43,7 @@ item.ingot_brass.name=Brass Ingot
 item.dust_copper.name=Copper Dust
 item.dust_tin.name=Tin Dust
 item.dust_lead.name=Lead Dust
+item.dust_nickel.name=Nickel Dust
 item.dust_silver.name=Silver Dust
 item.dust_platinum.name=Platinum Dust
 item.dust_mithril.name=Mithril Dust
@@ -40,11 +57,11 @@ item.dust_brass.name=Brass Dust
 item.dust_sulfur.name=Sulfur
 item.dust_nitre.name=Nitre
 
-
 ############# PLATES #############
 item.plate_copper.name=Copper Plate
 item.plate_tin.name=Tin Plate
 item.plate_lead.name=Lead Plate
+item.plate_nickel.name=Nickel Plate
 item.plate_silver.name=Silver Plate
 item.plate_platinum.name=Platinum Plate
 item.plate_mithril.name=Mithril Plate
@@ -55,13 +72,20 @@ item.plate_steel.name=Steel Plate
 item.plate_bronze.name=Bronze Plate
 item.plate_brass.name=Brass Plate
 
-############# ORES #############
-item.ore_copper.name=Copper Ore
-item.ore_tin.name=Tin Ore
-item.ore_lead.name=Lead Ore
-item.ore_silver.name=Silver Ore
-item.ore_platinum.name=Platinum Ore
-item.ore_zinc.name=Zinc Ore
+############# GEARS #############
+item.gear_copper.name=Copper Gear
+item.gear_tin.name=Tin Gear
+item.gear_lead.name=Lead Gear
+item.gear_nickel.name=Nickel Gear
+item.gear_silver.name=Silver Gear
+item.gear_platinum.name=Platinum Gear
+item.gear_mithril.name=Mithril Gear
+item.gear_zinc.name=Zinc Gear
+item.gear_electrum.name=Electrum Gear
+item.gear_invar.name=Invar Gear
+item.gear_steel.name=Steel Gear
+item.gear_bronze.name=Bronze Gear
+item.gear_brass.name=Brass Gear
 
 ############# MISC #############
 itemGroup.smores=Smores
