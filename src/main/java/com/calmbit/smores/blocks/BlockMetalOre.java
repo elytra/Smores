@@ -12,6 +12,8 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
+import java.util.Locale;
+
 public class BlockMetalOre extends BlockBase {
 
     public static PropertyEnum<EnumMetalType> METAL_TYPE = PropertyEnum.create("metal_type", EnumMetalType.class);
@@ -56,7 +58,7 @@ public class BlockMetalOre extends BlockBase {
     {
         int iterator = 0;
         for(EnumMetalType material : EnumMetalType.values()) {
-            Smores.proxy.registerItemRenderer(block,iterator, super.getUnlocalizedName() + "_" + material.toString().toLowerCase());
+            Smores.proxy.registerItemRenderer(block,iterator, super.getUnlocalizedName() + "_" + material.toString().toLowerCase(Locale.ROOT));
             iterator++;
         }
     }

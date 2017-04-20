@@ -1,7 +1,6 @@
 package com.calmbit.smores.imc;
 
 import com.calmbit.smores.Smores;
-import com.sun.javaws.exceptions.InvalidArgumentException;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 
 public class IMCHandler {
@@ -34,7 +33,7 @@ public class IMCHandler {
             Boolean vote = key.matches("setRecipeEnabled\\(true\\)");
             try {
                 RecipeBallot.INSTANCE.voteInBallot(candidate, vote);
-            } catch (InvalidArgumentException e) {
+            } catch (IllegalArgumentException e) {
                 e.printStackTrace();
             }
         }

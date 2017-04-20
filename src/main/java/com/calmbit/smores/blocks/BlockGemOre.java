@@ -12,6 +12,8 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
+import java.util.Locale;
+
 public class BlockGemOre extends BlockBase {
 
     public static PropertyEnum<EnumGemType> GEM_TYPE = PropertyEnum.create("gem_type", EnumGemType.class);
@@ -56,7 +58,7 @@ public class BlockGemOre extends BlockBase {
     {
         int iterator = 0;
         for(EnumGemType material : EnumGemType.values()) {
-            Smores.proxy.registerItemRenderer(block,iterator, super.getUnlocalizedName() + "_" + material.toString().toLowerCase());
+            Smores.proxy.registerItemRenderer(block,iterator, super.getUnlocalizedName() + "_" + material.toString().toLowerCase(Locale.ROOT));
             iterator++;
         }
     }

@@ -7,6 +7,8 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
+import java.util.Locale;
+
 public class ItemBlockGemOre extends ItemBlock {
     public ItemBlockGemOre(Block block) {
         super(block);
@@ -17,7 +19,7 @@ public class ItemBlockGemOre extends ItemBlock {
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        return this.getUnlocalizedName() + "_" + EnumGemType.values()[stack.getItemDamage()].toString().toLowerCase();
+        return this.getUnlocalizedName() + "_" + EnumGemType.values()[stack.getItemDamage()].toString().toLowerCase(Locale.ROOT);
     }
 
 

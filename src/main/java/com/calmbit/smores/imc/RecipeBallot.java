@@ -1,7 +1,5 @@
 package com.calmbit.smores.imc;
 
-import com.sun.javaws.exceptions.InvalidArgumentException;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Optional;
@@ -21,9 +19,9 @@ public class RecipeBallot {
         this.ballotBox.put(candidate, new ArrayList<>());
     }
 
-    public void voteInBallot(RecipeVoteCandidate candidate, Boolean option) throws InvalidArgumentException {
+    public void voteInBallot(RecipeVoteCandidate candidate, Boolean option) {
         if(!ballotBox.containsKey(candidate)) {
-            throw new InvalidArgumentException(new String[]{"Candidate " + candidate.recipeName + " hasn't been registered in the ballot"});
+            throw new IllegalArgumentException("Candidate " + candidate.recipeName + " hasn't been registered in the ballot");
         }
         this.ballotBox.get(candidate).add(Optional.ofNullable(option));
     }

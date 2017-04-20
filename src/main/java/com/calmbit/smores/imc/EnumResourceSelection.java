@@ -1,6 +1,6 @@
 package com.calmbit.smores.imc;
 
-import com.sun.javaws.exceptions.InvalidArgumentException;
+import java.util.Locale;
 
 public enum EnumResourceSelection {
     UNCHANGED,
@@ -9,11 +9,11 @@ public enum EnumResourceSelection {
     FORCE_ON_NORECIPE,
     FORCE_ON_RECIPE;
 
-    public static EnumResourceSelection fromString(String string) throws InvalidArgumentException {
+    public static EnumResourceSelection fromString(String string) {
         for(EnumResourceSelection selection : EnumResourceSelection.values()) {
-            if(selection.toString().toLowerCase().equals(string.toLowerCase()))
+            if(selection.toString().toLowerCase(Locale.ROOT).equals(string.toLowerCase(Locale.ROOT)))
                 return selection;
         }
-        throw new InvalidArgumentException(new String[]{"Invalid value for EnumResourceSelection - " + string});
+        throw new IllegalArgumentException("Invalid value for EnumResourceSelection - " + string);
     }
 }

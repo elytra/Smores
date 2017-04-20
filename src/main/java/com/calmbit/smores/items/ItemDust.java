@@ -12,6 +12,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 
 public class ItemDust extends ItemBase implements IOreDict {
@@ -46,7 +47,7 @@ public class ItemDust extends ItemBase implements IOreDict {
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        return super.getUnlocalizedName(stack) + "_" + materials.get(stack.getItemDamage()).toLowerCase();
+        return super.getUnlocalizedName(stack) + "_" + materials.get(stack.getItemDamage()).toLowerCase(Locale.ROOT);
     }
 
     @Override
@@ -60,7 +61,7 @@ public class ItemDust extends ItemBase implements IOreDict {
     public void registerItemModel()
     {
         for(String material : materials) {
-            Smores.proxy.registerItemRenderer(this, materials.indexOf(material), "dust_" + material.toLowerCase());
+            Smores.proxy.registerItemRenderer(this, materials.indexOf(material), "dust_" + material.toLowerCase(Locale.ROOT));
         }
     }
 }

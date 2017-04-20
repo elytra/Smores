@@ -11,6 +11,7 @@ import net.minecraftforge.fml.client.config.IConfigElement;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class SmoresConfigGui extends GuiConfig {
     public SmoresConfigGui(GuiScreen parentScreen) {
@@ -27,7 +28,7 @@ public class SmoresConfigGui extends GuiConfig {
 
         ConfigElement overrides = new ConfigElement(Smores.CONFIG.getCategory(ConfigurationRegistry.CATEGORY_OVERRIDES));
         for(EnumItemType item : EnumItemType.values()) {
-            overrides.getChildElements().add(new ConfigElement(Smores.CONFIG.getCategory(ConfigurationRegistry.CATEGORY_OVERRIDES+"."+item.getName().toLowerCase())));
+            overrides.getChildElements().add(new ConfigElement(Smores.CONFIG.getCategory(ConfigurationRegistry.CATEGORY_OVERRIDES+"."+item.getName().toLowerCase(Locale.ROOT))));
         }
 
         categories.add(overrides);

@@ -7,6 +7,7 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 
 import java.util.HashMap;
+import java.util.Locale;
 
 public class ConfigurationRegistry {
 
@@ -31,8 +32,8 @@ public class ConfigurationRegistry {
 
             for(EnumAlloyType alloy : EnumAlloyType.values()) {
                 for(EnumItemType type : alloy.getTypes()) {
-                    String key = type.getName().toLowerCase()+alloy.getMaterialName();
-                    Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(),
+                    String key = type.getName().toLowerCase(Locale.ROOT)+alloy.getMaterialName();
+                    Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(Locale.ROOT),
                            key, "unchanged");
                     resourceConfigurations.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
                 }
@@ -40,8 +41,8 @@ public class ConfigurationRegistry {
 
             for(EnumGemType gem : EnumGemType.values()) {
                 for(EnumItemType type : gem.getTypes()) {
-                    String key = type.getName().toLowerCase()+gem.getMaterialName();
-                    Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(),
+                    String key = type.getName().toLowerCase(Locale.ROOT)+gem.getMaterialName();
+                    Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(Locale.ROOT),
                             key, "unchanged");
                     resourceConfigurations.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
                 }
@@ -49,8 +50,8 @@ public class ConfigurationRegistry {
 
             for(EnumMetalType metal : EnumMetalType.values()) {
                 for(EnumItemType type : metal.getTypes()) {
-                    String key = type.getName().toLowerCase()+metal.getMaterialName();
-                    Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(),
+                    String key = type.getName().toLowerCase(Locale.ROOT)+metal.getMaterialName();
+                    Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(Locale.ROOT),
                             key, "unchanged");
                     resourceConfigurations.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
                 }
@@ -58,8 +59,8 @@ public class ConfigurationRegistry {
 
             for(EnumMiscType misc : EnumMiscType.values()) {
                 for(EnumItemType type : misc.getTypes()) {
-                    String key = type.getName().toLowerCase()+misc.getMaterialName();
-                    Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(),
+                    String key = type.getName().toLowerCase(Locale.ROOT)+misc.getMaterialName();
+                    Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(Locale.ROOT),
                             key, "unchanged");
                     resourceConfigurations.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
                 }
@@ -67,8 +68,8 @@ public class ConfigurationRegistry {
 
             for(EnumNetherType nether : EnumNetherType.values()) {
                 for(EnumItemType type : nether.getTypes()) {
-                    String key = type.getName().toLowerCase()+nether.getMaterialName();
-                    Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(),
+                    String key = type.getName().toLowerCase(Locale.ROOT)+nether.getMaterialName();
+                    Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(Locale.ROOT),
                             key, "unchanged");
                     resourceConfigurations.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
                 }

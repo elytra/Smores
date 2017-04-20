@@ -2,6 +2,8 @@ package com.calmbit.smores.materials;
 
 import net.minecraft.util.IStringSerializable;
 
+import java.util.Locale;
+
 public enum EnumGemType implements IStringSerializable {
     RUBY("Ruby", 0),
     SAPPHIRE("Sapphire", 1),
@@ -16,7 +18,7 @@ public enum EnumGemType implements IStringSerializable {
     }
 
     public String getName() {
-        return this.materialName.toLowerCase();
+        return this.materialName.toLowerCase(Locale.ROOT);
     }
 
     public String getMaterialName() {

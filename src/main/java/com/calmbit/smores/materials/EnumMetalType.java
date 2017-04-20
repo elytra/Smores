@@ -4,6 +4,7 @@ import net.minecraft.util.IStringSerializable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public enum  EnumMetalType implements IStringSerializable {
 
@@ -25,7 +26,7 @@ public enum  EnumMetalType implements IStringSerializable {
     }
 
     public String getName() {
-        return this.materialName.toLowerCase();
+        return this.materialName.toLowerCase(Locale.ROOT);
     }
 
     public String getMaterialName() {

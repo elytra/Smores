@@ -2,6 +2,8 @@ package com.calmbit.smores.materials;
 
 import net.minecraft.util.IStringSerializable;
 
+import java.util.Locale;
+
 public enum EnumNetherType implements IStringSerializable{
     SULFUR("Sulfur", 0),
     NITRE("Nitre", 1);
@@ -19,7 +21,7 @@ public enum EnumNetherType implements IStringSerializable{
     }
 
     public String getName() {
-        return this.materialName.toLowerCase();
+        return this.materialName.toLowerCase(Locale.ROOT);
     }
 
     public String getMaterialName() {

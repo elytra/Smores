@@ -6,6 +6,8 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
+import java.util.Locale;
+
 public class ItemBlockMetalOre extends ItemBlock {
     public ItemBlockMetalOre(Block block) {
         super(block);
@@ -16,7 +18,7 @@ public class ItemBlockMetalOre extends ItemBlock {
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        return this.getUnlocalizedName() + "_" + EnumMetalType.values()[stack.getItemDamage()].toString().toLowerCase();
+        return this.getUnlocalizedName() + "_" + EnumMetalType.values()[stack.getItemDamage()].toString().toLowerCase(Locale.ROOT);
     }
 
 

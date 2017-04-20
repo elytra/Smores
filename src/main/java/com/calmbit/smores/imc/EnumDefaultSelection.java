@@ -1,17 +1,17 @@
 package com.calmbit.smores.imc;
 
-import com.sun.javaws.exceptions.InvalidArgumentException;
+import java.util.Locale;
 
 public enum EnumDefaultSelection {
     IMC,
     OFF,
     ON;
 
-    public static EnumDefaultSelection fromString(String string) throws InvalidArgumentException {
+    public static EnumDefaultSelection fromString(String string) {
         for(EnumDefaultSelection selection : EnumDefaultSelection.values()) {
-            if(selection.toString().toLowerCase() == string.toLowerCase())
+            if(selection.toString().toLowerCase(Locale.ROOT) == string.toLowerCase(Locale.ROOT))
                 return selection;
         }
-        throw new InvalidArgumentException(new String[]{"Invalid value for EnumDefaultSelection - " + string});
+        throw new IllegalArgumentException("Invalid value for EnumDefaultSelection - " + string);
     }
 }
