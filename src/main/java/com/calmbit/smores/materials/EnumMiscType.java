@@ -3,7 +3,7 @@ package com.calmbit.smores.materials;
 
 import java.util.ArrayList;
 
-public enum EnumMiscType implements IOrderedEnum {
+public enum EnumMiscType {
     MERCURY("Mercury", 0);
 
     private String materialName;
@@ -14,7 +14,6 @@ public enum EnumMiscType implements IOrderedEnum {
         this.id = id;
     }
 
-    @Override
     public int getId() {
         return id;
     }

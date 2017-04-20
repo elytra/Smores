@@ -1,7 +1,5 @@
 package com.calmbit.smores.materials;
 
-import java.util.ArrayList;
-
 public enum EnumNetherType {
     SULFUR("Sulfur", 0),
     NITRE("Nitre", 1);
@@ -16,6 +14,10 @@ public enum EnumNetherType {
 
     public String getName() {
         return materialName;
+    }
+
+    public int getId() {
+        return this.id;
     }
 
     public EnumItemType[] getTypes() {

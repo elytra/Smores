@@ -2,7 +2,7 @@ package com.calmbit.smores.materials;
 
 import net.minecraft.util.IStringSerializable;
 
-public enum EnumGemType implements IOrderedEnum, IStringSerializable {
+public enum EnumGemType implements IStringSerializable {
     RUBY("Ruby", 0),
     SAPPHIRE("Sapphire", 1),
     PERIDOT("Peridot", 2);
@@ -19,7 +19,6 @@ public enum EnumGemType implements IOrderedEnum, IStringSerializable {
         return materialName.toLowerCase();
     }
 
-    @Override
     public int getId() {
         return id;
     }

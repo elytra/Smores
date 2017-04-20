@@ -5,7 +5,7 @@ import net.minecraft.util.IStringSerializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public enum  EnumMetalType implements IOrderedEnum, IStringSerializable {
+public enum  EnumMetalType implements IStringSerializable {
 
     COPPER("Copper", 0),
     TIN("Tin", 1),
