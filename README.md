@@ -1,5 +1,6 @@
-Smores
-================
+<img src="src/main/resources/logo.png" height=128 width=128 align="right">
+
+# Smores
 
 ----------------------
 _Short for **S**o **M**any **ORES**!_
