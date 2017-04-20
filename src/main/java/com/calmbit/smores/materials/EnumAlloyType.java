@@ -1,6 +1,8 @@
 package com.calmbit.smores.materials;
 
-public enum EnumAlloyType{
+import net.minecraft.util.IStringSerializable;
+
+public enum EnumAlloyType implements IStringSerializable {
 
     ELECTRUM("Electrum"),
     INVAR("Invar"),
@@ -15,6 +17,10 @@ public enum EnumAlloyType{
     }
 
     public String getName() {
+        return this.materialName.toLowerCase();
+    }
+
+    public String getMaterialName() {
         return this.materialName;
     }
 

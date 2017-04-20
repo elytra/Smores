@@ -15,7 +15,7 @@ public class BlockBase extends Block implements IBlockBase {
 
         this.name = name;
 
-        setUnlocalizedName(name);
+        setUnlocalizedName(Smores.SMORES_MOD_ID+"."+name);
         setRegistryName(name);
     }
 

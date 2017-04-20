@@ -16,8 +16,13 @@ public enum EnumGemType implements IStringSerializable {
     }
 
     public String getName() {
-        return materialName.toLowerCase();
+        return this.materialName.toLowerCase();
     }
+
+    public String getMaterialName() {
+        return this.materialName;
+    }
+
 
     public int getId() {
         return id;

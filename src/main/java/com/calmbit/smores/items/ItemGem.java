@@ -25,7 +25,7 @@ public class ItemGem extends ItemBase implements IOreDict {
         if(materials == null) {
             materials = new ArrayList<String>();
             for(EnumGemType gem : EnumGemType.values()) {
-                materials.add(gem.getName());
+                materials.add(gem.getMaterialName());
             }
         }
     }

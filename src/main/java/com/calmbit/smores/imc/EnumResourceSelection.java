@@ -11,7 +11,7 @@ public enum EnumResourceSelection {
 
     public static EnumResourceSelection fromString(String string) throws InvalidArgumentException {
         for(EnumResourceSelection selection : EnumResourceSelection.values()) {
-            if(selection.toString().toLowerCase() == string.toLowerCase())
+            if(selection.toString().toLowerCase().equals(string.toLowerCase()))
                 return selection;
         }
         throw new InvalidArgumentException(new String[]{"Invalid value for EnumResourceSelection - " + string});

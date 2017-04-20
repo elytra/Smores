@@ -27,13 +27,13 @@ public class ItemIngot extends ItemBase implements IOreDict {
         if(materials == null) {
             materials = new ArrayList<String>();
             for(EnumMetalType metal : EnumMetalType.values()) {
-                materials.add(metal.getName());
+                materials.add(metal.getMaterialName());
             }
             for(EnumAlloyType alloy : EnumAlloyType.values()) {
-                materials.add(alloy.getName());
+                materials.add(alloy.getMaterialName());
             }
             for(EnumMiscType misc : EnumMiscType.values()) {
-                materials.add(misc.getName());
+                materials.add(misc.getMaterialName());
             }
         }
     }

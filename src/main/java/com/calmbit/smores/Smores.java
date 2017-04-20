@@ -16,7 +16,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = Smores.SMORES_MOD_ID, name = Smores.SMORES_NAME, version = Smores.SMORES_VERSION)
+@Mod(modid = Smores.SMORES_MOD_ID, name = Smores.SMORES_NAME, version = Smores.SMORES_VERSION, guiFactory = "com.calmbit.smores.gui.SmoresGuiFactory")
 public class Smores {
     public static final String SMORES_MOD_ID = "smores";
     public static final String SMORES_NAME = "Smores";

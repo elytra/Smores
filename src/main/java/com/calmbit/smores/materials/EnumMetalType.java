@@ -18,14 +18,20 @@ public enum  EnumMetalType implements IStringSerializable {
 
     private String materialName;
     public int id;
-    public String getName() {
-        return materialName.toLowerCase();
-    }
 
     EnumMetalType(String materialName, int id) {
         this.id = id;
         this.materialName = materialName;
     }
+
+    public String getName() {
+        return this.materialName.toLowerCase();
+    }
+
+    public String getMaterialName() {
+        return this.materialName;
+    }
+
 
     public int getId() {
         return this.id;

@@ -1,6 +1,8 @@
 package com.calmbit.smores.materials;
 
-public enum EnumNetherType {
+import net.minecraft.util.IStringSerializable;
+
+public enum EnumNetherType implements IStringSerializable{
     SULFUR("Sulfur", 0),
     NITRE("Nitre", 1);
 
@@ -12,13 +14,18 @@ public enum EnumNetherType {
         this.id = id;
     }
 
-    public String getName() {
-        return materialName;
-    }
-
     public int getId() {
         return this.id;
     }
+
+    public String getName() {
+        return this.materialName.toLowerCase();
+    }
+
+    public String getMaterialName() {
+        return this.materialName;
+    }
+
 
     public EnumItemType[] getTypes() {
         return new EnumItemType[]{EnumItemType.DUST, EnumItemType.ORE};

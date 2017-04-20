@@ -10,6 +10,8 @@ import java.util.HashMap;
 
 public class ConfigurationRegistry {
 
+    public static final String CATEGORY_OVERRIDES = "overrides";
+
     public static String defaultConfiguration;
     public static HashMap<String, EnumResourceSelection> resourceConfigurations = new HashMap<>();
     public static HashMap<String, EnumResourceSelection> overridingDefaults = new HashMap<>();
@@ -23,14 +25,14 @@ public class ConfigurationRegistry {
 
             for(EnumItemType item : EnumItemType.values()) {
                 String key  ="all"+item.getName()+"s";
-                Property itemProperty = config.get(Configuration.CATEGORY_GENERAL, key , "unchanged");
+                Property itemProperty = config.get(CATEGORY_OVERRIDES, key , "unchanged");
                 overridingDefaults.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
             }
 
             for(EnumAlloyType alloy : EnumAlloyType.values()) {
                 for(EnumItemType type : alloy.getTypes()) {
-                    String key = type.getName().toLowerCase()+alloy.getName();
-                    Property itemProperty = config.get(Configuration.CATEGORY_GENERAL,
+                    String key = type.getName().toLowerCase()+alloy.getMaterialName();
+                    Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(),
                            key, "unchanged");
                     resourceConfigurations.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
                 }
@@ -38,8 +40,8 @@ public class ConfigurationRegistry {
 
             for(EnumGemType gem : EnumGemType.values()) {
                 for(EnumItemType type : gem.getTypes()) {
-                    String key = type.getName().toLowerCase()+gem.getName();
-                    Property itemProperty = config.get(Configuration.CATEGORY_GENERAL,
+                    String key = type.getName().toLowerCase()+gem.getMaterialName();
+                    Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(),
                             key, "unchanged");
                     resourceConfigurations.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
                 }
@@ -47,8 +49,8 @@ public class ConfigurationRegistry {
 
             for(EnumMetalType metal : EnumMetalType.values()) {
                 for(EnumItemType type : metal.getTypes()) {
-                    String key = type.getName().toLowerCase()+metal.getName();
-                    Property itemProperty = config.get(Configuration.CATEGORY_GENERAL,
+                    String key = type.getName().toLowerCase()+metal.getMaterialName();
+                    Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(),
                             key, "unchanged");
                     resourceConfigurations.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
                 }
@@ -56,8 +58,8 @@ public class ConfigurationRegistry {
 
             for(EnumMiscType misc : EnumMiscType.values()) {
                 for(EnumItemType type : misc.getTypes()) {
-                    String key = type.getName().toLowerCase()+misc.getName();
-                    Property itemProperty = config.get(Configuration.CATEGORY_GENERAL,
+                    String key = type.getName().toLowerCase()+misc.getMaterialName();
+                    Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(),
                             key, "unchanged");
                     resourceConfigurations.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
                 }
@@ -65,8 +67,8 @@ public class ConfigurationRegistry {
 
             for(EnumNetherType nether : EnumNetherType.values()) {
                 for(EnumItemType type : nether.getTypes()) {
-                    String key = type.getName().toLowerCase()+nether.getName();
-                    Property itemProperty = config.get(Configuration.CATEGORY_GENERAL,
+                    String key = type.getName().toLowerCase()+nether.getMaterialName();
+                    Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(),
                             key, "unchanged");
                     resourceConfigurations.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
                 }

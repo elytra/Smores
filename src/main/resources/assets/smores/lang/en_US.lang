@@ -1,91 +1,91 @@
 ############# PURE METALS #############
-item.ingot_copper.name=Copper Ingot
-item.ingot_tin.name=Tin Ingot
-item.ingot_lead.name=Lead Ingot
-item.ingot_nickel.name=Nickel Ingot
-item.ingot_silver.name=Silver Ingot
-item.ingot_platinum.name=Platinum Ingot
-item.ingot_mithril.name=Mithril Ingot
-item.ingot_zinc.name=Zinc Ingot
+item.smores.ingot_copper.name=Copper Ingot
+item.smores.ingot_tin.name=Tin Ingot
+item.smores.ingot_lead.name=Lead Ingot
+item.smores.ingot_nickel.name=Nickel Ingot
+item.smores.ingot_silver.name=Silver Ingot
+item.smores.ingot_platinum.name=Platinum Ingot
+item.smores.ingot_mithril.name=Mithril Ingot
+item.smores.ingot_zinc.name=Zinc Ingot
 
 ############# ODDBALL #############
-item.ingot_mercury.name=Mercury
+item.smores.ingot_mercury.name=Mercury
 
 ############# ORES #############
-tile.metal_ore_copper.name=Copper Ore
-tile.metal_ore_tin.name=Tin Ore
-tile.metal_ore_lead.name=Lead Ore
-tile.metal_ore_nickel.name=Nickel Ore
-tile.metal_ore_silver.name=Silver Ore
-tile.metal_ore_platinum.name=Platinum Ore
-tile.metal_ore_mithril.name=Mithril Ore
-tile.metal_ore_zinc.name=Zinc Ore
-tile.gem_ore_ruby.name=Ruby Ore
-tile.gem_ore_sapphire.name=Sapphire Ore
-tile.gem_ore_peridot.name=Peridot Ore
-tile.nether_ore_mercury.name=Mercury Ore
-tile.nether_ore_sulfur.name=Sulfur Ore
-tile.nether_ore_nitre.name=Nitre Ore
+tile.smores.metal_ore_copper.name=Copper Ore
+tile.smores.metal_ore_tin.name=Tin Ore
+tile.smores.metal_ore_lead.name=Lead Ore
+tile.smores.metal_ore_nickel.name=Nickel Ore
+tile.smores.metal_ore_silver.name=Silver Ore
+tile.smores.metal_ore_platinum.name=Platinum Ore
+tile.smores.metal_ore_mithril.name=Mithril Ore
+tile.smores.metal_ore_zinc.name=Zinc Ore
+tile.smores.gem_ore_ruby.name=Ruby Ore
+tile.smores.gem_ore_sapphire.name=Sapphire Ore
+tile.smores.gem_ore_peridot.name=Peridot Ore
+tile.smores.nether_ore_mercury.name=Mercury Ore
+tile.smores.nether_ore_sulfur.name=Sulfur Ore
+tile.smores.nether_ore_nitre.name=Nitre Ore
 
 ############# GEMS #############
-item.gem_ruby.name=Ruby
-item.gem_sapphire.name=Sapphire
-item.gem_peridot.name=Peridot
+item.smores.gem_ruby.name=Ruby
+item.smores.gem_sapphire.name=Sapphire
+item.smores.gem_peridot.name=Peridot
 
 ############# ALLOYS #############
-item.ingot_electrum.name=Electrum Ingot
-item.ingot_invar.name=Invar Ingot
-item.ingot_steel.name=Steel Ingot
-item.ingot_bronze.name=Bronze Ingot
-item.ingot_brass.name=Brass Ingot
+item.smores.ingot_electrum.name=Electrum Ingot
+item.smores.ingot_invar.name=Invar Ingot
+item.smores.ingot_steel.name=Steel Ingot
+item.smores.ingot_bronze.name=Bronze Ingot
+item.smores.ingot_brass.name=Brass Ingot
 
 ############# DUSTS #############
-item.dust_copper.name=Copper Dust
-item.dust_tin.name=Tin Dust
-item.dust_lead.name=Lead Dust
-item.dust_nickel.name=Nickel Dust
-item.dust_silver.name=Silver Dust
-item.dust_platinum.name=Platinum Dust
-item.dust_mithril.name=Mithril Dust
-item.dust_zinc.name=Zinc Dust
-item.dust_electrum.name=Electrum Dust
-item.dust_invar.name=Invar Dust
-item.dust_steel.name=Steel Dust
-item.dust_bronze.name=Bronze Dust
-item.dust_brass.name=Brass Dust
+item.smores.dust_copper.name=Copper Dust
+item.smores.dust_tin.name=Tin Dust
+item.smores.dust_lead.name=Lead Dust
+item.smores.dust_nickel.name=Nickel Dust
+item.smores.dust_silver.name=Silver Dust
+item.smores.dust_platinum.name=Platinum Dust
+item.smores.dust_mithril.name=Mithril Dust
+item.smores.dust_zinc.name=Zinc Dust
+item.smores.dust_electrum.name=Electrum Dust
+item.smores.dust_invar.name=Invar Dust
+item.smores.dust_steel.name=Steel Dust
+item.smores.dust_bronze.name=Bronze Dust
+item.smores.dust_brass.name=Brass Dust
 
-item.dust_sulfur.name=Sulfur
-item.dust_nitre.name=Nitre
+item.smores.dust_sulfur.name=Sulfur
+item.smores.dust_nitre.name=Nitre
 
 ############# PLATES #############
-item.plate_copper.name=Copper Plate
-item.plate_tin.name=Tin Plate
-item.plate_lead.name=Lead Plate
-item.plate_nickel.name=Nickel Plate
-item.plate_silver.name=Silver Plate
-item.plate_platinum.name=Platinum Plate
-item.plate_mithril.name=Mithril Plate
-item.plate_zinc.name=Zinc Plate
-item.plate_electrum.name=Electrum Plate
-item.plate_invar.name=Invar Plate
-item.plate_steel.name=Steel Plate
-item.plate_bronze.name=Bronze Plate
-item.plate_brass.name=Brass Plate
+item.smores.plate_copper.name=Copper Plate
+item.smores.plate_tin.name=Tin Plate
+item.smores.plate_lead.name=Lead Plate
+item.smores.plate_nickel.name=Nickel Plate
+item.smores.plate_silver.name=Silver Plate
+item.smores.plate_platinum.name=Platinum Plate
+item.smores.plate_mithril.name=Mithril Plate
+item.smores.plate_zinc.name=Zinc Plate
+item.smores.plate_electrum.name=Electrum Plate
+item.smores.plate_invar.name=Invar Plate
+item.smores.plate_steel.name=Steel Plate
+item.smores.plate_bronze.name=Bronze Plate
+item.smores.plate_brass.name=Brass Plate
 
 ############# GEARS #############
-item.gear_copper.name=Copper Gear
-item.gear_tin.name=Tin Gear
-item.gear_lead.name=Lead Gear
-item.gear_nickel.name=Nickel Gear
-item.gear_silver.name=Silver Gear
-item.gear_platinum.name=Platinum Gear
-item.gear_mithril.name=Mithril Gear
-item.gear_zinc.name=Zinc Gear
-item.gear_electrum.name=Electrum Gear
-item.gear_invar.name=Invar Gear
-item.gear_steel.name=Steel Gear
-item.gear_bronze.name=Bronze Gear
-item.gear_brass.name=Brass Gear
+item.smores.gear_copper.name=Copper Gear
+item.smores.gear_tin.name=Tin Gear
+item.smores.gear_lead.name=Lead Gear
+item.smores.gear_nickel.name=Nickel Gear
+item.smores.gear_silver.name=Silver Gear
+item.smores.gear_platinum.name=Platinum Gear
+item.smores.gear_mithril.name=Mithril Gear
+item.smores.gear_zinc.name=Zinc Gear
+item.smores.gear_electrum.name=Electrum Gear
+item.smores.gear_invar.name=Invar Gear
+item.smores.gear_steel.name=Steel Gear
+item.smores.gear_bronze.name=Bronze Gear
+item.smores.gear_brass.name=Brass Gear
 
 ############# MISC #############
 itemGroup.smores=Smores

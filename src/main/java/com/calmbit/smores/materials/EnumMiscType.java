@@ -1,9 +1,11 @@
 package com.calmbit.smores.materials;
 
 
+import net.minecraft.util.IStringSerializable;
+
 import java.util.ArrayList;
 
-public enum EnumMiscType {
+public enum EnumMiscType implements IStringSerializable {
     MERCURY("Mercury", 0);
 
     private String materialName;
@@ -19,6 +21,10 @@ public enum EnumMiscType {
     }
 
     public String getName() {
+        return this.materialName.toLowerCase();
+    }
+
+    public String getMaterialName() {
         return this.materialName;
     }
 
