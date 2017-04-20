@@ -4,6 +4,8 @@ import com.calmbit.smores.generic.SmoresCreativeTab;
 import com.calmbit.smores.proxy.CommonProxy;
 import com.calmbit.smores.registries.*;
 import com.calmbit.smores.world.WorldGen;
+import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.common.config.Property;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -25,16 +27,19 @@ public class Smores {
     @Mod.Instance(SMORES_MOD_ID)
     public static Smores instance;
 
+    public static Configuration CONFIG;
+
     @SidedProxy(clientSide = "com.calmbit.smores.proxy.ClientProxy", serverSide = "com.calmbit.smores.proxy.CommonProxy")
     public static CommonProxy proxy;
 
     public static final Logger LOG = LogManager.getLogger(SMORES_NAME);
 
-
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
         System.out.println(SMORES_NAME + " is starting up!");
+        CONFIG = new Configuration(event.getSuggestedConfigurationFile());
+        ConfigurationRegistry.init(CONFIG);
         BlockRegistry.init();
         ItemRegistry.init();
         FluidRegistry.init();

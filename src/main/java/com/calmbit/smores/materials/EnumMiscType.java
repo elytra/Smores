@@ -1,7 +1,9 @@
 package com.calmbit.smores.materials;
 
 
-public enum EnumMiscType implements IIngotProducing, IOreGenerating {
+import java.util.ArrayList;
+
+public enum EnumMiscType implements IMaterialEnum, IIngotProducing, IOreGenerating {
     MERCURY("Mercury", 0);
 
     private String materialName;
@@ -23,5 +25,14 @@ public enum EnumMiscType implements IIngotProducing, IOreGenerating {
     @Override
     public int getId() {
         return id;
+    }
+
+    public ArrayList<String> getAllOreDictEntries() {
+        ArrayList<String> entries = new ArrayList<>();
+
+        entries.add(getIngotDictEntry());
+        entries.add(getOreDictEntry());
+
+        return entries;
     }
 }

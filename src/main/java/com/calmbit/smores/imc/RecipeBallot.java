@@ -2,11 +2,13 @@ package com.calmbit.smores.imc;
 
 import com.sun.javaws.exceptions.InvalidArgumentException;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Optional;
 
-public class RecipeBallot implements IBallot<RecipeVoteCandidate,Boolean> {
+public class RecipeBallot {
 
-    private HashMap<RecipeVoteCandidate, HashMap<Boolean, Integer>> ballotBox ;
+    private HashMap<RecipeVoteCandidate, ArrayList<Optional<Boolean>>> ballotBox;
 
 
     public static RecipeBallot INSTANCE = new RecipeBallot();
@@ -15,17 +17,20 @@ public class RecipeBallot implements IBallot<RecipeVoteCandidate,Boolean> {
         this.ballotBox = new HashMap<>();
     }
 
-    @Override
     public void registerCandidate(RecipeVoteCandidate candidate) {
-        this.ballotBox.put(candidate, new HashMap<>());
+        this.ballotBox.put(candidate, new ArrayList<>());
     }
 
-    @Override
     public void voteInBallot(RecipeVoteCandidate candidate, Boolean option) throws InvalidArgumentException {
         if(!ballotBox.containsKey(candidate)) {
             throw new InvalidArgumentException(new String[]{"Candidate " + candidate.recipeName + " hasn't been registered in the ballot"});
         }
-        this.ballotBox.get(candidate).put(option, this.ballotBox.get(candidate).get(option)+1);
+        this.ballotBox.get(candidate).add(Optional.ofNullable(option));
+    }
+
+    public boolean tallyVotes(RecipeVoteCandidate candidate) {
+        //Optional<Boolean> result =  ballotBox.get(candidate).stream().reduce(Optional.empty(), )
+        return false;
     }
 
 }

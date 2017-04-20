@@ -1,6 +1,8 @@
 package com.calmbit.smores.materials;
 
-public enum EnumAlloyType implements IIngotProducing, IDustProducing, IPlateProducing, IGearProducing{
+import java.util.ArrayList;
+
+public enum EnumAlloyType implements IMaterialEnum, IIngotProducing, IDustProducing, IPlateProducing, IGearProducing{
 
     ELECTRUM("Electrum"),
     INVAR("Invar"),
@@ -35,4 +37,17 @@ public enum EnumAlloyType implements IIngotProducing, IDustProducing, IPlateProd
     public String getGearDictEntry() {
         return "gear"+this.materialName;
     }
+
+    public ArrayList<String> getAllOreDictEntries() {
+        ArrayList<String> entries = new ArrayList<>();
+
+        entries.add(getIngotDictEntry());
+        entries.add(getDustDictEntry());
+        entries.add(getPlateDictEntry());
+        entries.add(getGearDictEntry());
+
+        return entries;
+    }
+
+
 }

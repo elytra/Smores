@@ -2,7 +2,9 @@ package com.calmbit.smores.materials;
 
 import net.minecraft.util.IStringSerializable;
 
-public enum EnumGemType implements IGemProducing, IOreGenerating, IStringSerializable {
+import java.util.ArrayList;
+
+public enum EnumGemType implements IMaterialEnum, IGemProducing, IOreGenerating, IStringSerializable {
     RUBY("Ruby", 0),
     SAPPHIRE("Sapphire", 1),
     PERIDOT("Peridot", 2);
@@ -32,5 +34,14 @@ public enum EnumGemType implements IGemProducing, IOreGenerating, IStringSeriali
     @Override
     public String getOreDictEntry() {
         return "ore" + this.materialName;
+    }
+
+    public ArrayList<String> getAllOreDictEntries() {
+        ArrayList<String> entries = new ArrayList<>();
+
+        entries.add(getGemDictEntry());
+        entries.add(getOreDictEntry());
+
+        return entries;
     }
 }

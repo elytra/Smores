@@ -2,7 +2,9 @@ package com.calmbit.smores.materials;
 
 import net.minecraft.util.IStringSerializable;
 
-public enum  EnumMetalType implements IIngotProducing, IOreGenerating,
+import java.util.ArrayList;
+
+public enum  EnumMetalType implements IMaterialEnum, IIngotProducing, IOreGenerating,
     IDustProducing, IPlateProducing, IStringSerializable, IGearProducing {
 
     COPPER("Copper", 0),
@@ -50,9 +52,20 @@ public enum  EnumMetalType implements IIngotProducing, IOreGenerating,
         return "plate"+this.materialName;
     }
 
-
     @Override
     public String getGearDictEntry() {
         return "gear"+this.materialName;
+    }
+
+    public ArrayList<String> getAllOreDictEntries() {
+        ArrayList<String> entries = new ArrayList<>();
+
+        entries.add(getIngotDictEntry());
+        entries.add(getOreDictEntry());
+        entries.add(getDustDictEntry());
+        entries.add(getPlateDictEntry());
+        entries.add(getGearDictEntry());
+
+        return entries;
     }
 }
