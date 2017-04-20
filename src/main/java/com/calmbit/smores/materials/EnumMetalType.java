@@ -3,9 +3,9 @@ package com.calmbit.smores.materials;
 import net.minecraft.util.IStringSerializable;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public enum  EnumMetalType implements IMaterialEnum, IIngotProducing, IOreGenerating,
-    IDustProducing, IPlateProducing, IStringSerializable, IGearProducing {
+public enum  EnumMetalType implements IOrderedEnum, IStringSerializable {
 
     COPPER("Copper", 0),
     TIN("Tin", 1),
@@ -27,45 +27,8 @@ public enum  EnumMetalType implements IMaterialEnum, IIngotProducing, IOreGenera
         this.materialName = materialName;
     }
 
-
     public int getId() {
         return this.id;
     }
 
-    @Override
-    public String getIngotDictEntry() {
-        return "ingot"+ this.materialName;
-    }
-
-    @Override
-    public String getOreDictEntry() {
-        return "ore" + this.materialName;
-    }
-
-    @Override
-    public String getDustDictEntry() {
-        return "dust"+this.materialName;
-    }
-
-    @Override
-    public String getPlateDictEntry() {
-        return "plate"+this.materialName;
-    }
-
-    @Override
-    public String getGearDictEntry() {
-        return "gear"+this.materialName;
-    }
-
-    public ArrayList<String> getAllOreDictEntries() {
-        ArrayList<String> entries = new ArrayList<>();
-
-        entries.add(getIngotDictEntry());
-        entries.add(getOreDictEntry());
-        entries.add(getDustDictEntry());
-        entries.add(getPlateDictEntry());
-        entries.add(getGearDictEntry());
-
-        return entries;
-    }
 }

@@ -1,6 +1,6 @@
 package com.calmbit.smores.materials;
 
-public enum  EnumItemType {
+public enum EnumItemType {
     INGOT("Ingot"),
     DUST("Dust"),
     PLATE("Plate"),

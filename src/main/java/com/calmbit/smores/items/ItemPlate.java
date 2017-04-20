@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 
 public class ItemPlate extends ItemBase implements IOreDict {
-    private static ArrayList<IPlateProducing> materials;
+    private static ArrayList<String> materials;
 
     public ItemPlate() {
         super("plate");
@@ -23,12 +23,12 @@ public class ItemPlate extends ItemBase implements IOreDict {
         this.setHasSubtypes(true);
 
         if(materials == null) {
-            materials = new ArrayList<IPlateProducing>();
+            materials = new ArrayList<String>();
             for(EnumMetalType metal : EnumMetalType.values()) {
-                materials.add(metal);
+                materials.add(metal.getName());
             }
             for(EnumAlloyType alloy : EnumAlloyType.values()) {
-                materials.add(alloy);
+                materials.add(alloy.getName());
             }
         }
     }
@@ -36,28 +36,28 @@ public class ItemPlate extends ItemBase implements IOreDict {
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
-        for(IPlateProducing material : materials) {
+        for(String material : materials) {
             subItems.add(new ItemStack(this, 1, materials.indexOf(material)));
         }
     }
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        return super.getUnlocalizedName(stack) + "_" + materials.get(stack.getItemDamage()).toString().toLowerCase();
+        return super.getUnlocalizedName(stack) + "_" + materials.get(stack.getItemDamage()).toLowerCase();
     }
 
     @Override
     public void registerOreDict() {
-        for(IPlateProducing material : materials) {
-            OreDictionary.registerOre(material.getPlateDictEntry(), new ItemStack(this, 1, materials.indexOf(material)));
+        for(String material : materials) {
+            OreDictionary.registerOre("plate"+material, new ItemStack(this, 1, materials.indexOf(material)));
         }
     }
 
     @Override
     public void registerItemModel()
     {
-        for(IPlateProducing material : materials) {
-            Smores.proxy.registerItemRenderer(this, materials.indexOf(material), "plate_" + material.toString().toLowerCase());
+        for(String material : materials) {
+            Smores.proxy.registerItemRenderer(this, materials.indexOf(material), "plate_" + material.toLowerCase());
         }
     }
 }

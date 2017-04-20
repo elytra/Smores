@@ -1,11 +1,11 @@
 package com.calmbit.smores.registries;
 
+import com.calmbit.smores.Smores;
 import com.calmbit.smores.imc.EnumResourceSelection;
-import com.calmbit.smores.materials.*;
+import com.calmbit.smores.materials.EnumItemType;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ConfigurationRegistry {
@@ -27,48 +27,9 @@ public class ConfigurationRegistry {
                 overridingDefaults.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
             }
 
-            for(EnumAlloyType alloy : EnumAlloyType.values()) {
-                ArrayList<String> entries = alloy.getAllOreDictEntries();
-                for(String entry : entries) {
-                    Property itemProperty = config.get(Configuration.CATEGORY_GENERAL, entry, "unchanged");
-                    resourceConfigurations.put(entry, EnumResourceSelection.fromString(itemProperty.getString()));
-                }
-            }
-
-            for(EnumGemType gem : EnumGemType.values()) {
-                ArrayList<String> entries = gem.getAllOreDictEntries();
-                for(String entry : entries) {
-                    Property itemProperty = config.get(Configuration.CATEGORY_GENERAL, entry, "unchanged");
-                    resourceConfigurations.put(entry, EnumResourceSelection.fromString(itemProperty.getString()));
-                }
-            }
-
-            for(EnumMetalType metal : EnumMetalType.values()) {
-                ArrayList<String> entries = metal.getAllOreDictEntries();
-                for(String entry : entries) {
-                    Property itemProperty = config.get(Configuration.CATEGORY_GENERAL, entry, "unchanged");
-                    resourceConfigurations.put(entry, EnumResourceSelection.fromString(itemProperty.getString()));
-                }
-            }
-
-            for(EnumMiscType misc : EnumMiscType.values()) {
-                ArrayList<String> entries = misc.getAllOreDictEntries();
-                for(String entry : entries) {
-                    Property itemProperty = config.get(Configuration.CATEGORY_GENERAL, entry, "unchanged");
-                    resourceConfigurations.put(entry, EnumResourceSelection.fromString(itemProperty.getString()));
-                }
-            }
-
-            for(EnumNetherType nether : EnumNetherType.values()) {
-                ArrayList<String> entries = nether.getAllOreDictEntries();
-                for(String entry : entries) {
-                    Property itemProperty = config.get(Configuration.CATEGORY_GENERAL, entry, "unchanged");
-                    resourceConfigurations.put(entry, EnumResourceSelection.fromString(itemProperty.getString()));
-                }
-            }
-
-        } catch(Exception e) {
-
+        }
+        catch(Exception e) {
+            Smores.LOG.error(e.getMessage());
         }
     }
 }

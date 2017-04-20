@@ -3,7 +3,7 @@ package com.calmbit.smores.materials;
 
 import java.util.ArrayList;
 
-public enum EnumMiscType implements IMaterialEnum, IIngotProducing, IOreGenerating {
+public enum EnumMiscType implements IOrderedEnum {
     MERCURY("Mercury", 0);
 
     private String materialName;
@@ -14,25 +14,13 @@ public enum EnumMiscType implements IMaterialEnum, IIngotProducing, IOreGenerati
         this.id = id;
     }
 
-    public String getIngotDictEntry() {
-        return materialName;
-    }
-
-    public String getOreDictEntry() {
-        return "ore"+materialName;
-    }
-
     @Override
     public int getId() {
         return id;
     }
 
-    public ArrayList<String> getAllOreDictEntries() {
-        ArrayList<String> entries = new ArrayList<>();
-
-        entries.add(getIngotDictEntry());
-        entries.add(getOreDictEntry());
-
-        return entries;
+    public String getName() {
+        return this.materialName;
     }
+
 }

@@ -2,7 +2,7 @@ package com.calmbit.smores.materials;
 
 import java.util.ArrayList;
 
-public enum EnumNetherType implements IOreGenerating, IDustProducing {
+public enum EnumNetherType {
     SULFUR("Sulfur", 0),
     NITRE("Nitre", 1);
 
@@ -14,27 +14,8 @@ public enum EnumNetherType implements IOreGenerating, IDustProducing {
         this.id = id;
     }
 
-    @Override
-    public String getOreDictEntry() {
-        return "ore"+this.materialName;
+    public String getName() {
+        return materialName;
     }
 
-    @Override
-    public int getId() {
-        return id;
-    }
-
-    @Override
-    public String getDustDictEntry() {
-        return "dust"+this.materialName;
-    }
-
-    public ArrayList<String> getAllOreDictEntries() {
-        ArrayList<String> entries = new ArrayList<>();
-
-        entries.add(getDustDictEntry());
-        entries.add(getOreDictEntry());
-
-        return entries;
-    }
 }

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 
 public class ItemDust extends ItemBase implements IOreDict {
-    private static ArrayList<IDustProducing> materials;
+    private static ArrayList<String> materials;
 
     public ItemDust() {
         super("dust");
@@ -23,15 +23,15 @@ public class ItemDust extends ItemBase implements IOreDict {
         this.setHasSubtypes(true);
 
         if(materials == null) {
-            materials = new ArrayList<IDustProducing>();
+            materials = new ArrayList<String>();
             for(EnumMetalType metal : EnumMetalType.values()) {
-                materials.add(metal);
+                materials.add(metal.getName());
             }
             for(EnumAlloyType alloy : EnumAlloyType.values()) {
-                materials.add(alloy);
+                materials.add(alloy.getName());
             }
             for(EnumNetherType nether : EnumNetherType.values()) {
-                materials.add(nether);
+                materials.add(nether.getName());
             }
         }
     }
@@ -39,28 +39,28 @@ public class ItemDust extends ItemBase implements IOreDict {
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
-        for(IDustProducing material : materials) {
+        for(String material : materials) {
             subItems.add(new ItemStack(this, 1, materials.indexOf(material)));
         }
     }
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        return super.getUnlocalizedName(stack) + "_" + materials.get(stack.getItemDamage()).toString().toLowerCase();
+        return super.getUnlocalizedName(stack) + "_" + materials.get(stack.getItemDamage()).toLowerCase();
     }
 
     @Override
     public void registerOreDict() {
-        for(IDustProducing material : materials) {
-            OreDictionary.registerOre(material.getDustDictEntry(), new ItemStack(this, 1, materials.indexOf(material)));
+        for(String material : materials) {
+            OreDictionary.registerOre("dust"+material, new ItemStack(this, 1, materials.indexOf(material)));
         }
     }
 
     @Override
     public void registerItemModel()
     {
-        for(IDustProducing material : materials) {
-            Smores.proxy.registerItemRenderer(this, materials.indexOf(material), "dust_" + material.toString().toLowerCase());
+        for(String material : materials) {
+            Smores.proxy.registerItemRenderer(this, materials.indexOf(material), "dust_" + material.toLowerCase());
         }
     }
 }

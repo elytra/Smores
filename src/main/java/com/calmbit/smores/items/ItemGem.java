@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 
 public class ItemGem extends ItemBase implements IOreDict {
-    private static ArrayList<IGemProducing> materials;
+    private static ArrayList<String> materials;
 
     public ItemGem() {
         super("gem");
@@ -23,9 +23,9 @@ public class ItemGem extends ItemBase implements IOreDict {
         this.setHasSubtypes(true);
 
         if(materials == null) {
-            materials = new ArrayList<IGemProducing>();
+            materials = new ArrayList<String>();
             for(EnumGemType gem : EnumGemType.values()) {
-                materials.add(gem);
+                materials.add(gem.getName());
             }
         }
     }
@@ -33,28 +33,28 @@ public class ItemGem extends ItemBase implements IOreDict {
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
-        for(IGemProducing material : materials) {
+        for(String material : materials) {
             subItems.add(new ItemStack(this, 1, materials.indexOf(material)));
         }
     }
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        return super.getUnlocalizedName(stack) + "_" + materials.get(stack.getItemDamage()).toString().toLowerCase();
+        return super.getUnlocalizedName(stack) + "_" + materials.get(stack.getItemDamage()).toLowerCase();
     }
 
     @Override
     public void registerOreDict() {
-        for(IGemProducing material : materials) {
-            OreDictionary.registerOre(material.getGemDictEntry(), new ItemStack(this, 1, materials.indexOf(material)));
+        for(String material : materials) {
+            OreDictionary.registerOre("gem"+material, new ItemStack(this, 1, materials.indexOf(material)));
         }
     }
 
     @Override
     public void registerItemModel()
     {
-        for(IGemProducing material : materials) {
-            Smores.proxy.registerItemRenderer(this, materials.indexOf(material), "gem_" + material.toString().toLowerCase());
+        for(String material : materials) {
+            Smores.proxy.registerItemRenderer(this, materials.indexOf(material), "gem_" + material.toLowerCase());
         }
     }
 }
