@@ -18,6 +18,10 @@ public enum EnumAlloyType{
         return this.materialName;
     }
 
+    public EnumItemType[] getTypes() {
+        return new EnumItemType[]{EnumItemType.INGOT, EnumItemType.DUST, EnumItemType.PLATE, EnumItemType.GEAR};
+    }
+
 
 
 }

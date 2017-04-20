@@ -18,4 +18,8 @@ public enum EnumNetherType {
         return materialName;
     }
 
+    public EnumItemType[] getTypes() {
+        return new EnumItemType[]{EnumItemType.DUST, EnumItemType.ORE};
+    }
+
 }

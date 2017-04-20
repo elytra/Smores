@@ -2,6 +2,8 @@ package com.calmbit.smores.materials;
 
 public enum EnumItemType {
     INGOT("Ingot"),
+    GEM("Gem"),
+    ORE("Ore"),
     DUST("Dust"),
     PLATE("Plate"),
     GEAR("Gear");

@@ -2,7 +2,7 @@ package com.calmbit.smores.registries;
 
 import com.calmbit.smores.Smores;
 import com.calmbit.smores.imc.EnumResourceSelection;
-import com.calmbit.smores.materials.EnumItemType;
+import com.calmbit.smores.materials.*;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 
@@ -25,6 +25,51 @@ public class ConfigurationRegistry {
                 String key  ="all"+item.getName()+"s";
                 Property itemProperty = config.get(Configuration.CATEGORY_GENERAL, key , "unchanged");
                 overridingDefaults.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
+            }
+
+            for(EnumAlloyType alloy : EnumAlloyType.values()) {
+                for(EnumItemType type : alloy.getTypes()) {
+                    String key = type.getName().toLowerCase()+alloy.getName();
+                    Property itemProperty = config.get(Configuration.CATEGORY_GENERAL,
+                           key, "unchanged");
+                    resourceConfigurations.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
+                }
+            }
+
+            for(EnumGemType gem : EnumGemType.values()) {
+                for(EnumItemType type : gem.getTypes()) {
+                    String key = type.getName().toLowerCase()+gem.getName();
+                    Property itemProperty = config.get(Configuration.CATEGORY_GENERAL,
+                            key, "unchanged");
+                    resourceConfigurations.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
+                }
+            }
+
+            for(EnumMetalType metal : EnumMetalType.values()) {
+                for(EnumItemType type : metal.getTypes()) {
+                    String key = type.getName().toLowerCase()+metal.getName();
+                    Property itemProperty = config.get(Configuration.CATEGORY_GENERAL,
+                            key, "unchanged");
+                    resourceConfigurations.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
+                }
+            }
+
+            for(EnumMiscType misc : EnumMiscType.values()) {
+                for(EnumItemType type : misc.getTypes()) {
+                    String key = type.getName().toLowerCase()+misc.getName();
+                    Property itemProperty = config.get(Configuration.CATEGORY_GENERAL,
+                            key, "unchanged");
+                    resourceConfigurations.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
+                }
+            }
+
+            for(EnumNetherType nether : EnumNetherType.values()) {
+                for(EnumItemType type : nether.getTypes()) {
+                    String key = type.getName().toLowerCase()+nether.getName();
+                    Property itemProperty = config.get(Configuration.CATEGORY_GENERAL,
+                            key, "unchanged");
+                    resourceConfigurations.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
+                }
             }
 
         }

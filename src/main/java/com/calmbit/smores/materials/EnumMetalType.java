@@ -31,4 +31,7 @@ public enum  EnumMetalType implements IOrderedEnum, IStringSerializable {
         return this.id;
     }
 
+    public EnumItemType[] getTypes() {
+        return new EnumItemType[]{EnumItemType.INGOT, EnumItemType.ORE, EnumItemType.DUST, EnumItemType.PLATE, EnumItemType.GEAR};
+    }
 }

@@ -23,4 +23,8 @@ public enum EnumMiscType implements IOrderedEnum {
         return this.materialName;
     }
 
+    public EnumItemType[] getTypes() {
+        return new EnumItemType[]{EnumItemType.INGOT, EnumItemType.ORE};
+    }
+
 }

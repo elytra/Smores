@@ -19,9 +19,12 @@ public enum EnumGemType implements IOrderedEnum, IStringSerializable {
         return materialName.toLowerCase();
     }
 
-
     @Override
     public int getId() {
         return id;
+    }
+
+    public EnumItemType[] getTypes() {
+        return new EnumItemType[]{EnumItemType.GEM, EnumItemType.ORE};
     }
 }
