@@ -1,16 +1,15 @@
 [
-{
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
-}
+  {
+    "modid": "smores",
+    "name": "Smores",
+    "description": "A metals/gems/ores base mod, removing the necessity of duplicated materials.",
+    "version": "1.11.2-0.1.0.0",
+    "mcversion": "1.11.2",
+    "url": "lolokay",
+    "authorList": ["CalmBit", "Falkreon"],
+    "credits": "",
+    "logoFile": "logo.png",
+    "screenshots": [],
+    "dependencies": []
+  }
 ]
