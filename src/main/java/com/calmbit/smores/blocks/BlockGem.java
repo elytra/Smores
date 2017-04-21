@@ -39,7 +39,6 @@ public class BlockGem extends BlockBase {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public IBlockState getStateFromMeta(int meta) {
         return this.getDefaultState().withProperty(GEM, EnumGem.values()[meta]);
     }

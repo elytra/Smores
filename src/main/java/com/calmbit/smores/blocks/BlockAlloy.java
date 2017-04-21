@@ -39,7 +39,6 @@ public class BlockAlloy extends BlockBase {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public IBlockState getStateFromMeta(int meta) {
         return this.getDefaultState().withProperty(ALLOY, EnumAlloy.values()[meta]);
     }

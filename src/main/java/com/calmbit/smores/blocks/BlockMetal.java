@@ -39,7 +39,6 @@ public class BlockMetal extends BlockBase {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public IBlockState getStateFromMeta(int meta) {
         return this.getDefaultState().withProperty(METAL, EnumMetal.values()[meta]);
     }
