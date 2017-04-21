@@ -6,16 +6,18 @@ import java.util.Locale;
 
 public enum EnumAlloyType implements IStringSerializable {
 
-    ELECTRUM("Electrum"),
-    INVAR("Invar"),
-    STEEL("Steel"),
-    BRONZE("Bronze"),
-    BRASS("Brass");
+    ELECTRUM("Electrum", 0),
+    INVAR("Invar", 1),
+    STEEL("Steel", 2),
+    BRONZE("Bronze", 3),
+    BRASS("Brass", 4);
 
     private String materialName;
+    private int id;
 
-    EnumAlloyType(String materialName) {
+    EnumAlloyType(String materialName, int id) {
        this.materialName = materialName;
+       this.id = id;
     }
 
     public String getName() {
@@ -24,6 +26,10 @@ public enum EnumAlloyType implements IStringSerializable {
 
     public String getMaterialName() {
         return this.materialName;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public EnumItemType[] getTypes() {
