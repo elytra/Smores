@@ -1,6 +1,6 @@
 package com.calmbit.smores.materials;
 
-public enum EnumItemType {
+public enum EnumItem {
     INGOT("Ingot"),
     GEM("Gem"),
     ORE("Ore"),
@@ -10,7 +10,7 @@ public enum EnumItemType {
 
     public String name;
 
-    EnumItemType(String name) {
+    EnumItem(String name) {
         this.name = name;
     }
 

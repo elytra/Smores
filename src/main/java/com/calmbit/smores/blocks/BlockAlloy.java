@@ -1,7 +1,7 @@
 package com.calmbit.smores.blocks;
 
 import com.calmbit.smores.Smores;
-import com.calmbit.smores.materials.EnumAlloyType;
+import com.calmbit.smores.materials.EnumAlloy;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
@@ -16,21 +16,21 @@ import java.util.Locale;
 
 public class BlockAlloy extends BlockBase {
 
-    public static PropertyEnum<EnumAlloyType> ALLOY_TYPE = PropertyEnum.create("alloy_type", EnumAlloyType.class);
+    public static PropertyEnum<EnumAlloy> ALLOY = PropertyEnum.create("alloy", EnumAlloy.class);
 
     public BlockAlloy() {
         super(Material.IRON, "alloy_block");
-        this.setDefaultState(this.getDefaultState().withProperty(ALLOY_TYPE, EnumAlloyType.ELECTRUM));
+        this.setDefaultState(this.getDefaultState().withProperty(ALLOY, EnumAlloy.ELECTRUM));
     }
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, ALLOY_TYPE);
+        return new BlockStateContainer(this, ALLOY);
     }
 
     @Override
     public int getMetaFromState(IBlockState state) {
-        return state.getValue(ALLOY_TYPE).getId();
+        return state.getValue(ALLOY).getId();
     }
 
     @Override
@@ -41,13 +41,13 @@ public class BlockAlloy extends BlockBase {
     @Override
     @SuppressWarnings("deprecation")
     public IBlockState getStateFromMeta(int meta) {
-        return this.getDefaultState().withProperty(ALLOY_TYPE, EnumAlloyType.values()[meta]);
+        return this.getDefaultState().withProperty(ALLOY, EnumAlloy.values()[meta]);
     }
 
     @Override
     public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list) {
         int iterator = 0;
-        for(EnumAlloyType alloyType : EnumAlloyType.values()) {
+        for(EnumAlloy alloy : EnumAlloy.values()) {
             list.add(new ItemStack(itemIn, 1, iterator));
             iterator++;
         }
@@ -57,7 +57,7 @@ public class BlockAlloy extends BlockBase {
     public void registerItemModel(ItemBlock block)
     {
         int iterator = 0;
-        for(EnumAlloyType material : EnumAlloyType.values()) {
+        for(EnumAlloy material : EnumAlloy.values()) {
             Smores.proxy.registerItemRenderer(block,iterator, super.getUnlocalizedName() + "_" + material.toString().toLowerCase(Locale.ROOT));
             iterator++;
         }

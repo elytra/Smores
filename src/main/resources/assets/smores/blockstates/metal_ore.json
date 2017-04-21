@@ -9,7 +9,7 @@
         "normal": {
             "model": "cube_all"
         },
-        "metal_type": {
+        "metal": {
             "copper": {
                 "textures": {
                     "all": "smores:blocks/ore_copper"

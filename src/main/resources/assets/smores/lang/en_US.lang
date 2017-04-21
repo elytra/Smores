@@ -27,6 +27,24 @@ tile.smores.nether_ore_mercury.name=Mercury Ore
 tile.smores.nether_ore_sulfur.name=Sulfur Ore
 tile.smores.nether_ore_nitre.name=Nitre Ore
 
+############# MATERIAL BLOCKS #############
+tile.smores.metal_block_copper.name=Block of Copper
+tile.smores.metal_block_tin.name=Block of Tin
+tile.smores.metal_block_lead.name=Block of Lead
+tile.smores.metal_block_nickel.name=Block of Nickel
+tile.smores.metal_block_silver.name=Block of Silver
+tile.smores.metal_block_platinum.name=Block of Platinum
+tile.smores.metal_block_mithril.name=Block of Mithril
+tile.smores.metal_block_zinc.name=Block of Zinc
+tile.smores.alloy_block_electrum.name=Block of Electrum
+tile.smores.alloy_block_invar.name=Block of Invar
+tile.smores.alloy_block_steel.name=Block of Steel
+tile.smores.alloy_block_bronze.name=Block of Bronze
+tile.smores.alloy_block_brass.name=Block of Brass
+tile.smores.gem_block_ruby.name=Block of Ruby
+tile.smores.gem_block_sapphire.name=Block of Sapphire
+tile.smores.gem_block_peridot.name=Block of Peridot
+
 ############# GEMS #############
 item.smores.gem_ruby.name=Ruby
 item.smores.gem_sapphire.name=Sapphire

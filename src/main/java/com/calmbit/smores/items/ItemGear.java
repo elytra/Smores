@@ -2,8 +2,8 @@ package com.calmbit.smores.items;
 
 import com.calmbit.smores.Smores;
 import com.calmbit.smores.generic.IOreDict;
-import com.calmbit.smores.materials.EnumAlloyType;
-import com.calmbit.smores.materials.EnumMetalType;
+import com.calmbit.smores.materials.EnumAlloy;
+import com.calmbit.smores.materials.EnumMetal;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -26,10 +26,10 @@ public class ItemGear extends ItemBase implements IOreDict {
 
         if(materials == null) {
             materials = new ArrayList<String>();
-            for(EnumMetalType metal : EnumMetalType.values()) {
+            for(EnumMetal metal : EnumMetal.values()) {
                 materials.add(metal.getMaterialName());
             }
-            for(EnumAlloyType alloy : EnumAlloyType.values()) {
+            for(EnumAlloy alloy : EnumAlloy.values()) {
                 materials.add(alloy.getMaterialName());
             }
         }

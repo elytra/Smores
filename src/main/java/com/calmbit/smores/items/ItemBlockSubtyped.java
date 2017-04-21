@@ -1,18 +1,17 @@
 package com.calmbit.smores.items;
 
 
-import com.calmbit.smores.materials.EnumMetalType;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
 import java.util.Locale;
 
-public class ItemBlockEnumSubtyped<T extends Enum> extends ItemBlock {
+public class ItemBlockSubtyped<T extends Enum<T>> extends ItemBlock {
 
     private T[] typedEnumConstants;
 
-    public ItemBlockEnumSubtyped(Block block, Class<T> enumClass) {
+    public ItemBlockSubtyped(Block block, Class<T> enumClass) {
         super(block);
         this.setRegistryName(block.getRegistryName());
         this.setMaxDamage(0);

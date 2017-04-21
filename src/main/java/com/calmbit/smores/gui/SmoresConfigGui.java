@@ -1,7 +1,7 @@
 package com.calmbit.smores.gui;
 
 import com.calmbit.smores.Smores;
-import com.calmbit.smores.materials.EnumItemType;
+import com.calmbit.smores.materials.EnumItem;
 import com.calmbit.smores.registries.ConfigurationRegistry;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
@@ -27,7 +27,7 @@ public class SmoresConfigGui extends GuiConfig {
         }
 
         ConfigElement overrides = new ConfigElement(Smores.CONFIG.getCategory(ConfigurationRegistry.CATEGORY_OVERRIDES));
-        for(EnumItemType item : EnumItemType.values()) {
+        for(EnumItem item : EnumItem.values()) {
             overrides.getChildElements().add(new ConfigElement(Smores.CONFIG.getCategory(ConfigurationRegistry.CATEGORY_OVERRIDES+"."+item.getName().toLowerCase(Locale.ROOT))));
         }
 

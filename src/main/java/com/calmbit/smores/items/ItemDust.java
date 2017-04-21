@@ -25,13 +25,13 @@ public class ItemDust extends ItemBase implements IOreDict {
 
         if(materials == null) {
             materials = new ArrayList<String>();
-            for(EnumMetalType metal : EnumMetalType.values()) {
+            for(EnumMetal metal : EnumMetal.values()) {
                 materials.add(metal.getMaterialName());
             }
-            for(EnumAlloyType alloy : EnumAlloyType.values()) {
+            for(EnumAlloy alloy : EnumAlloy.values()) {
                 materials.add(alloy.getMaterialName());
             }
-            for(EnumNetherType nether : EnumNetherType.values()) {
+            for(EnumNether nether : EnumNether.values()) {
                 materials.add(nether.getMaterialName());
             }
         }

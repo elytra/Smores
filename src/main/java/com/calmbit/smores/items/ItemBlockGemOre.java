@@ -1,8 +1,7 @@
 package com.calmbit.smores.items;
 
 
-import com.calmbit.smores.materials.EnumGemType;
-import com.calmbit.smores.materials.EnumMetalType;
+import com.calmbit.smores.materials.EnumGem;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -19,7 +18,7 @@ public class ItemBlockGemOre extends ItemBlock {
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        return this.getUnlocalizedName() + "_" + EnumGemType.values()[stack.getItemDamage()].toString().toLowerCase(Locale.ROOT);
+        return this.getUnlocalizedName() + "_" + EnumGem.values()[stack.getItemDamage()].toString().toLowerCase(Locale.ROOT);
     }
 
 

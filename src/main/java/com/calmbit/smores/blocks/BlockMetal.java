@@ -1,7 +1,7 @@
 package com.calmbit.smores.blocks;
 
 import com.calmbit.smores.Smores;
-import com.calmbit.smores.materials.EnumMetalType;
+import com.calmbit.smores.materials.EnumMetal;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
@@ -16,21 +16,21 @@ import java.util.Locale;
 
 public class BlockMetal extends BlockBase {
 
-    public static PropertyEnum<EnumMetalType> METAL_TYPE = PropertyEnum.create("metal_type", EnumMetalType.class);
+    public static PropertyEnum<EnumMetal> METAL = PropertyEnum.create("metal", EnumMetal.class);
 
     public BlockMetal() {
         super(Material.IRON, "metal_block");
-        this.setDefaultState(this.getDefaultState().withProperty(METAL_TYPE, EnumMetalType.COPPER));
+        this.setDefaultState(this.getDefaultState().withProperty(METAL, EnumMetal.COPPER));
     }
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, METAL_TYPE);
+        return new BlockStateContainer(this, METAL);
     }
 
     @Override
     public int getMetaFromState(IBlockState state) {
-        return state.getValue(METAL_TYPE).getId();
+        return state.getValue(METAL).getId();
     }
 
     @Override
@@ -41,13 +41,13 @@ public class BlockMetal extends BlockBase {
     @Override
     @SuppressWarnings("deprecation")
     public IBlockState getStateFromMeta(int meta) {
-        return this.getDefaultState().withProperty(METAL_TYPE, EnumMetalType.values()[meta]);
+        return this.getDefaultState().withProperty(METAL, EnumMetal.values()[meta]);
     }
 
     @Override
     public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list) {
         int iterator = 0;
-        for(EnumMetalType metalType : EnumMetalType.values()) {
+        for(EnumMetal metal : EnumMetal.values()) {
             list.add(new ItemStack(itemIn, 1, iterator));
             iterator++;
         }
@@ -57,7 +57,7 @@ public class BlockMetal extends BlockBase {
     public void registerItemModel(ItemBlock block)
     {
         int iterator = 0;
-        for(EnumMetalType material : EnumMetalType.values()) {
+        for(EnumMetal material : EnumMetal.values()) {
             Smores.proxy.registerItemRenderer(block,iterator, super.getUnlocalizedName() + "_" + material.toString().toLowerCase(Locale.ROOT));
             iterator++;
         }

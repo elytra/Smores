@@ -4,7 +4,7 @@ import net.minecraft.util.IStringSerializable;
 
 import java.util.Locale;
 
-public enum EnumAlloyType implements IStringSerializable {
+public enum EnumAlloy implements IStringSerializable {
 
     ELECTRUM("Electrum", 0),
     INVAR("Invar", 1),
@@ -15,7 +15,7 @@ public enum EnumAlloyType implements IStringSerializable {
     private String materialName;
     private int id;
 
-    EnumAlloyType(String materialName, int id) {
+    EnumAlloy(String materialName, int id) {
        this.materialName = materialName;
        this.id = id;
     }
@@ -32,8 +32,8 @@ public enum EnumAlloyType implements IStringSerializable {
         return id;
     }
 
-    public EnumItemType[] getTypes() {
-        return new EnumItemType[]{EnumItemType.INGOT, EnumItemType.DUST, EnumItemType.PLATE, EnumItemType.GEAR};
+    public EnumItem[] getTypes() {
+        return new EnumItem[]{EnumItem.INGOT, EnumItem.DUST, EnumItem.PLATE, EnumItem.GEAR};
     }
 
 

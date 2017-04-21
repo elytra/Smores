@@ -1,24 +1,23 @@
 package com.calmbit.smores.materials;
 
-
 import net.minecraft.util.IStringSerializable;
 
-import java.util.ArrayList;
 import java.util.Locale;
 
-public enum EnumMiscType implements IStringSerializable {
-    MERCURY("Mercury", 0);
+public enum EnumNether implements IStringSerializable{
+    SULFUR("Sulfur", 0),
+    NITRE("Nitre", 1);
 
     private String materialName;
     private int id;
 
-    EnumMiscType(String materialName, int id) {
-        this.materialName = materialName;
+    EnumNether(String materialName, int id) {
+        this.materialName =  materialName;
         this.id = id;
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public String getName() {
@@ -29,8 +28,9 @@ public enum EnumMiscType implements IStringSerializable {
         return this.materialName;
     }
 
-    public EnumItemType[] getTypes() {
-        return new EnumItemType[]{EnumItemType.INGOT, EnumItemType.ORE};
+
+    public EnumItem[] getTypes() {
+        return new EnumItem[]{EnumItem.DUST, EnumItem.ORE};
     }
 
 }

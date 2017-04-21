@@ -24,14 +24,14 @@ public class ConfigurationRegistry {
             Property defaultProperty = config.get(Configuration.CATEGORY_GENERAL, "default", "imc");
             defaultConfiguration = defaultProperty.getString();
 
-            for(EnumItemType item : EnumItemType.values()) {
+            for(EnumItem item : EnumItem.values()) {
                 String key  ="all"+item.getName()+"s";
                 Property itemProperty = config.get(CATEGORY_OVERRIDES, key , "unchanged");
                 overridingDefaults.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
             }
 
-            for(EnumAlloyType alloy : EnumAlloyType.values()) {
-                for(EnumItemType type : alloy.getTypes()) {
+            for(EnumAlloy alloy : EnumAlloy.values()) {
+                for(EnumItem type : alloy.getTypes()) {
                     String key = type.getName().toLowerCase(Locale.ROOT)+alloy.getMaterialName();
                     Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(Locale.ROOT),
                            key, "unchanged");
@@ -39,8 +39,8 @@ public class ConfigurationRegistry {
                 }
             }
 
-            for(EnumGemType gem : EnumGemType.values()) {
-                for(EnumItemType type : gem.getTypes()) {
+            for(EnumGem gem : EnumGem.values()) {
+                for(EnumItem type : gem.getTypes()) {
                     String key = type.getName().toLowerCase(Locale.ROOT)+gem.getMaterialName();
                     Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(Locale.ROOT),
                             key, "unchanged");
@@ -48,8 +48,8 @@ public class ConfigurationRegistry {
                 }
             }
 
-            for(EnumMetalType metal : EnumMetalType.values()) {
-                for(EnumItemType type : metal.getTypes()) {
+            for(EnumMetal metal : EnumMetal.values()) {
+                for(EnumItem type : metal.getTypes()) {
                     String key = type.getName().toLowerCase(Locale.ROOT)+metal.getMaterialName();
                     Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(Locale.ROOT),
                             key, "unchanged");
@@ -57,8 +57,8 @@ public class ConfigurationRegistry {
                 }
             }
 
-            for(EnumMiscType misc : EnumMiscType.values()) {
-                for(EnumItemType type : misc.getTypes()) {
+            for(EnumMisc misc : EnumMisc.values()) {
+                for(EnumItem type : misc.getTypes()) {
                     String key = type.getName().toLowerCase(Locale.ROOT)+misc.getMaterialName();
                     Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(Locale.ROOT),
                             key, "unchanged");
@@ -66,8 +66,8 @@ public class ConfigurationRegistry {
                 }
             }
 
-            for(EnumNetherType nether : EnumNetherType.values()) {
-                for(EnumItemType type : nether.getTypes()) {
+            for(EnumNether nether : EnumNether.values()) {
+                for(EnumItem type : nether.getTypes()) {
                     String key = type.getName().toLowerCase(Locale.ROOT)+nether.getMaterialName();
                     Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(Locale.ROOT),
                             key, "unchanged");

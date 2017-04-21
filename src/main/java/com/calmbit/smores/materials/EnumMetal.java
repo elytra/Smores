@@ -2,11 +2,9 @@ package com.calmbit.smores.materials;
 
 import net.minecraft.util.IStringSerializable;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
-public enum  EnumMetalType implements IStringSerializable {
+public enum EnumMetal implements IStringSerializable {
 
     COPPER("Copper", 0),
     TIN("Tin", 1),
@@ -20,7 +18,7 @@ public enum  EnumMetalType implements IStringSerializable {
     private String materialName;
     public int id;
 
-    EnumMetalType(String materialName, int id) {
+    EnumMetal(String materialName, int id) {
         this.id = id;
         this.materialName = materialName;
     }
@@ -38,7 +36,7 @@ public enum  EnumMetalType implements IStringSerializable {
         return this.id;
     }
 
-    public EnumItemType[] getTypes() {
-        return new EnumItemType[]{EnumItemType.INGOT, EnumItemType.ORE, EnumItemType.DUST, EnumItemType.PLATE, EnumItemType.GEAR};
+    public EnumItem[] getTypes() {
+        return new EnumItem[]{EnumItem.INGOT, EnumItem.ORE, EnumItem.DUST, EnumItem.PLATE, EnumItem.GEAR};
     }
 }
