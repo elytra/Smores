@@ -1,11 +1,8 @@
-<img src="src/main/resources/logo.png" height=128 width=128 align="right">
+<img src="doc/logo.png" height=128 width=128 align="right">
 
 # Smores
 
-----------------------
 _Short for **S**o **M**any **ORES**!_
-
--------------------
 
 Ever get tired of how many goddamn ores every mod adds? Like Substratum, but can't stand the forge log spam, or those unsightly slabs and stairs? Wish there was a distilled, short and to the point mod that accomplished the same thing?
 
