@@ -1,6 +1,7 @@
 package com.calmbit.smores.blocks;
 
 import com.calmbit.smores.Smores;
+import com.calmbit.smores.generic.IOreDict;
 import com.calmbit.smores.materials.EnumGem;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
@@ -11,10 +12,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.Locale;
 
-public class BlockGemOre extends BlockBase {
+public class BlockGemOre extends BlockBase implements IOreDict {
 
     public static PropertyEnum<EnumGem> GEM = PropertyEnum.create("gem", EnumGem.class);
 
@@ -59,6 +61,13 @@ public class BlockGemOre extends BlockBase {
         for(EnumGem material : EnumGem.values()) {
             Smores.proxy.registerItemRenderer(block,iterator, super.getUnlocalizedName() + "_" + material.toString().toLowerCase(Locale.ROOT));
             iterator++;
+        }
+    }
+
+    @Override
+    public void registerOreDict() {
+        for(EnumGem material : EnumGem.values()) {
+                OreDictionary.registerOre("ore"+material.getMaterialName(), new ItemStack(this, 1, material.getId()));
         }
     }
 }

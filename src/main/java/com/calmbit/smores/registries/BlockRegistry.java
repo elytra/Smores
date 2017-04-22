@@ -46,10 +46,6 @@ public class BlockRegistry {
             ItemBlock itemBlockInstance = new ItemBlockSubtyped<V>(block, enumClass);
             GameRegistry.register(itemBlockInstance);
             block.registerItemModel(itemBlockInstance);
-            if(itemBlockInstance instanceof IOreDict)
-            {
-                ((IOreDict)itemBlockInstance).registerOreDict();
-            }
         }
         catch(Exception e) {
             Smores.LOG.error(e.getStackTrace());
