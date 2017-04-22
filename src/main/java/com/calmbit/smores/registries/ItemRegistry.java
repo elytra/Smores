@@ -12,6 +12,7 @@ public class ItemRegistry {
     public static ItemBase itemIngot;
     public static ItemBase itemGem;
     public static ItemBase itemDust;
+    public static ItemBase itemNugget;
     public static ItemBase itemPlate;
     public static ItemBase itemGear;
 
@@ -20,6 +21,7 @@ public class ItemRegistry {
         itemIngot = registerItem(new ItemIngot()).setCreativeTab(Smores.smoresCreativeTab);
         itemGem = registerItem(new ItemGem()).setCreativeTab(Smores.smoresCreativeTab);
         itemDust = registerItem(new ItemDust()).setCreativeTab(Smores.smoresCreativeTab);
+        itemNugget = registerItem(new ItemNugget()).setCreativeTab(Smores.smoresCreativeTab);
         itemPlate = registerItem(new ItemPlate()).setCreativeTab(Smores.smoresCreativeTab);
         itemGear = registerItem(new ItemGear()).setCreativeTab(Smores.smoresCreativeTab);
     }
