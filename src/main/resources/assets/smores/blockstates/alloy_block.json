@@ -1,14 +1,13 @@
 {
     "forge_marker": 1,
     "defaults": {
+        "model": "cube_all",
         "textures": {
             "all": "smores:blocks/block_undefined"
         }
     },
     "variants": {
-        "normal": {
-            "model": "cube_all"
-        },
+        "normal": [{}],
         "alloy": {
             "brass": {
                 "textures": {
@@ -36,8 +35,6 @@
                 }
             }
         },
-        "inventory": {
-            "model": "cube_all"
-        }
+        "inventory": [{}]
     }
 }

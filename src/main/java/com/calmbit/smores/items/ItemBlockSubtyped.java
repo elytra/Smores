@@ -24,5 +24,8 @@ public class ItemBlockSubtyped<T extends Enum<T>> extends ItemBlock {
         return this.getUnlocalizedName() + "_" + typedEnumConstants[stack.getItemDamage()].toString().toLowerCase(Locale.ROOT);
     }
 
-
+    @Override
+    public int getMetadata(int damage) {
+        return damage;
+    }
 }
