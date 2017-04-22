@@ -5,10 +5,10 @@
     "description": "A metals/gems/ores base mod, removing the necessity of duplicated materials.",
     "version": "1.11.2-0.1.0.0",
     "mcversion": "1.11.2",
-    "url": "lolokay",
+    "url": "https://github.com/elytra/Smores",
     "authorList": ["CalmBit", "Falkreon"],
     "credits": "",
-    "logoFile": "logo.png",
+    "logoFile": "smores_logo.png",
     "screenshots": [],
     "dependencies": []
   }
