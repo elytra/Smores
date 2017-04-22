@@ -1,0 +1,43 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "all": "smores:blocks/block_undefined"
+        }
+    },
+    "variants": {
+        "normal": {
+            "model": "cube_all"
+        },
+        "alloy": {
+            "brass": {
+                "textures": {
+                    "all": "smores:blocks/block_brass"
+                }
+            },
+            "bronze": {
+                "textures": {
+                    "all": "smores:blocks/block_bronze"
+                }
+            },
+            "electrum": {
+                "textures": {
+                    "all": "smores:blocks/block_electrum"
+                }
+            },
+            "invar": {
+                "textures": {
+                    "all": "smores:blocks/block_invar"
+                }
+            },
+            "steel": {
+                "textures": {
+                    "all": "smores:blocks/block_steel"
+                }
+            }
+        },
+        "inventory": {
+            "model": "cube_all"
+        }
+    }
+}

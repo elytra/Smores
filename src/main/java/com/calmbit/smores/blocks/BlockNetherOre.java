@@ -19,7 +19,7 @@ import java.util.Locale;
 
 public class BlockNetherOre extends BlockBase implements IOreDict {
 
-    public static PropertyEnum<EnumNether> MATERIAL = PropertyEnum.create("metal", EnumNether.class);
+    public static PropertyEnum<EnumNether> MATERIAL = PropertyEnum.create("material", EnumNether.class);
 
     public BlockNetherOre() {
         super(Material.ROCK, "nether_ore");

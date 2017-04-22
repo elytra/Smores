@@ -2,7 +2,7 @@
     "forge_marker": 1,
     "defaults": {
         "textures": {
-            "all": "smores:blocks/ore_undefined"
+            "all": "smores:blocks/block_undefined"
         }
     },
     "variants": {
@@ -12,17 +12,17 @@
         "gem": {
             "ruby": {
                 "textures": {
-                    "all": "smores:blocks/ore_ruby"
+                    "all": "smores:blocks/block_ruby"
                 }
             },
             "sapphire": {
                 "textures": {
-                    "all": "smores:blocks/ore_sapphire"
+                    "all": "smores:blocks/block_sapphire"
                 }
             },
             "peridot": {
                 "textures": {
-                    "all": "smores:blocks/ore_peridot"
+                    "all": "smores:blocks/block_peridot"
                 }
             }
         },

@@ -2,7 +2,7 @@
     "forge_marker": 1,
     "defaults": {
         "textures": {
-            "all": "smores:blocks/ore_undefined"
+            "all": "smores:blocks/block_undefined"
         }
     },
     "variants": {
@@ -12,42 +12,42 @@
         "metal": {
             "copper": {
                 "textures": {
-                    "all": "smores:blocks/ore_copper"
+                    "all": "smores:blocks/block_copper"
                 }
             },
             "tin": {
                 "textures": {
-                    "all": "smores:blocks/ore_tin"
+                    "all": "smores:blocks/block_tin"
                 }
             },
             "silver": {
                 "textures": {
-                    "all": "smores:blocks/ore_silver"
+                    "all": "smores:blocks/block_silver"
                 }
             },
             "platinum": {
                 "textures": {
-                    "all": "smores:blocks/ore_platinum"
+                    "all": "smores:blocks/block_platinum"
                 }
             },
             "mithril": {
                 "textures": {
-                    "all": "smores:blocks/ore_mithril"
+                    "all": "smores:blocks/block_mithril"
                 }
             },
             "lead": {
                 "textures": {
-                    "all": "smores:blocks/ore_lead"
+                    "all": "smores:blocks/block_lead"
                 }
             },
             "zinc": {
                 "textures": {
-                    "all": "smores:blocks/ore_zinc"
+                    "all": "smores:blocks/block_zinc"
                 }
             },
             "nickel": {
                 "textures": {
-                    "all": "smores:blocks/ore_nickel"
+                    "all": "smores:blocks/block_nickel"
                 }
             }
         },
