@@ -105,5 +105,20 @@ item.smores.gear_steel.name=Steel Gear
 item.smores.gear_bronze.name=Bronze Gear
 item.smores.gear_brass.name=Brass Gear
 
+############# NUGGETS #############
+item.smores.nugget_copper.name=Copper Nugget
+item.smores.nugget_tin.name=Tin Nugget
+item.smores.nugget_lead.name=Lead Nugget
+item.smores.nugget_nickel.name=Nickel Nugget
+item.smores.nugget_silver.name=Silver Nugget
+item.smores.nugget_platinum.name=Platinum Nugget
+item.smores.nugget_mithril.name=Mithril Nugget
+item.smores.nugget_zinc.name=Zinc Nugget
+item.smores.nugget_electrum.name=Electrum Nugget
+item.smores.nugget_invar.name=Invar Nugget
+item.smores.nugget_steel.name=Steel Nugget
+item.smores.nugget_bronze.name=Bronze Nugget
+item.smores.nugget_brass.name=Brass Nugget
+
 ############# MISC #############
 itemGroup.smores=Smores
