@@ -36,7 +36,7 @@
                 "textures": {
                     "top": "smores:blocks/block_invar_top",
                     "bottom": "smores:blocks/block_invar_bottom",
-                    "side": "smores:blocks/block_inva_side"
+                    "side": "smores:blocks/block_invar_side"
                 }
             },
             "steel": {

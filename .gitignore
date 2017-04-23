@@ -12,6 +12,9 @@ out/
 run/
 bin/
 
+# Run cruft
+minecraft/
+
 # Non-java files
 *.txt
 *.iml
