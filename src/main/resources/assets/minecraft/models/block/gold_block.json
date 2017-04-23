@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "particle": "smores:blocks/block_gold_side",
+        "down": "smores:blocks/block_gold_bottom",
+        "up": "smores:blocks/block_gold_top",
+        "north": "smores:blocks/block_gold_side",
+        "east": "smores:blocks/block_gold_side",
+        "south": "smores:blocks/block_gold_side",
+        "west": "smores:blocks/block_gold_side"
+    }
+}

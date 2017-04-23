@@ -1,11 +1,9 @@
 {
     "forge_marker": 1,
     "defaults": {
-        "model": "smores:material_block",
+        "model": "cube_all",
         "textures": {
-            "top": "smores:blocks/block_undefined_top",
-            "bottom": "smores:blocks/block_undefined_bottom",
-            "side": "smores:blocks/block_undefined_side"
+            "all": "smores:blocks/block_undefined"
         }
     },
     "variants": {
@@ -13,23 +11,17 @@
         "gem": {
             "ruby": {
                 "textures": {
-                    "top": "smores:blocks/block_ruby_top",
-                    "bottom": "smores:blocks/block_ruby_bottom",
-                    "side": "smores:blocks/block_ruby_side"
+                    "all": "smores:blocks/block_ruby"
                 }
             },
             "sapphire": {
                 "textures": {
-                    "top": "smores:blocks/block_sapphire_top",
-                    "bottom": "smores:blocks/block_sapphire_bottom",
-                    "side": "smores:blocks/block_sapphire_side"
+                    "all": "smores:blocks/block_sapphire"
                 }
             },
             "peridot": {
                 "textures": {
-                    "top": "smores:blocks/block_peridot_top",
-                    "bottom": "smores:blocks/block_peridot_bottom",
-                    "side": "smores:blocks/block_peridot_side"
+                    "all": "smores:blocks/block_peridot"
                 }
             }
         },
