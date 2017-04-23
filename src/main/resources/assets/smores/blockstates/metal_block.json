@@ -1,9 +1,11 @@
 {
     "forge_marker": 1,
     "defaults": {
-        "model": "cube_all",
+        "model": "smores:material_block",
         "textures": {
-            "all": "smores:blocks/block_undefined"
+            "top": "smores:blocks/block_undefined_top",
+            "bottom": "smores:blocks/block_undefined_bottom",
+            "side": "smores:blocks/block_undefined_side"
         }
     },
     "variants": {
@@ -11,42 +13,58 @@
         "metal": {
             "copper": {
                 "textures": {
-                    "all": "smores:blocks/block_copper"
+                    "top": "smores:blocks/block_copper_top",
+                    "bottom": "smores:blocks/block_copper_bottom",
+                    "side": "smores:blocks/block_copper_side"
                 }
             },
             "tin": {
                 "textures": {
-                    "all": "smores:blocks/block_tin"
+                    "top": "smores:blocks/block_tin_top",
+                    "bottom": "smores:blocks/block_tinbottom",
+                    "side": "smores:blocks/block_tin_side"
                 }
             },
             "silver": {
                 "textures": {
-                    "all": "smores:blocks/block_silver"
+                    "top": "smores:blocks/block_silver_top",
+                    "bottom": "smores:blocks/block_silver_bottom",
+                    "side": "smores:blocks/block_silver_side"
                 }
             },
             "platinum": {
                 "textures": {
-                    "all": "smores:blocks/block_platinum"
+                    "top": "smores:blocks/block_platinum_top",
+                    "bottom": "smores:blocks/block_platinum_bottom",
+                    "side": "smores:blocks/block_platinum_side"
                 }
             },
             "mithril": {
                 "textures": {
-                    "all": "smores:blocks/block_mithril"
+                    "top": "smores:blocks/block_mithril_top",
+                    "bottom": "smores:blocks/block_mithril_bottom",
+                    "side": "smores:blocks/block_mithril_side"
                 }
             },
             "lead": {
                 "textures": {
-                    "all": "smores:blocks/block_lead"
+                    "top": "smores:blocks/block_lead_top",
+                    "bottom": "smores:blocks/block_lead_bottom",
+                    "side": "smores:blocks/block_lead_side"
                 }
             },
             "zinc": {
                 "textures": {
-                    "all": "smores:blocks/block_zinc"
+                    "top": "smores:blocks/block_zinc_top",
+                    "bottom": "smores:blocks/block_zinc_bottom",
+                    "side": "smores:blocks/block_zinc_side"
                 }
             },
             "nickel": {
                 "textures": {
-                    "all": "smores:blocks/block_nickel"
+                    "top": "smores:blocks/block_nickel_top",
+                    "bottom": "smores:blocks/block_nickel_bottom",
+                    "side": "smores:blocks/block_nickel_side"
                 }
             }
         },

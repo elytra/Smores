@@ -1,9 +1,11 @@
 {
     "forge_marker": 1,
     "defaults": {
-        "model": "cube_all",
+        "model": "smores:material_block",
         "textures": {
-            "all": "smores:blocks/block_undefined"
+            "top": "smores:blocks/block_undefined_top",
+            "bottom": "smores:blocks/block_undefined_bottom",
+            "side": "smores:blocks/block_undefined_side"
         }
     },
     "variants": {
@@ -11,27 +13,37 @@
         "alloy": {
             "brass": {
                 "textures": {
-                    "all": "smores:blocks/block_brass"
+                    "top": "smores:blocks/block_brass_top",
+                    "bottom": "smores:blocks/block_brass_bottom",
+                    "side": "smores:blocks/block_brass_side"
                 }
             },
             "bronze": {
                 "textures": {
-                    "all": "smores:blocks/block_bronze"
+                    "top": "smores:blocks/block_bronze_top",
+                    "bottom": "smores:blocks/block_bronze_bottom",
+                    "side": "smores:blocks/block_bronze_side"
                 }
             },
             "electrum": {
                 "textures": {
-                    "all": "smores:blocks/block_electrum"
+                    "top": "smores:blocks/block_electrum_top",
+                    "bottom": "smores:blocks/block_electrum_bottom",
+                    "side": "smores:blocks/block_electrum_side"
                 }
             },
             "invar": {
                 "textures": {
-                    "all": "smores:blocks/block_invar"
+                    "top": "smores:blocks/block_invar_top",
+                    "bottom": "smores:blocks/block_invar_bottom",
+                    "side": "smores:blocks/block_inva_side"
                 }
             },
             "steel": {
                 "textures": {
-                    "all": "smores:blocks/block_steel"
+                    "top": "smores:blocks/block_steel_top",
+                    "bottom": "smores:blocks/block_steel_bottom",
+                    "side": "smores:blocks/block_steel_side"
                 }
             }
         },
