@@ -2,8 +2,10 @@ package com.calmbit.smores.blocks;
 
 import com.calmbit.smores.Smores;
 import com.calmbit.smores.generic.IOreDict;
+import com.calmbit.smores.items.ItemDust;
 import com.calmbit.smores.materials.EnumGem;
 import com.calmbit.smores.materials.EnumNether;
+import com.calmbit.smores.registries.ItemRegistry;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
@@ -13,8 +15,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.oredict.OreDictionary;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 public class BlockNetherOre extends BlockBase implements IOreDict {
@@ -23,6 +29,8 @@ public class BlockNetherOre extends BlockBase implements IOreDict {
 
     public BlockNetherOre() {
         super(Material.ROCK, "nether_ore");
+        this.setHardness(3.0f);
+        this.setHarvestLevel("pickaxe", 2);
         this.setDefaultState(this.getDefaultState().withProperty(MATERIAL, EnumNether.SULFUR));
     }
 
@@ -64,6 +72,14 @@ public class BlockNetherOre extends BlockBase implements IOreDict {
             iterator++;
         }
     }
+
+    @Override
+    public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+        List<ItemStack> drops = new ArrayList<>();
+        drops.add(new ItemStack(ItemRegistry.itemDust, 1 + RANDOM.nextInt(3), ItemDust.getMaterialIndex(state.getValue(MATERIAL).getMaterialName())));
+        return drops;
+    }
+
 
     @Override
     public void registerOreDict() {

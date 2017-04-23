@@ -15,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.oredict.OreDictionary;
 
+import javax.annotation.Nullable;
 import java.util.Locale;
 
 public class BlockMetalOre extends BlockBase implements IOreDict {
@@ -23,12 +24,24 @@ public class BlockMetalOre extends BlockBase implements IOreDict {
 
     public BlockMetalOre() {
         super(Material.ROCK, "metal_ore");
+        this.setHardness(3.0f);
         this.setDefaultState(this.getDefaultState().withProperty(METAL, EnumMetal.COPPER));
     }
 
     @Override
     protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, METAL);
+    }
+
+    @Override
+    public int getHarvestLevel(IBlockState state) {
+        return (state.getValue(METAL) == EnumMetal.COPPER || state.getValue(METAL) == EnumMetal.TIN) ? 1 : 2;
+    }
+
+    @Nullable
+    @Override
+    public String getHarvestTool(IBlockState state) {
+        return "pickaxe";
     }
 
     @Override

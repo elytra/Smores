@@ -64,4 +64,8 @@ public class ItemDust extends ItemBase implements IOreDict {
             Smores.proxy.registerItemRenderer(this, materials.indexOf(material), "dust_" + material.toLowerCase(Locale.ROOT));
         }
     }
+
+    public static int getMaterialIndex(String materialName) {
+        return materials.indexOf(materialName);
+    }
 }

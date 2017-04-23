@@ -64,7 +64,7 @@ public class BlockGemOre extends BlockBase implements IOreDict {
     @Override
     public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(ItemRegistry.itemGem, 1 + RANDOM.nextInt(2), this.getMetaFromState(state)));
+        drops.add(new ItemStack(ItemRegistry.itemGem, 1, this.getMetaFromState(state)));
         return drops;
     }
 
