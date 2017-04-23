@@ -3,6 +3,7 @@ package com.calmbit.smores.blocks;
 import com.calmbit.smores.Smores;
 import com.calmbit.smores.generic.IOreDict;
 import com.calmbit.smores.materials.EnumGem;
+import com.calmbit.smores.registries.ItemRegistry;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
@@ -12,8 +13,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.oredict.OreDictionary;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 public class BlockGemOre extends BlockBase implements IOreDict {
@@ -22,6 +27,8 @@ public class BlockGemOre extends BlockBase implements IOreDict {
 
     public BlockGemOre() {
         super(Material.ROCK, "gem_ore");
+        this.setHardness(3.0f);
+        this.setHarvestLevel("pickaxe", 2);
         this.setDefaultState(this.getDefaultState().withProperty(GEM, EnumGem.RUBY));
     }
 
@@ -52,6 +59,18 @@ public class BlockGemOre extends BlockBase implements IOreDict {
             list.add(new ItemStack(itemIn, 1, iterator));
             iterator++;
         }
+    }
+
+    @Override
+    public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+        List<ItemStack> drops = new ArrayList<>();
+        drops.add(new ItemStack(ItemRegistry.itemGem, 1 + RANDOM.nextInt(2), this.getMetaFromState(state)));
+        return drops;
+    }
+
+    @Override
+    public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune) {
+        return 2 + RANDOM.nextInt(4);
     }
 
     @Override
