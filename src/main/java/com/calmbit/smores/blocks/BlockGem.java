@@ -23,6 +23,8 @@ public class BlockGem extends BlockBase implements IOreDict {
 
     public BlockGem() {
         super(Material.IRON, "gem_block");
+        this.setHardness(5.0f);
+        this.setHarvestLevel("pickaxe", 2);
         this.setDefaultState(this.getDefaultState().withProperty(GEM, EnumGem.RUBY));
     }
 

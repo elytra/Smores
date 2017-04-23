@@ -23,6 +23,8 @@ public class BlockAlloy extends BlockBase implements IOreDict {
 
     public BlockAlloy() {
         super(Material.IRON, "alloy_block");
+        this.setHardness(5.0f);
+        this.setHarvestLevel("pickaxe", 2);
         this.setDefaultState(this.getDefaultState().withProperty(ALLOY, EnumAlloy.ELECTRUM));
     }
 

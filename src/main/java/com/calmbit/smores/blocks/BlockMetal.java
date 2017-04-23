@@ -23,7 +23,13 @@ public class BlockMetal extends BlockBase implements IOreDict {
 
     public BlockMetal() {
         super(Material.IRON, "metal_block");
+        this.setHardness(5.0f);
         this.setDefaultState(this.getDefaultState().withProperty(METAL, EnumMetal.COPPER));
+    }
+
+    @Override
+    public int getHarvestLevel(IBlockState state) {
+        return (state.getValue(METAL) == EnumMetal.COPPER || state.getValue(METAL) == EnumMetal.TIN) ? 1 : 2;
     }
 
     @Override
