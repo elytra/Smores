@@ -21,7 +21,7 @@
             "tin": {
                 "textures": {
                     "top": "smores:blocks/block_tin_top",
-                    "bottom": "smores:blocks/block_tinbottom",
+                    "bottom": "smores:blocks/block_tin_bottom",
                     "side": "smores:blocks/block_tin_side"
                 }
             },
