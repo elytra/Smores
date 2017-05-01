@@ -28,6 +28,7 @@ public class ItemIngot extends ItemBase implements IOreDict {
         if(materials == null) {
             materials = new ArrayList<String>();
             for(EnumMetal metal : EnumMetal.values()) {
+            	if (metal==EnumMetal.IRON || metal==EnumMetal.GOLD) continue;
                 materials.add(metal.getMaterialName());
             }
             for(EnumAlloy alloy : EnumAlloy.values()) {

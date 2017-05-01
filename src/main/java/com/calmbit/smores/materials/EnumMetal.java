@@ -13,8 +13,11 @@ public enum EnumMetal implements IStringSerializable {
     NICKEL("Nickel", 4),
     PLATINUM("Platinum", 5),
     MITHRIL("Mithril", 6),
-    ZINC("Zinc", 7);
-
+    ZINC("Zinc", 7),
+	IRON("Iron", 8),
+	GOLD("Gold", 9),
+	;
+	
     private String materialName;
     public int id;
 

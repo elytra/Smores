@@ -3,7 +3,6 @@ package com.calmbit.smores.blocks;
 import com.calmbit.smores.Smores;
 import com.calmbit.smores.generic.IOreDict;
 import com.calmbit.smores.materials.EnumAlloy;
-import com.calmbit.smores.materials.EnumNether;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;

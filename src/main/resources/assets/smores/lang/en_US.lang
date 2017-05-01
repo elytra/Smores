@@ -58,6 +58,8 @@ item.smores.ingot_bronze.name=Bronze Ingot
 item.smores.ingot_brass.name=Brass Ingot
 
 ############# DUSTS #############
+item.smores.dust_iron.name=Iron Dust
+item.smores.dust_gold.name=Gold Dust
 item.smores.dust_copper.name=Copper Dust
 item.smores.dust_tin.name=Tin Dust
 item.smores.dust_lead.name=Lead Dust
@@ -76,6 +78,8 @@ item.smores.dust_sulfur.name=Sulfur
 item.smores.dust_nitre.name=Nitre
 
 ############# PLATES #############
+item.smores.plate_iron.name=Iron Plate
+item.smores.plate_gold.name=Gold Plate
 item.smores.plate_copper.name=Copper Plate
 item.smores.plate_tin.name=Tin Plate
 item.smores.plate_lead.name=Lead Plate
@@ -91,6 +95,8 @@ item.smores.plate_bronze.name=Bronze Plate
 item.smores.plate_brass.name=Brass Plate
 
 ############# GEARS #############
+item.smores.gear_iron.name=Iron Gear
+item.smores.gear_gold.name=Gold Gear
 item.smores.gear_copper.name=Copper Gear
 item.smores.gear_tin.name=Tin Gear
 item.smores.gear_lead.name=Lead Gear
