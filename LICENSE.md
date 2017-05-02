@@ -1,7 +1,10 @@
 The MIT License (MIT)
 =====================
 
-Copyright © 2017 Ethan Brooks (CalmBit), Isaac Ellingson (Falkreon), and contributors
+Copyright © 2017:
+ Ethan Brooks (CalmBit),
+ Isaac Ellingson (Falkreon),
+ and contributors
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
