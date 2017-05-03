@@ -31,6 +31,7 @@ import com.elytradev.smores.generic.SmoresCreativeTab;
 import com.elytradev.smores.proxy.CommonProxy;
 import com.elytradev.smores.registries.*;
 import com.elytradev.smores.world.WorldGen;
+import com.google.common.collect.ImmutableList;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -42,7 +43,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = Smores.SMORES_MOD_ID, name = Smores.SMORES_NAME, version = Smores.SMORES_VERSION, guiFactory = "SmoresGuiFactory")
+
+@Mod(modid = Smores.SMORES_MOD_ID, name = Smores.SMORES_NAME, version = Smores.SMORES_VERSION, guiFactory = "com.elytradev.smores.gui.SmoresGuiFactory")
 public class Smores {
     public static final String SMORES_MOD_ID = "smores";
     public static final String SMORES_NAME = "Smores";
@@ -55,7 +57,7 @@ public class Smores {
 
     public static Configuration CONFIG;
 
-    @SidedProxy(clientSide = "ClientProxy", serverSide = "CommonProxy")
+    @SidedProxy(clientSide = "com.elytradev.smores.proxy.ClientProxy", serverSide = "com.elytradev.smores.proxy.CommonProxy")
     public static CommonProxy proxy;
 
     public static final Logger LOG = LogManager.getLogger(SMORES_NAME);
