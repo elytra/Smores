@@ -7,9 +7,18 @@ buildscript {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
     }
 }
+plugins {
+    id 'net.minecrell.licenser' version '0.3'
+}
+
+
 apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
+
+license {
+    header = project.file('LICENSE.md')
+}
 
 version = "1.0"
 group = "com.elytradev" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
