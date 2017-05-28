@@ -37,6 +37,8 @@ import com.elytradev.smores.materials.EnumMetal;
 import com.elytradev.smores.materials.EnumNether;
 import com.elytradev.smores.registries.BlockRegistry;
 import com.google.common.base.Predicate;
+import net.minecraft.block.BlockStone;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
@@ -55,18 +57,18 @@ public class WorldGen implements IWorldGenerator {
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         if(chunkGenerator instanceof ChunkProviderOverworld) {
-            generateOre(world, random, chunkX, chunkZ, BlockRegistry.blockMetalOre.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.COPPER), 10, 32, 64, 8, BlockMatcher.forBlock(Blocks.STONE));
-            generateOre(world, random, chunkX, chunkZ, BlockRegistry.blockMetalOre.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.TIN), 12, 16, 48, 6, BlockMatcher.forBlock(Blocks.STONE));
-            generateOre(world, random, chunkX, chunkZ, BlockRegistry.blockMetalOre.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.LEAD), 12, 16, 64, 6, BlockMatcher.forBlock(Blocks.STONE));
-            generateOre(world, random, chunkX, chunkZ, BlockRegistry.blockMetalOre.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.SILVER), 8, 4, 24, 6, BlockMatcher.forBlock(Blocks.STONE));
-            generateOre(world, random, chunkX, chunkZ, BlockRegistry.blockMetalOre.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.NICKEL), 20, 16, 64, 4, BlockMatcher.forBlock(Blocks.STONE));
-            generateOre(world, random, chunkX, chunkZ, BlockRegistry.blockMetalOre.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.PLATINUM), 5, 4, 32, 6, BlockMatcher.forBlock(Blocks.STONE));
-            generateOre(world, random, chunkX, chunkZ, BlockRegistry.blockMetalOre.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.MITHRIL), 4, 16, 64, 5, BlockMatcher.forBlock(Blocks.STONE));
-            generateOre(world, random, chunkX, chunkZ, BlockRegistry.blockMetalOre.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.ZINC), 15, 16, 64, 6, BlockMatcher.forBlock(Blocks.STONE));
+            generateOre(world, random, chunkX, chunkZ, BlockRegistry.blockMetalOre.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.COPPER), 10, 32, 64, 8, new WorldGen.RockPredicate());
+            generateOre(world, random, chunkX, chunkZ, BlockRegistry.blockMetalOre.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.TIN), 12, 16, 48, 6, new WorldGen.RockPredicate());
+            generateOre(world, random, chunkX, chunkZ, BlockRegistry.blockMetalOre.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.LEAD), 12, 16, 64, 6, new WorldGen.RockPredicate());
+            generateOre(world, random, chunkX, chunkZ, BlockRegistry.blockMetalOre.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.SILVER), 8, 4, 24, 6, new WorldGen.RockPredicate());
+            generateOre(world, random, chunkX, chunkZ, BlockRegistry.blockMetalOre.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.NICKEL), 20, 16, 64, 4, new WorldGen.RockPredicate());
+            generateOre(world, random, chunkX, chunkZ, BlockRegistry.blockMetalOre.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.PLATINUM), 5, 4, 32, 6, new WorldGen.RockPredicate());
+            generateOre(world, random, chunkX, chunkZ, BlockRegistry.blockMetalOre.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.MITHRIL), 4, 16, 64, 5, new WorldGen.RockPredicate());
+            generateOre(world, random, chunkX, chunkZ, BlockRegistry.blockMetalOre.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.ZINC), 15, 16, 64, 6, new WorldGen.RockPredicate());
         }
         else if(chunkGenerator instanceof ChunkProviderHell) {
-            generateOre(world, random, chunkX, chunkZ, BlockRegistry.blockMetalOre.getDefaultState().withProperty(BlockNetherOre.MATERIAL, EnumNether.NITRE), 20, 0, 128, 4, BlockMatcher.forBlock(Blocks.NETHERRACK));
-            generateOre(world, random, chunkX, chunkZ, BlockRegistry.blockMetalOre.getDefaultState().withProperty(BlockNetherOre.MATERIAL, EnumNether.SULFUR), 30, 0, 32, 6, BlockMatcher.forBlock(Blocks.NETHERRACK));
+            generateOre(world, random, chunkX, chunkZ, BlockRegistry.blockNetherOre.getDefaultState().withProperty(BlockNetherOre.MATERIAL, EnumNether.NITRE), 30, 0, 128, 4, new WorldGen.RockPredicate());
+            generateOre(world, random, chunkX, chunkZ, BlockRegistry.blockNetherOre.getDefaultState().withProperty(BlockNetherOre.MATERIAL, EnumNether.SULFUR), 30, 0, 48, 6, new WorldGen.RockPredicate());
         }
     }
 
@@ -78,6 +80,18 @@ public class WorldGen implements IWorldGenerator {
             BlockPos pos = new BlockPos((chunkX*16) + rand.nextInt(16), yMin + rand.nextInt(range), (chunkZ*16) + rand.nextInt(16));
             WorldGenMinable oreGen = new WorldGenMinable(blockState, veinSize, replacementPredicate);
             oreGen.generate(world, rand, pos);
+        }
+    }
+
+    static class RockPredicate implements Predicate<IBlockState>
+    {
+        private RockPredicate()
+        {
+        }
+
+        public boolean apply(IBlockState state)
+        {
+            return state.getMaterial() == Material.ROCK;
         }
     }
 }
