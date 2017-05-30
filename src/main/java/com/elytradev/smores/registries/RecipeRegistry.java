@@ -46,12 +46,15 @@ public class RecipeRegistry {
     public static void init() {
         // TODO: Disable the shit out of these.
         for(EnumMetal metal : EnumMetal.values()) {
-            constructShapedOreRecipe("ingot"+metal.getMaterialName(),1, new Object[]{"NNN", "NNN", "NNN", 'N', "nugget" + metal.getMaterialName()});
-            constructShapelessOreRecipe("nugget"+metal.getMaterialName(), 9, new Object[]{"ingot" + metal.getMaterialName()});
             constructShapedOreRecipe("gear"+metal.getMaterialName(), 1, new Object[]{"*M*", "MIM", "*M*", 'M', "ingot" + metal.getMaterialName(), 'I', "ingotIron"});
-            constructShapedOreRecipe("block"+metal.getMaterialName(), 1, new Object[]{"III", "III", "III", 'I', "ingot"+ metal.getMaterialName()});
-            constructShapelessOreRecipe("ingot"+metal.getMaterialName(), 9, new Object[]{"block"+ metal.getMaterialName()});
-            constructSmeltingRecipe("ore"+metal.getMaterialName(),"ingot"+metal.getMaterialName(),0.7f);
+            // Subverting vanilla recipes (or attempting to) is a Bad Thing(TM)
+            if(metal != EnumMetal.IRON && metal != EnumMetal.GOLD) {
+                constructShapedOreRecipe("ingot" + metal.getMaterialName(), 1, new Object[]{"NNN", "NNN", "NNN", 'N', "nugget" + metal.getMaterialName()});
+                constructShapelessOreRecipe("nugget" + metal.getMaterialName(), 9, new Object[]{"ingot" + metal.getMaterialName()});
+                constructShapedOreRecipe("block" + metal.getMaterialName(), 1, new Object[]{"III", "III", "III", 'I', "ingot" + metal.getMaterialName()});
+                constructShapelessOreRecipe("ingot" + metal.getMaterialName(), 9, new Object[]{"block" + metal.getMaterialName()});
+                constructSmeltingRecipe("ore" + metal.getMaterialName(), "ingot" + metal.getMaterialName(), 0.7f);
+            }
         }
 
         for(EnumAlloy alloy : EnumAlloy.values()) {
