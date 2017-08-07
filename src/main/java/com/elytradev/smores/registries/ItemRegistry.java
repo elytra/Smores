@@ -1,32 +1,28 @@
 /*
  * The MIT License (MIT)
- * =====================
  *
- * Copyright © 2017:
- *  Ethan Brooks (CalmBit),
- *  Isaac Ellingson (Falkreon),
- *  and contributors
+ * Copyright (c) 2017:
+ *     Ethan Brooks (CalmBit),
+ *     Isaac Ellingson (Falkreon),
+ *     and contributors
  *
- * Permission is hereby granted, free of charge, to any person
- * obtaining a copy of this software and associated documentation
- * files (the “Software”), to deal in the Software without
- * restriction, including without limitation the rights to use,
- * copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the
- * Software is furnished to do so, subject to the following
- * conditions:
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of
+ * this software and associated documentation files (the "Software"), to deal in
+ * the Software without restriction, including without limitation the rights to
+ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+ * of the Software, and to permit persons to whom the Software is furnished to do
+ * so, subject to the following conditions:
  *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
  *
- * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
- * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
- * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
- * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
- * OTHER DEALINGS IN THE SOFTWARE.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
  */
 
 package com.elytradev.smores.registries;
@@ -49,12 +45,12 @@ public class ItemRegistry {
 
     public static void init()
     {
-        itemIngot = registerItem(new ItemIngot()).setCreativeTab(Smores.smoresCreativeTab);
-        itemGem = registerItem(new ItemGem()).setCreativeTab(Smores.smoresCreativeTab);
-        itemDust = registerItem(new ItemDust()).setCreativeTab(Smores.smoresCreativeTab);
-        itemNugget = registerItem(new ItemNugget()).setCreativeTab(Smores.smoresCreativeTab);
-        itemPlate = registerItem(new ItemPlate()).setCreativeTab(Smores.smoresCreativeTab);
-        itemGear = registerItem(new ItemGear()).setCreativeTab(Smores.smoresCreativeTab);
+        itemIngot = registerItem(new ItemIngot()).setCreativeTab(Smores.CREATIVE_TAB);
+        itemGem = registerItem(new ItemGem()).setCreativeTab(Smores.CREATIVE_TAB);
+        itemDust = registerItem(new ItemDust()).setCreativeTab(Smores.CREATIVE_TAB);
+        itemNugget = registerItem(new ItemNugget()).setCreativeTab(Smores.CREATIVE_TAB);
+        itemPlate = registerItem(new ItemPlate()).setCreativeTab(Smores.CREATIVE_TAB);
+        itemGear = registerItem(new ItemGear()).setCreativeTab(Smores.CREATIVE_TAB);
     }
 
     private static <T extends Item> T registerItem(T item)

@@ -1,32 +1,28 @@
 /*
  * The MIT License (MIT)
- * =====================
  *
- * Copyright © 2017:
- *  Ethan Brooks (CalmBit),
- *  Isaac Ellingson (Falkreon),
- *  and contributors
+ * Copyright (c) 2017:
+ *     Ethan Brooks (CalmBit),
+ *     Isaac Ellingson (Falkreon),
+ *     and contributors
  *
- * Permission is hereby granted, free of charge, to any person
- * obtaining a copy of this software and associated documentation
- * files (the “Software”), to deal in the Software without
- * restriction, including without limitation the rights to use,
- * copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the
- * Software is furnished to do so, subject to the following
- * conditions:
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of
+ * this software and associated documentation files (the "Software"), to deal in
+ * the Software without restriction, including without limitation the rights to
+ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+ * of the Software, and to permit persons to whom the Software is furnished to do
+ * so, subject to the following conditions:
  *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
  *
- * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
- * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
- * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
- * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
- * OTHER DEALINGS IN THE SOFTWARE.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
  */
 
 package com.elytradev.smores.registries;
@@ -56,12 +52,12 @@ public class BlockRegistry {
 
     public static void init()
     {
-        blockMetalOre = registerBlock(new BlockMetalOre(), EnumMetal.class).setCreativeTab(Smores.smoresCreativeTab);
-        blockGemOre = registerBlock(new BlockGemOre(), EnumGem.class).setCreativeTab(Smores.smoresCreativeTab);
-        blockNetherOre = registerBlock(new BlockNetherOre(), EnumNether.class).setCreativeTab(Smores.smoresCreativeTab);
-        blockMetal = registerBlock(new BlockMetal(), EnumMetal.class).setCreativeTab(Smores.smoresCreativeTab);
-        blockAlloy = registerBlock(new BlockAlloy(), EnumAlloy.class).setCreativeTab(Smores.smoresCreativeTab);
-        blockGem = registerBlock(new BlockGem(), EnumGem.class).setCreativeTab(Smores.smoresCreativeTab);
+        blockMetalOre = registerBlock(new BlockMetalOre(), EnumMetal.class).setCreativeTab(Smores.CREATIVE_TAB);
+        blockGemOre = registerBlock(new BlockGemOre(), EnumGem.class).setCreativeTab(Smores.CREATIVE_TAB);
+        blockNetherOre = registerBlock(new BlockNetherOre(), EnumNether.class).setCreativeTab(Smores.CREATIVE_TAB);
+        blockMetal = registerBlock(new BlockMetal(), EnumMetal.class).setCreativeTab(Smores.CREATIVE_TAB);
+        blockAlloy = registerBlock(new BlockAlloy(), EnumAlloy.class).setCreativeTab(Smores.CREATIVE_TAB);
+        blockGem = registerBlock(new BlockGem(), EnumGem.class).setCreativeTab(Smores.CREATIVE_TAB);
     }
 
     private static <T extends Block & IBlockBase, V extends Enum<V>> T registerBlock(T block, Class<V> enumClass)
