@@ -28,7 +28,7 @@
 package com.elytradev.smores.proxy;
 
 import com.elytradev.smores.Smores;
-import com.elytradev.smores.items.ItemBlockSubtyped;
+import com.elytradev.smores.item.ItemBlockSubtyped;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -48,9 +48,8 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void registerItemRenderer(Item item, int meta, String id)
-    {
-        if(item instanceof ItemBlockSubtyped) {
+    public void registerItemRenderer(Item item, int meta, String id) {
+        if (item instanceof ItemBlockSubtyped) {
             ItemBlockSubtyped subtyped = (ItemBlockSubtyped)item;
             Block blockFromItem = subtyped.getBlock();
             IBlockState blockState = blockFromItem.getStateFromMeta(meta);
@@ -63,4 +62,5 @@ public class ClientProxy extends CommonProxy {
         else
             ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(Smores.MOD_ID + ":" + id, "inventory"));
     }
+
 }

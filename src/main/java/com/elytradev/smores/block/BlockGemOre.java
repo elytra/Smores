@@ -25,12 +25,12 @@
  * SOFTWARE.
  */
 
-package com.elytradev.smores.blocks;
+package com.elytradev.smores.block;
 
 import com.elytradev.smores.Smores;
 import com.elytradev.smores.generic.IOreDict;
+import com.elytradev.smores.init.SmoresItems;
 import com.elytradev.smores.materials.EnumGem;
-import com.elytradev.smores.registries.ItemRegistry;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
@@ -91,7 +91,7 @@ public class BlockGemOre extends BlockBase implements IOreDict {
     @Override
     public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(ItemRegistry.itemGem, 1, this.getMetaFromState(state)));
+        drops.add(new ItemStack(SmoresItems.gem, 1, this.getMetaFromState(state)));
         return drops;
     }
 

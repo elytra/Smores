@@ -27,8 +27,7 @@
 
 package com.elytradev.smores.generic;
 
-
-import com.elytradev.smores.registries.ItemRegistry;
+import com.elytradev.smores.init.SmoresItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
@@ -39,6 +38,6 @@ public class SmoresCreativeTab extends CreativeTabs {
 
     @Override
     public ItemStack getTabIconItem() {
-        return new ItemStack(ItemRegistry.itemIngot, 1, 0);
+        return new ItemStack(SmoresItems.ingot, 1, 0);
     }
 }

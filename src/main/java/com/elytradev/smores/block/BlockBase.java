@@ -25,18 +25,17 @@
  * SOFTWARE.
  */
 
-package com.elytradev.smores.blocks;
+package com.elytradev.smores.block;
 
 import com.elytradev.smores.Smores;
-import com.elytradev.smores.generic.IBlockBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlock;
 
-public class BlockBase extends Block implements IBlockBase {
+public abstract class BlockBase extends Block {
     protected String name;
-    public BlockBase(Material materialIn, String name)
+    protected BlockBase(Material materialIn, String name)
     {
         super(materialIn);
 
@@ -46,7 +45,6 @@ public class BlockBase extends Block implements IBlockBase {
         setRegistryName(name);
     }
 
-    @Override
     public void registerItemModel(ItemBlock itemBlock)
     {
         Smores.PROXY.registerItemRenderer(itemBlock, 0, name);

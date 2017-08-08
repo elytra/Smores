@@ -25,32 +25,26 @@
  * SOFTWARE.
  */
 
-package com.elytradev.smores.items;
+package com.elytradev.smores.init;
 
 import com.elytradev.smores.Smores;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
+import com.elytradev.smores.block.BlockBase;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class ItemBase extends Item {
+/**
+ * A final class containing all of the various blocks in Smores.
+ */
+@GameRegistry.ObjectHolder(Smores.MOD_ID)
+public final class SmoresBlocks {
 
-    protected String name;
+    public static final BlockBase metal_ore = null;
+    public static final BlockBase gem_ore = null;
+    public static final BlockBase nether_ore = null;
+    public static final BlockBase metal_block = null;
+    public static final BlockBase alloy_block = null;
+    public static final BlockBase gem_block = null;
 
-    public ItemBase(String name)
-    {
-        this.name = name;
-        setUnlocalizedName(Smores.MOD_ID+"."+name);
-        setRegistryName(name);
+    private SmoresBlocks() {
     }
 
-    public void registerItemModel()
-    {
-        Smores.PROXY.registerItemRenderer(this, 0, name);
-    }
-
-    @Override
-    public ItemBase setCreativeTab(CreativeTabs tab)
-    {
-        super.setCreativeTab(tab);
-        return this;
-    }
 }

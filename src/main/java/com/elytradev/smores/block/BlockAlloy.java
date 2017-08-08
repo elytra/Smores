@@ -25,13 +25,11 @@
  * SOFTWARE.
  */
 
-package com.elytradev.smores.blocks;
+package com.elytradev.smores.block;
 
 import com.elytradev.smores.Smores;
 import com.elytradev.smores.generic.IOreDict;
-import com.elytradev.smores.items.ItemDust;
-import com.elytradev.smores.materials.EnumNether;
-import com.elytradev.smores.registries.ItemRegistry;
+import com.elytradev.smores.materials.EnumAlloy;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
@@ -41,33 +39,29 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.oredict.OreDictionary;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
-public class BlockNetherOre extends BlockBase implements IOreDict {
+public class BlockAlloy extends BlockBase implements IOreDict {
 
-    public static PropertyEnum<EnumNether> MATERIAL = PropertyEnum.create("material", EnumNether.class);
+    public static PropertyEnum<EnumAlloy> ALLOY = PropertyEnum.create("alloy", EnumAlloy.class);
 
-    public BlockNetherOre() {
-        super(Material.ROCK, "nether_ore");
-        this.setHardness(3.0f);
+    public BlockAlloy() {
+        super(Material.IRON, "alloy_block");
+        this.setHardness(5.0f);
         this.setHarvestLevel("pickaxe", 2);
-        this.setDefaultState(this.getDefaultState().withProperty(MATERIAL, EnumNether.SULFUR));
+        this.setDefaultState(this.getDefaultState().withProperty(ALLOY, EnumAlloy.ELECTRUM));
     }
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, MATERIAL);
+        return new BlockStateContainer(this, ALLOY);
     }
 
     @Override
     public int getMetaFromState(IBlockState state) {
-        return state.getValue(MATERIAL).getId();
+        return state.getValue(ALLOY).getId();
     }
 
     @Override
@@ -77,13 +71,13 @@ public class BlockNetherOre extends BlockBase implements IOreDict {
 
     @Override
     public IBlockState getStateFromMeta(int meta) {
-        return this.getDefaultState().withProperty(MATERIAL, EnumNether.values()[meta]);
+        return this.getDefaultState().withProperty(ALLOY, EnumAlloy.values()[meta]);
     }
 
     @Override
     public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list) {
         int iterator = 0;
-        for(EnumNether material : EnumNether.values()) {
+        for(EnumAlloy alloy : EnumAlloy.values()) {
             list.add(new ItemStack(itemIn, 1, iterator));
             iterator++;
         }
@@ -93,24 +87,16 @@ public class BlockNetherOre extends BlockBase implements IOreDict {
     public void registerItemModel(ItemBlock block)
     {
         int iterator = 0;
-        for(EnumNether material : EnumNether.values()) {
+        for(EnumAlloy material : EnumAlloy.values()) {
             Smores.PROXY.registerItemRenderer(block,iterator, super.getUnlocalizedName() + "_" + material.toString().toLowerCase(Locale.ROOT));
             iterator++;
         }
     }
 
     @Override
-    public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
-        List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(ItemRegistry.itemDust, 1 + RANDOM.nextInt(3), ItemDust.getMaterialIndex(state.getValue(MATERIAL).getMaterialName())));
-        return drops;
-    }
-
-
-    @Override
     public void registerOreDict() {
-        for(EnumNether material : EnumNether.values()) {
-            OreDictionary.registerOre("ore"+material.getMaterialName(), new ItemStack(this, 1, material.getId()));
+        for(EnumAlloy material : EnumAlloy.values()) {
+            OreDictionary.registerOre("block"+material.getMaterialName(), new ItemStack(this, 1, material.getId()));
         }
     }
 }

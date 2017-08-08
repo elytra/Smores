@@ -25,12 +25,13 @@
  * SOFTWARE.
  */
 
-package com.elytradev.smores.items;
+package com.elytradev.smores.item;
 
 import com.elytradev.smores.Smores;
 import com.elytradev.smores.generic.IOreDict;
 import com.elytradev.smores.materials.EnumAlloy;
 import com.elytradev.smores.materials.EnumMetal;
+import com.elytradev.smores.materials.EnumNether;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -43,22 +44,24 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 
-public class ItemNugget extends ItemBase implements IOreDict {
+public class ItemDust extends ItemBase implements IOreDict {
     private static ArrayList<String> materials;
 
-    public ItemNugget() {
-        super("nugget");
+    public ItemDust() {
+        super("dust");
         this.setMaxDamage(0);
         this.setHasSubtypes(true);
 
         if(materials == null) {
             materials = new ArrayList<String>();
             for(EnumMetal metal : EnumMetal.values()) {
-            	if (metal==EnumMetal.IRON || metal==EnumMetal.GOLD) continue;
                 materials.add(metal.getMaterialName());
             }
             for(EnumAlloy alloy : EnumAlloy.values()) {
                 materials.add(alloy.getMaterialName());
+            }
+            for(EnumNether nether : EnumNether.values()) {
+                materials.add(nether.getMaterialName());
             }
         }
     }
@@ -79,7 +82,7 @@ public class ItemNugget extends ItemBase implements IOreDict {
     @Override
     public void registerOreDict() {
         for(String material : materials) {
-            OreDictionary.registerOre("nugget"+material, new ItemStack(this, 1, materials.indexOf(material)));
+            OreDictionary.registerOre("dust"+material, new ItemStack(this, 1, materials.indexOf(material)));
         }
     }
 
@@ -87,7 +90,11 @@ public class ItemNugget extends ItemBase implements IOreDict {
     public void registerItemModel()
     {
         for(String material : materials) {
-            Smores.PROXY.registerItemRenderer(this, materials.indexOf(material), "nugget_" + material.toLowerCase(Locale.ROOT));
+            Smores.PROXY.registerItemRenderer(this, materials.indexOf(material), "dust_" + material.toLowerCase(Locale.ROOT));
         }
+    }
+
+    public static int getMaterialIndex(String materialName) {
+        return materials.indexOf(materialName);
     }
 }

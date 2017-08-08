@@ -25,7 +25,7 @@
  * SOFTWARE.
  */
 
-package com.elytradev.smores.blocks;
+package com.elytradev.smores.block;
 
 import com.elytradev.smores.Smores;
 import com.elytradev.smores.generic.IOreDict;

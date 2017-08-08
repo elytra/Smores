@@ -25,46 +25,26 @@
  * SOFTWARE.
  */
 
-package com.elytradev.smores.registries;
+package com.elytradev.smores.init;
 
 import com.elytradev.smores.Smores;
-import com.elytradev.smores.generic.IOreDict;
-import com.elytradev.smores.items.*;
-import net.minecraft.item.Item;
+import com.elytradev.smores.item.ItemBase;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class ItemRegistry {
+/**
+ * A final class containing all of the various items in Smores.
+ */
+@GameRegistry.ObjectHolder(Smores.MOD_ID)
+public final class SmoresItems {
 
+    public static final ItemBase ingot = null;
+    public static final ItemBase gem = null;
+    public static final ItemBase dust = null;
+    public static final ItemBase nugget = null;
+    public static final ItemBase plate = null;
+    public static final ItemBase gear = null;
 
-    public static ItemBase itemIngot;
-    public static ItemBase itemGem;
-    public static ItemBase itemDust;
-    public static ItemBase itemNugget;
-    public static ItemBase itemPlate;
-    public static ItemBase itemGear;
-
-    public static void init()
-    {
-        itemIngot = registerItem(new ItemIngot()).setCreativeTab(Smores.CREATIVE_TAB);
-        itemGem = registerItem(new ItemGem()).setCreativeTab(Smores.CREATIVE_TAB);
-        itemDust = registerItem(new ItemDust()).setCreativeTab(Smores.CREATIVE_TAB);
-        itemNugget = registerItem(new ItemNugget()).setCreativeTab(Smores.CREATIVE_TAB);
-        itemPlate = registerItem(new ItemPlate()).setCreativeTab(Smores.CREATIVE_TAB);
-        itemGear = registerItem(new ItemGear()).setCreativeTab(Smores.CREATIVE_TAB);
+    private SmoresItems() {
     }
 
-    private static <T extends Item> T registerItem(T item)
-    {
-        GameRegistry.register(item);
-
-        if(item instanceof ItemBase)
-        {
-            ((ItemBase)item).registerItemModel();
-        }
-        if(item instanceof IOreDict)
-        {
-            ((IOreDict)item).registerOreDict();
-        }
-        return item;
-    }
 }

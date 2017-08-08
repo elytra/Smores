@@ -25,34 +25,32 @@
  * SOFTWARE.
  */
 
-package com.elytradev.smores.items;
+package com.elytradev.smores.item;
 
+import com.elytradev.smores.Smores;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
+public abstract class ItemBase extends Item {
 
-import java.util.Locale;
+    protected String name;
 
-public class ItemBlockSubtyped<T extends Enum<T>> extends ItemBlock {
+    protected ItemBase(String name)
+    {
+        this.name = name;
+        setUnlocalizedName(Smores.MOD_ID+"."+name);
+        setRegistryName(name);
+    }
 
-    private T[] typedEnumConstants;
-
-    public ItemBlockSubtyped(Block block, Class<T> enumClass) {
-        super(block);
-        this.setRegistryName(block.getRegistryName());
-        this.setMaxDamage(0);
-        this.setHasSubtypes(true);
-        typedEnumConstants = enumClass.getEnumConstants();
+    public void registerItemModel()
+    {
+        Smores.PROXY.registerItemRenderer(this, 0, name);
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack stack) {
-        return this.getUnlocalizedName() + "_" + typedEnumConstants[stack.getItemDamage()].toString().toLowerCase(Locale.ROOT);
-    }
-
-    @Override
-    public int getMetadata(int damage) {
-        return damage;
+    public ItemBase setCreativeTab(CreativeTabs tab)
+    {
+        super.setCreativeTab(tab);
+        return this;
     }
 }
