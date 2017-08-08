@@ -35,15 +35,14 @@ public class IMCHandler {
     public static void handleIMCMessage(FMLInterModComms.IMCMessage message) {
         final String[] split = message.key.split("\\(");
 
-        if(split.length <= 0) {
+        if (split.length <= 0) {
             Smores.LOG.error("IMC Error - " + message.key + " doesn't seem to split correctly...");
             return;
         }
 
-        switch(split[0]) {
+        switch (split[0]) {
             case "setRecipeEnabled":
-                if(!message.isStringMessage())
-                {
+                if (!message.isStringMessage()) {
                     Smores.LOG.error("IMC Error - voteRecipe requires a string message, got " + message.getMessageType().toString());
                     return;
                 }
@@ -56,7 +55,7 @@ public class IMCHandler {
         RecipeVoteCandidate candidate = RecipeVoteCandidate.getRecipeCandidate(value);
 
         // Really stupid temporary hack, plzfix
-        if(candidate != null) {
+        if (candidate != null) {
             Boolean vote = key.matches("setRecipeEnabled\\(true\\)");
             try {
                 RecipeBallot.INSTANCE.voteInBallot(candidate, vote);
@@ -65,4 +64,5 @@ public class IMCHandler {
             }
         }
     }
+
 }

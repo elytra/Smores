@@ -83,18 +83,17 @@ public class BlockNetherOre extends BlockBase implements IOreDict {
     @Override
     public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list) {
         int iterator = 0;
-        for(EnumNether material : EnumNether.values()) {
+        for (EnumNether material : EnumNether.values()) {
             list.add(new ItemStack(itemIn, 1, iterator));
             iterator++;
         }
     }
 
     @Override
-    public void registerItemModel(ItemBlock block)
-    {
+    public void registerItemModel(ItemBlock block) {
         int iterator = 0;
-        for(EnumNether material : EnumNether.values()) {
-            Smores.PROXY.registerItemRenderer(block,iterator, super.getUnlocalizedName() + "_" + material.toString().toLowerCase(Locale.ROOT));
+        for (EnumNether material : EnumNether.values()) {
+            Smores.PROXY.registerItemRenderer(block, iterator, super.getUnlocalizedName() + "_" + material.toString().toLowerCase(Locale.ROOT));
             iterator++;
         }
     }
@@ -109,8 +108,9 @@ public class BlockNetherOre extends BlockBase implements IOreDict {
 
     @Override
     public void registerOreDict() {
-        for(EnumNether material : EnumNether.values()) {
-            OreDictionary.registerOre("ore"+material.getMaterialName(), new ItemStack(this, 1, material.getId()));
+        for (EnumNether material : EnumNether.values()) {
+            OreDictionary.registerOre("ore" + material.getMaterialName(), new ItemStack(this, 1, material.getId()));
         }
     }
+
 }

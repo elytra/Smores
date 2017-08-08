@@ -27,7 +27,6 @@
 
 package com.elytradev.smores.item;
 
-
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -55,4 +54,5 @@ public class ItemBlockSubtyped<T extends Enum<T>> extends ItemBlock {
     public int getMetadata(int damage) {
         return damage;
     }
+
 }

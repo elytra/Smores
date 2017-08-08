@@ -33,6 +33,7 @@ import net.minecraft.util.IStringSerializable;
 import java.util.Locale;
 
 public enum EnumMisc implements IStringSerializable {
+
     MERCURY("Mercury", 0);
 
     private String materialName;

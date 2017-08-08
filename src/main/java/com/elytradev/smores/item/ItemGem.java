@@ -41,8 +41,8 @@ import net.minecraftforge.oredict.OreDictionary;
 import java.util.ArrayList;
 import java.util.Locale;
 
-
 public class ItemGem extends ItemBase implements IOreDict {
+
     private static ArrayList<String> materials;
 
     public ItemGem() {
@@ -50,9 +50,9 @@ public class ItemGem extends ItemBase implements IOreDict {
         this.setMaxDamage(0);
         this.setHasSubtypes(true);
 
-        if(materials == null) {
-            materials = new ArrayList<String>();
-            for(EnumGem gem : EnumGem.values()) {
+        if (materials == null) {
+            materials = new ArrayList<>();
+            for (EnumGem gem : EnumGem.values()) {
                 materials.add(gem.getMaterialName());
             }
         }
@@ -61,7 +61,7 @@ public class ItemGem extends ItemBase implements IOreDict {
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
-        for(String material : materials) {
+        for (String material : materials) {
             subItems.add(new ItemStack(this, 1, materials.indexOf(material)));
         }
     }
@@ -73,16 +73,16 @@ public class ItemGem extends ItemBase implements IOreDict {
 
     @Override
     public void registerOreDict() {
-        for(String material : materials) {
-            OreDictionary.registerOre("gem"+material, new ItemStack(this, 1, materials.indexOf(material)));
+        for (String material : materials) {
+            OreDictionary.registerOre("gem" + material, new ItemStack(this, 1, materials.indexOf(material)));
         }
     }
 
     @Override
-    public void registerItemModel()
-    {
-        for(String material : materials) {
+    public void registerItemModel() {
+        for (String material : materials) {
             Smores.PROXY.registerItemRenderer(this, materials.indexOf(material), "gem_" + material.toLowerCase(Locale.ROOT));
         }
     }
+
 }

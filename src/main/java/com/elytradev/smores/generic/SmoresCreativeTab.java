@@ -32,6 +32,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
 public class SmoresCreativeTab extends CreativeTabs {
+
     public SmoresCreativeTab(String label) {
         super(label);
     }
@@ -40,4 +41,5 @@ public class SmoresCreativeTab extends CreativeTabs {
     public ItemStack getTabIconItem() {
         return new ItemStack(SmoresItems.ingot, 1, 0);
     }
+
 }

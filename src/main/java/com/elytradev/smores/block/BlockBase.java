@@ -34,26 +34,25 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlock;
 
 public abstract class BlockBase extends Block {
-    protected String name;
-    protected BlockBase(Material materialIn, String name)
-    {
-        super(materialIn);
 
+    protected String name;
+
+    protected BlockBase(Material materialIn, String name) {
+        super(materialIn);
         this.name = name;
 
-        setUnlocalizedName(Smores.MOD_ID+"."+name);
-        setRegistryName(name);
+        this.setUnlocalizedName(Smores.MOD_ID + "." + name);
+        this.setRegistryName(name);
     }
 
-    public void registerItemModel(ItemBlock itemBlock)
-    {
+    public void registerItemModel(ItemBlock itemBlock) {
         Smores.PROXY.registerItemRenderer(itemBlock, 0, name);
     }
 
     @Override
-    public BlockBase setCreativeTab(CreativeTabs tab)
-    {
+    public BlockBase setCreativeTab(CreativeTabs tab) {
         super.setCreativeTab(tab);
         return this;
     }
+
 }

@@ -41,10 +41,9 @@ public enum EnumMetal implements IStringSerializable {
     PLATINUM("Platinum", 5),
     MITHRIL("Mithril", 6),
     ZINC("Zinc", 7),
-	IRON("Iron", 8),
-	GOLD("Gold", 9),
-	;
-	
+    IRON("Iron", 8),
+    GOLD("Gold", 9),;
+
     private String materialName;
     public int id;
 
@@ -61,7 +60,6 @@ public enum EnumMetal implements IStringSerializable {
         return this.materialName;
     }
 
-
     public int getId() {
         return this.id;
     }
@@ -69,4 +67,5 @@ public enum EnumMetal implements IStringSerializable {
     public EnumItem[] getTypes() {
         return new EnumItem[]{EnumItem.INGOT, EnumItem.ORE, EnumItem.DUST, EnumItem.PLATE, EnumItem.GEAR};
     }
+
 }

@@ -33,10 +33,9 @@ import java.util.Optional;
 
 public class RecipeBallot {
 
-    private HashMap<RecipeVoteCandidate, ArrayList<Optional<Boolean>>> ballotBox;
-
-
     public static RecipeBallot INSTANCE = new RecipeBallot();
+
+    private HashMap<RecipeVoteCandidate, ArrayList<Optional<Boolean>>> ballotBox;
 
     private RecipeBallot() {
         this.ballotBox = new HashMap<>();
@@ -47,7 +46,7 @@ public class RecipeBallot {
     }
 
     public void voteInBallot(RecipeVoteCandidate candidate, Boolean option) {
-        if(!ballotBox.containsKey(candidate)) {
+        if (!ballotBox.containsKey(candidate)) {
             throw new IllegalArgumentException("Candidate " + candidate.recipeName + " hasn't been registered in the ballot");
         }
         this.ballotBox.get(candidate).add(Optional.ofNullable(option));

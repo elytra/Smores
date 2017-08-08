@@ -28,6 +28,7 @@
 package com.elytradev.smores.materials;
 
 public enum EnumItem {
+
     INGOT("Ingot"),
     GEM("Gem"),
     ORE("Ore"),
@@ -44,4 +45,5 @@ public enum EnumItem {
     public String getName() {
         return name;
     }
+
 }

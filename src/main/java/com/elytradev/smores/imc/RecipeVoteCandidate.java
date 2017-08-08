@@ -33,6 +33,7 @@ import net.minecraft.item.crafting.IRecipe;
 import java.util.HashMap;
 
 public class RecipeVoteCandidate {
+
     private static HashMap<String, RecipeVoteCandidate> RECIPE_CANDIDATES = new HashMap<>();
 
     public String recipeName;
@@ -48,7 +49,7 @@ public class RecipeVoteCandidate {
     }
 
     public static RecipeVoteCandidate getRecipeCandidate(String recipeName) {
-        if(!RECIPE_CANDIDATES.containsKey(recipeName)) {
+        if (!RECIPE_CANDIDATES.containsKey(recipeName)) {
             Smores.LOG.error("RecipeVoteCandidate error - cannot find candidate with name " + recipeName);
             return null;
         }
@@ -58,9 +59,10 @@ public class RecipeVoteCandidate {
 
     @Override
     public boolean equals(Object obj) {
-        if(obj instanceof  RecipeVoteCandidate) {
-            return ((RecipeVoteCandidate)obj).recipeName == this.recipeName;
+        if (obj instanceof RecipeVoteCandidate) {
+            return ((RecipeVoteCandidate) obj).recipeName == this.recipeName;
         }
         return false;
     }
+
 }

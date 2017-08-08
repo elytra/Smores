@@ -32,6 +32,7 @@ import net.minecraft.util.IStringSerializable;
 import java.util.Locale;
 
 public enum EnumGem implements IStringSerializable {
+
     RUBY("Ruby", 0),
     SAPPHIRE("Sapphire", 1),
     PERIDOT("Peridot", 2);
@@ -52,7 +53,6 @@ public enum EnumGem implements IStringSerializable {
         return this.materialName;
     }
 
-
     public int getId() {
         return id;
     }
@@ -60,4 +60,5 @@ public enum EnumGem implements IStringSerializable {
     public EnumItem[] getTypes() {
         return new EnumItem[]{EnumItem.GEM, EnumItem.ORE};
     }
+
 }

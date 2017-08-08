@@ -39,42 +39,47 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class RecipeRegistry {
+
     public static void init() {
         // TODO: Disable the shit out of these.
-        for(EnumMetal metal : EnumMetal.values()) {
-            constructShapedOreRecipe("gear"+metal.getMaterialName(), 1, new Object[]{"*M*", "MIM", "*M*", 'M', "ingot" + metal.getMaterialName(), 'I', "ingotIron"});
+        for (EnumMetal metal : EnumMetal.values()) {
+            constructShapedOreRecipe("gear" + metal.getMaterialName(), 1,
+                    new Object[]{"*M*", "MIM", "*M*", 'M', "ingot" + metal.getMaterialName(), 'I', "ingotIron"});
             // Subverting vanilla recipes (or attempting to) is a Bad Thing(TM)
-            if(metal != EnumMetal.IRON && metal != EnumMetal.GOLD) {
-                constructShapedOreRecipe("ingot" + metal.getMaterialName(), 1, new Object[]{"NNN", "NNN", "NNN", 'N', "nugget" + metal.getMaterialName()});
+            if (metal != EnumMetal.IRON && metal != EnumMetal.GOLD) {
+                constructShapedOreRecipe("ingot" + metal.getMaterialName(), 1,
+                        new Object[]{"NNN", "NNN", "NNN", 'N', "nugget" + metal.getMaterialName()});
                 constructShapelessOreRecipe("nugget" + metal.getMaterialName(), 9, new Object[]{"ingot" + metal.getMaterialName()});
-                constructShapedOreRecipe("block" + metal.getMaterialName(), 1, new Object[]{"III", "III", "III", 'I', "ingot" + metal.getMaterialName()});
+                constructShapedOreRecipe("block" + metal.getMaterialName(), 1,
+                        new Object[]{"III", "III", "III", 'I', "ingot" + metal.getMaterialName()});
                 constructShapelessOreRecipe("ingot" + metal.getMaterialName(), 9, new Object[]{"block" + metal.getMaterialName()});
                 constructSmeltingRecipe("ore" + metal.getMaterialName(), "ingot" + metal.getMaterialName(), 0.7f);
             }
         }
 
-        for(EnumAlloy alloy : EnumAlloy.values()) {
-            constructShapedOreRecipe("ingot"+alloy.getMaterialName(),1, new Object[]{"NNN", "NNN", "NNN", 'N', "nugget" + alloy.getMaterialName()});
-            constructShapelessOreRecipe("nugget"+alloy.getMaterialName(), 9, new Object[]{"ingot" + alloy.getMaterialName()});
-            constructShapedOreRecipe("gear"+alloy.getMaterialName(), 1, new Object[]{"*M*", "MIM", "*M*", 'M', "ingot" + alloy.getMaterialName(), 'I', "ingotIron"});
-            constructShapedOreRecipe("block"+alloy.getMaterialName(), 1, new Object[]{"III", "III", "III", 'I', "ingot"+ alloy.getMaterialName()});
-            constructShapelessOreRecipe("ingot"+alloy.getMaterialName(), 9, new Object[]{"block"+ alloy.getMaterialName()});
-            constructSmeltingRecipe("ore"+alloy.getMaterialName(),"ingot"+alloy.getMaterialName(),0.7f);
+        for (EnumAlloy alloy : EnumAlloy.values()) {
+            constructShapedOreRecipe("ingot" + alloy.getMaterialName(), 1,
+                    new Object[]{"NNN", "NNN", "NNN", 'N', "nugget" + alloy.getMaterialName()});
+            constructShapelessOreRecipe("nugget" + alloy.getMaterialName(), 9, new Object[]{"ingot" + alloy.getMaterialName()});
+            constructShapedOreRecipe("gear" + alloy.getMaterialName(), 1,
+                    new Object[]{"*M*", "MIM", "*M*", 'M', "ingot" + alloy.getMaterialName(), 'I', "ingotIron"});
+            constructShapedOreRecipe("block" + alloy.getMaterialName(), 1, new Object[]{"III", "III", "III", 'I', "ingot" + alloy.getMaterialName()});
+            constructShapelessOreRecipe("ingot" + alloy.getMaterialName(), 9, new Object[]{"block" + alloy.getMaterialName()});
+            constructSmeltingRecipe("ore" + alloy.getMaterialName(), "ingot" + alloy.getMaterialName(), 0.7f);
         }
 
-        for(EnumGem gem : EnumGem.values()) {
-            constructShapedOreRecipe("block"+gem.getMaterialName(), 1,new Object[]{"GGG", "GGG", "GGG", 'G', "gem" + gem.getMaterialName()});
-            constructShapelessOreRecipe("gem"+gem.getMaterialName(), 9, new Object[]{"block"+ gem.getMaterialName()});
-            constructSmeltingRecipe("ore"+gem.getMaterialName(), "gem"+gem.getMaterialName(), 1.0f);
+        for (EnumGem gem : EnumGem.values()) {
+            constructShapedOreRecipe("block" + gem.getMaterialName(), 1, new Object[]{"GGG", "GGG", "GGG", 'G', "gem" + gem.getMaterialName()});
+            constructShapelessOreRecipe("gem" + gem.getMaterialName(), 9, new Object[]{"block" + gem.getMaterialName()});
+            constructSmeltingRecipe("ore" + gem.getMaterialName(), "gem" + gem.getMaterialName(), 1.0f);
         }
     }
 
     private static void constructShapedOreRecipe(String product, int count, Object[] recipe) {
         NonNullList<ItemStack> products = OreDictionary.getOres(product);
-        if(products.size() <= 0) {
+        if (products.size() <= 0) {
             Smores.LOG.error("Couldn't get an OreDict reference for " + product + " - failed to register recipe!");
-        }
-        else {
+        } else {
             ItemStack productStack = products.get(0).copy();
             productStack.setCount(count);
             GameRegistry.addRecipe(new ShapedOreRecipe(productStack, recipe));
@@ -83,10 +88,9 @@ public class RecipeRegistry {
 
     private static void constructShapelessOreRecipe(String product, int count, Object[] recipe) {
         NonNullList<ItemStack> products = OreDictionary.getOres(product);
-        if(products.size() <= 0) {
+        if (products.size() <= 0) {
             Smores.LOG.error("Couldn't get an OreDict reference for " + product + " - failed to register recipe!");
-        }
-        else {
+        } else {
             ItemStack productStack = products.get(0).copy();
             productStack.setCount(count);
             GameRegistry.addRecipe(new ShapelessOreRecipe(productStack, recipe));
@@ -97,10 +101,11 @@ public class RecipeRegistry {
         NonNullList<ItemStack> supplies = OreDictionary.getOres(supply);
         NonNullList<ItemStack> products = OreDictionary.getOres(product);
 
-        if(supplies.size() != 0 && products.size() != 0) {
+        if (supplies.size() != 0 && products.size() != 0) {
             ItemStack supplyStack = supplies.get(0).copy();
             ItemStack productStack = products.get(0).copy();
-            GameRegistry.addSmelting(supplyStack, productStack , exp);
+            GameRegistry.addSmelting(supplyStack, productStack, exp);
         }
     }
+
 }

@@ -42,8 +42,8 @@ import net.minecraftforge.oredict.OreDictionary;
 import java.util.ArrayList;
 import java.util.Locale;
 
-
 public class ItemNugget extends ItemBase implements IOreDict {
+
     private static ArrayList<String> materials;
 
     public ItemNugget() {
@@ -51,13 +51,15 @@ public class ItemNugget extends ItemBase implements IOreDict {
         this.setMaxDamage(0);
         this.setHasSubtypes(true);
 
-        if(materials == null) {
-            materials = new ArrayList<String>();
-            for(EnumMetal metal : EnumMetal.values()) {
-            	if (metal==EnumMetal.IRON || metal==EnumMetal.GOLD) continue;
+        if (materials == null) {
+            materials = new ArrayList<>();
+            for (EnumMetal metal : EnumMetal.values()) {
+                if (metal == EnumMetal.IRON || metal == EnumMetal.GOLD) {
+                    continue;
+                }
                 materials.add(metal.getMaterialName());
             }
-            for(EnumAlloy alloy : EnumAlloy.values()) {
+            for (EnumAlloy alloy : EnumAlloy.values()) {
                 materials.add(alloy.getMaterialName());
             }
         }
@@ -66,7 +68,7 @@ public class ItemNugget extends ItemBase implements IOreDict {
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
-        for(String material : materials) {
+        for (String material : materials) {
             subItems.add(new ItemStack(this, 1, materials.indexOf(material)));
         }
     }
@@ -78,16 +80,16 @@ public class ItemNugget extends ItemBase implements IOreDict {
 
     @Override
     public void registerOreDict() {
-        for(String material : materials) {
-            OreDictionary.registerOre("nugget"+material, new ItemStack(this, 1, materials.indexOf(material)));
+        for (String material : materials) {
+            OreDictionary.registerOre("nugget" + material, new ItemStack(this, 1, materials.indexOf(material)));
         }
     }
 
     @Override
-    public void registerItemModel()
-    {
-        for(String material : materials) {
+    public void registerItemModel() {
+        for (String material : materials) {
             Smores.PROXY.registerItemRenderer(this, materials.indexOf(material), "nugget_" + material.toLowerCase(Locale.ROOT));
         }
     }
+
 }

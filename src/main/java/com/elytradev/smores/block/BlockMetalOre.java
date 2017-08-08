@@ -41,8 +41,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.oredict.OreDictionary;
 
-import javax.annotation.Nullable;
 import java.util.Locale;
+
+import javax.annotation.Nullable;
 
 public class BlockMetalOre extends BlockBase implements IOreDict {
 
@@ -87,25 +88,25 @@ public class BlockMetalOre extends BlockBase implements IOreDict {
 
     @Override
     public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list) {
-        for(EnumMetal metal : METAL.getAllowedValues()) {
+        for (EnumMetal metal : METAL.getAllowedValues()) {
             list.add(new ItemStack(itemIn, 1, metal.getId()));
         }
     }
 
     @Override
-    public void registerItemModel(ItemBlock block)
-    {
+    public void registerItemModel(ItemBlock block) {
         int iterator = 0;
-        for(EnumMetal metal : METAL.getAllowedValues()) {
-            Smores.PROXY.registerItemRenderer(block,iterator, super.getUnlocalizedName() + "_" + metal.toString().toLowerCase(Locale.ROOT));
+        for (EnumMetal metal : METAL.getAllowedValues()) {
+            Smores.PROXY.registerItemRenderer(block, iterator, super.getUnlocalizedName() + "_" + metal.toString().toLowerCase(Locale.ROOT));
             iterator++;
         }
     }
 
     @Override
     public void registerOreDict() {
-    	for(EnumMetal metal : METAL.getAllowedValues()) {
-            OreDictionary.registerOre("ore"+metal.getMaterialName(), new ItemStack(this, 1, metal.getId()));
+        for (EnumMetal metal : METAL.getAllowedValues()) {
+            OreDictionary.registerOre("ore" + metal.getMaterialName(), new ItemStack(this, 1, metal.getId()));
         }
     }
+
 }

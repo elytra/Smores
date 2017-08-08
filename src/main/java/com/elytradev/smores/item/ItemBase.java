@@ -35,22 +35,20 @@ public abstract class ItemBase extends Item {
 
     protected String name;
 
-    protected ItemBase(String name)
-    {
+    protected ItemBase(String name) {
         this.name = name;
-        setUnlocalizedName(Smores.MOD_ID+"."+name);
-        setRegistryName(name);
+        this.setUnlocalizedName(Smores.MOD_ID + "." + name);
+        this.setRegistryName(name);
     }
 
-    public void registerItemModel()
-    {
+    public void registerItemModel() {
         Smores.PROXY.registerItemRenderer(this, 0, name);
     }
 
     @Override
-    public ItemBase setCreativeTab(CreativeTabs tab)
-    {
+    public ItemBase setCreativeTab(CreativeTabs tab) {
         super.setCreativeTab(tab);
         return this;
     }
+
 }

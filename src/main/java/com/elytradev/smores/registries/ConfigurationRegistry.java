@@ -29,7 +29,12 @@ package com.elytradev.smores.registries;
 
 import com.elytradev.smores.Smores;
 import com.elytradev.smores.imc.EnumResourceSelection;
-import com.elytradev.smores.materials.*;
+import com.elytradev.smores.materials.EnumAlloy;
+import com.elytradev.smores.materials.EnumGem;
+import com.elytradev.smores.materials.EnumItem;
+import com.elytradev.smores.materials.EnumMetal;
+import com.elytradev.smores.materials.EnumMisc;
+import com.elytradev.smores.materials.EnumNether;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 
@@ -51,60 +56,59 @@ public class ConfigurationRegistry {
             Property defaultProperty = config.get(Configuration.CATEGORY_GENERAL, "default", "imc");
             defaultConfiguration = defaultProperty.getString();
 
-            for(EnumItem item : EnumItem.values()) {
-                String key  ="all"+item.getName()+"s";
-                Property itemProperty = config.get(CATEGORY_OVERRIDES, key , "unchanged");
+            for (EnumItem item : EnumItem.values()) {
+                String key = "all" + item.getName() + "s";
+                Property itemProperty = config.get(CATEGORY_OVERRIDES, key, "unchanged");
                 overridingDefaults.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
             }
 
-            for(EnumAlloy alloy : EnumAlloy.values()) {
-                for(EnumItem type : alloy.getTypes()) {
-                    String key = type.getName().toLowerCase(Locale.ROOT)+alloy.getMaterialName();
-                    Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(Locale.ROOT),
-                           key, "unchanged");
-                    resourceConfigurations.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
-                }
-            }
-
-            for(EnumGem gem : EnumGem.values()) {
-                for(EnumItem type : gem.getTypes()) {
-                    String key = type.getName().toLowerCase(Locale.ROOT)+gem.getMaterialName();
-                    Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(Locale.ROOT),
+            for (EnumAlloy alloy : EnumAlloy.values()) {
+                for (EnumItem type : alloy.getTypes()) {
+                    String key = type.getName().toLowerCase(Locale.ROOT) + alloy.getMaterialName();
+                    Property itemProperty = config.get(CATEGORY_OVERRIDES + "." + type.getName().toLowerCase(Locale.ROOT),
                             key, "unchanged");
                     resourceConfigurations.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
                 }
             }
 
-            for(EnumMetal metal : EnumMetal.values()) {
-                for(EnumItem type : metal.getTypes()) {
-                    String key = type.getName().toLowerCase(Locale.ROOT)+metal.getMaterialName();
-                    Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(Locale.ROOT),
+            for (EnumGem gem : EnumGem.values()) {
+                for (EnumItem type : gem.getTypes()) {
+                    String key = type.getName().toLowerCase(Locale.ROOT) + gem.getMaterialName();
+                    Property itemProperty = config.get(CATEGORY_OVERRIDES + "." + type.getName().toLowerCase(Locale.ROOT),
                             key, "unchanged");
                     resourceConfigurations.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
                 }
             }
 
-            for(EnumMisc misc : EnumMisc.values()) {
-                for(EnumItem type : misc.getTypes()) {
-                    String key = type.getName().toLowerCase(Locale.ROOT)+misc.getMaterialName();
-                    Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(Locale.ROOT),
+            for (EnumMetal metal : EnumMetal.values()) {
+                for (EnumItem type : metal.getTypes()) {
+                    String key = type.getName().toLowerCase(Locale.ROOT) + metal.getMaterialName();
+                    Property itemProperty = config.get(CATEGORY_OVERRIDES + "." + type.getName().toLowerCase(Locale.ROOT),
                             key, "unchanged");
                     resourceConfigurations.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
                 }
             }
 
-            for(EnumNether nether : EnumNether.values()) {
-                for(EnumItem type : nether.getTypes()) {
-                    String key = type.getName().toLowerCase(Locale.ROOT)+nether.getMaterialName();
-                    Property itemProperty = config.get(CATEGORY_OVERRIDES+"."+type.getName().toLowerCase(Locale.ROOT),
+            for (EnumMisc misc : EnumMisc.values()) {
+                for (EnumItem type : misc.getTypes()) {
+                    String key = type.getName().toLowerCase(Locale.ROOT) + misc.getMaterialName();
+                    Property itemProperty = config.get(CATEGORY_OVERRIDES + "." + type.getName().toLowerCase(Locale.ROOT),
                             key, "unchanged");
                     resourceConfigurations.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
                 }
             }
 
-        }
-        catch(Exception e) {
+            for (EnumNether nether : EnumNether.values()) {
+                for (EnumItem type : nether.getTypes()) {
+                    String key = type.getName().toLowerCase(Locale.ROOT) + nether.getMaterialName();
+                    Property itemProperty = config.get(CATEGORY_OVERRIDES + "." + type.getName().toLowerCase(Locale.ROOT),
+                            key, "unchanged");
+                    resourceConfigurations.put(key, EnumResourceSelection.fromString(itemProperty.getString()));
+                }
+            }
+        } catch (Exception e) {
             Smores.LOG.error(e.getMessage());
         }
     }
+
 }

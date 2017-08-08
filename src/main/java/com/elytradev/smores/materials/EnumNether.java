@@ -31,7 +31,8 @@ import net.minecraft.util.IStringSerializable;
 
 import java.util.Locale;
 
-public enum EnumNether implements IStringSerializable{
+public enum EnumNether implements IStringSerializable {
+
     SULFUR("Sulfur", 0),
     NITRE("Nitre", 1);
 
@@ -39,7 +40,7 @@ public enum EnumNether implements IStringSerializable{
     private int id;
 
     EnumNether(String materialName, int id) {
-        this.materialName =  materialName;
+        this.materialName = materialName;
         this.id = id;
     }
 
@@ -54,7 +55,6 @@ public enum EnumNether implements IStringSerializable{
     public String getMaterialName() {
         return this.materialName;
     }
-
 
     public EnumItem[] getTypes() {
         return new EnumItem[]{EnumItem.DUST, EnumItem.ORE};

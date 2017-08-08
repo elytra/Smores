@@ -125,8 +125,7 @@ public final class Smores {
     }
 
     @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event)
-    {
+    public void preInit(FMLPreInitializationEvent event) {
         CONFIG = new Configuration(event.getSuggestedConfigurationFile());
         ConfigurationRegistry.init(CONFIG);
         FluidRegistry.init();
@@ -134,16 +133,13 @@ public final class Smores {
     }
 
     @Mod.EventHandler
-    public void init(FMLInitializationEvent event)
-    {
+    public void init(FMLInitializationEvent event) {
         GameRegistry.registerWorldGenerator(new WorldGen(), 3);
         RecipeRegistry.init();
     }
 
     @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent event)
-    {
-
+    public void postInit(FMLPostInitializationEvent event) {
     }
 
     private static void registerBlock(IForgeRegistry<Block> registry, Block block) {

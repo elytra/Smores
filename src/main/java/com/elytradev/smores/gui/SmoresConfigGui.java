@@ -41,6 +41,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class SmoresConfigGui extends GuiConfig {
+
     public SmoresConfigGui(GuiScreen parentScreen) {
         super(parentScreen, getCategories(), Smores.MOD_ID, false, true, "Smores Config");
     }
@@ -48,17 +49,16 @@ public class SmoresConfigGui extends GuiConfig {
     public static List<IConfigElement> getCategories() {
         List<IConfigElement> categories = new ArrayList<>();
 
-        for(IConfigElement element : new ConfigElement(Smores.CONFIG.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements())
-        {
-            categories.add(element);
-        }
+        categories.addAll(new ConfigElement(Smores.CONFIG.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements());
 
         ConfigElement overrides = new ConfigElement(Smores.CONFIG.getCategory(ConfigurationRegistry.CATEGORY_OVERRIDES));
-        for(EnumItem item : EnumItem.values()) {
-            overrides.getChildElements().add(new ConfigElement(Smores.CONFIG.getCategory(ConfigurationRegistry.CATEGORY_OVERRIDES+"."+item.getName().toLowerCase(Locale.ROOT))));
+        for (EnumItem item : EnumItem.values()) {
+            overrides.getChildElements().add(new ConfigElement(
+                    Smores.CONFIG.getCategory(ConfigurationRegistry.CATEGORY_OVERRIDES + "." + item.getName().toLowerCase(Locale.ROOT))));
         }
 
         categories.add(overrides);
         return categories;
     }
+
 }

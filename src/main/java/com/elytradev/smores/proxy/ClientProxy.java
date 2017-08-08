@@ -41,26 +41,26 @@ import java.util.regex.Pattern;
 @SuppressWarnings("MethodCallSideOnly")
 public class ClientProxy extends CommonProxy {
 
-    public void init()
-    {
+    public void init() {
         super.init();
-
     }
 
     @Override
     public void registerItemRenderer(Item item, int meta, String id) {
         if (item instanceof ItemBlockSubtyped) {
-            ItemBlockSubtyped subtyped = (ItemBlockSubtyped)item;
+            ItemBlockSubtyped subtyped = (ItemBlockSubtyped) item;
             Block blockFromItem = subtyped.getBlock();
             IBlockState blockState = blockFromItem.getStateFromMeta(meta);
             String variant = blockState.toString();
             Pattern pattern = Pattern.compile("smores:.*\\[(.*)]");
             Matcher matcher = pattern.matcher(variant);
-            if(matcher.find())
-                ModelLoader.setCustomModelResourceLocation(subtyped, meta, new ModelResourceLocation(Item.REGISTRY.getNameForObject(subtyped), matcher.group(1)));
-        }
-        else
+            if (matcher.find()) {
+                ModelLoader.setCustomModelResourceLocation(subtyped, meta,
+                        new ModelResourceLocation(Item.REGISTRY.getNameForObject(subtyped), matcher.group(1)));
+            }
+        } else {
             ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(Smores.MOD_ID + ":" + id, "inventory"));
+        }
     }
 
 }

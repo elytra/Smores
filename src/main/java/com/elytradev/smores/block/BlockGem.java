@@ -77,26 +77,26 @@ public class BlockGem extends BlockBase implements IOreDict {
     @Override
     public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list) {
         int iterator = 0;
-        for(EnumGem gem : EnumGem.values()) {
+        for (EnumGem gem : EnumGem.values()) {
             list.add(new ItemStack(itemIn, 1, iterator));
             iterator++;
         }
     }
 
     @Override
-    public void registerItemModel(ItemBlock block)
-    {
+    public void registerItemModel(ItemBlock block) {
         int iterator = 0;
-        for(EnumGem material : EnumGem.values()) {
-            Smores.PROXY.registerItemRenderer(block,iterator, super.getUnlocalizedName() + "_" + material.toString().toLowerCase(Locale.ROOT));
+        for (EnumGem material : EnumGem.values()) {
+            Smores.PROXY.registerItemRenderer(block, iterator, super.getUnlocalizedName() + "_" + material.toString().toLowerCase(Locale.ROOT));
             iterator++;
         }
     }
 
     @Override
     public void registerOreDict() {
-        for(EnumGem material : EnumGem.values()) {
-            OreDictionary.registerOre("block"+material.getMaterialName(), new ItemStack(this, 1, material.getId()));
+        for (EnumGem material : EnumGem.values()) {
+            OreDictionary.registerOre("block" + material.getMaterialName(), new ItemStack(this, 1, material.getId()));
         }
     }
+
 }

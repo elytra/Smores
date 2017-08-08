@@ -28,5 +28,7 @@
 package com.elytradev.smores.generic;
 
 public interface IOreDict {
+
     void registerOreDict();
+
 }

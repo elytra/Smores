@@ -43,8 +43,8 @@ public enum EnumAlloy implements IStringSerializable {
     private int id;
 
     EnumAlloy(String materialName, int id) {
-       this.materialName = materialName;
-       this.id = id;
+        this.materialName = materialName;
+        this.id = id;
     }
 
     public String getName() {
@@ -62,7 +62,5 @@ public enum EnumAlloy implements IStringSerializable {
     public EnumItem[] getTypes() {
         return new EnumItem[]{EnumItem.INGOT, EnumItem.DUST, EnumItem.PLATE, EnumItem.GEAR};
     }
-
-
 
 }

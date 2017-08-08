@@ -28,6 +28,8 @@
 package com.elytradev.smores.registries;
 
 public class FluidRegistry {
+
     public static void init() {
     }
+
 }

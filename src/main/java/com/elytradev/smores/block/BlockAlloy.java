@@ -77,26 +77,26 @@ public class BlockAlloy extends BlockBase implements IOreDict {
     @Override
     public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list) {
         int iterator = 0;
-        for(EnumAlloy alloy : EnumAlloy.values()) {
+        for (EnumAlloy alloy : EnumAlloy.values()) {
             list.add(new ItemStack(itemIn, 1, iterator));
             iterator++;
         }
     }
 
     @Override
-    public void registerItemModel(ItemBlock block)
-    {
+    public void registerItemModel(ItemBlock block) {
         int iterator = 0;
-        for(EnumAlloy material : EnumAlloy.values()) {
-            Smores.PROXY.registerItemRenderer(block,iterator, super.getUnlocalizedName() + "_" + material.toString().toLowerCase(Locale.ROOT));
+        for (EnumAlloy material : EnumAlloy.values()) {
+            Smores.PROXY.registerItemRenderer(block, iterator, super.getUnlocalizedName() + "_" + material.toString().toLowerCase(Locale.ROOT));
             iterator++;
         }
     }
 
     @Override
     public void registerOreDict() {
-        for(EnumAlloy material : EnumAlloy.values()) {
-            OreDictionary.registerOre("block"+material.getMaterialName(), new ItemStack(this, 1, material.getId()));
+        for (EnumAlloy material : EnumAlloy.values()) {
+            OreDictionary.registerOre("block" + material.getMaterialName(), new ItemStack(this, 1, material.getId()));
         }
     }
+
 }
