@@ -1,41 +1,37 @@
 /*
  * The MIT License (MIT)
- * =====================
  *
- * Copyright © 2017:
- *  Ethan Brooks (CalmBit),
- *  Isaac Ellingson (Falkreon),
- *  and contributors
+ * Copyright (c) 2017:
+ *     Ethan Brooks (CalmBit),
+ *     Isaac Ellingson (Falkreon),
+ *     and contributors
  *
- * Permission is hereby granted, free of charge, to any person
- * obtaining a copy of this software and associated documentation
- * files (the “Software”), to deal in the Software without
- * restriction, including without limitation the rights to use,
- * copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the
- * Software is furnished to do so, subject to the following
- * conditions:
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of
+ * this software and associated documentation files (the "Software"), to deal in
+ * the Software without restriction, including without limitation the rights to
+ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+ * of the Software, and to permit persons to whom the Software is furnished to do
+ * so, subject to the following conditions:
  *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
  *
- * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
- * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
- * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
- * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
- * OTHER DEALINGS IN THE SOFTWARE.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
  */
 
-package com.elytradev.smores.blocks;
+package com.elytradev.smores.block;
 
 import com.elytradev.smores.Smores;
 import com.elytradev.smores.generic.IOreDict;
-import com.elytradev.smores.items.ItemDust;
+import com.elytradev.smores.init.SmoresItems;
+import com.elytradev.smores.item.ItemDust;
 import com.elytradev.smores.materials.EnumNether;
-import com.elytradev.smores.registries.ItemRegistry;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
@@ -87,18 +83,17 @@ public class BlockNetherOre extends BlockBase implements IOreDict {
     @Override
     public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list) {
         int iterator = 0;
-        for(EnumNether material : EnumNether.values()) {
+        for (EnumNether material : EnumNether.values()) {
             list.add(new ItemStack(itemIn, 1, iterator));
             iterator++;
         }
     }
 
     @Override
-    public void registerItemModel(ItemBlock block)
-    {
+    public void registerItemModel(ItemBlock block) {
         int iterator = 0;
-        for(EnumNether material : EnumNether.values()) {
-            Smores.proxy.registerItemRenderer(block,iterator, super.getUnlocalizedName() + "_" + material.toString().toLowerCase(Locale.ROOT));
+        for (EnumNether material : EnumNether.values()) {
+            Smores.PROXY.registerItemRenderer(block, iterator, super.getUnlocalizedName() + "_" + material.toString().toLowerCase(Locale.ROOT));
             iterator++;
         }
     }
@@ -106,15 +101,16 @@ public class BlockNetherOre extends BlockBase implements IOreDict {
     @Override
     public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
         List<ItemStack> drops = new ArrayList<>();
-        drops.add(new ItemStack(ItemRegistry.itemDust, 1 + RANDOM.nextInt(3), ItemDust.getMaterialIndex(state.getValue(MATERIAL).getMaterialName())));
+        drops.add(new ItemStack(SmoresItems.dust, 1 + RANDOM.nextInt(3), ItemDust.getMaterialIndex(state.getValue(MATERIAL).getMaterialName())));
         return drops;
     }
 
 
     @Override
     public void registerOreDict() {
-        for(EnumNether material : EnumNether.values()) {
-            OreDictionary.registerOre("ore"+material.getMaterialName(), new ItemStack(this, 1, material.getId()));
+        for (EnumNether material : EnumNether.values()) {
+            OreDictionary.registerOre("ore" + material.getMaterialName(), new ItemStack(this, 1, material.getId()));
         }
     }
+
 }
