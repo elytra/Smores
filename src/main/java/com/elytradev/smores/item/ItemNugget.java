@@ -68,7 +68,7 @@ public class ItemNugget extends ItemBase implements IOreDict {
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems) {
-        if(tab instanceof SmoresCreativeTab) {
+        if (isInCreativeTab(tab)) {
             for (String material : materials) {
                 subItems.add(new ItemStack(this, 1, materials.indexOf(material)));
             }

@@ -224,3 +224,8 @@ gradle-app.setting
 
 ### Smores ###
 run/
+
+
+## Add these because @jamierocks fucked up our .gitignore by loving it too hard
+*.ipr
+*.iml
