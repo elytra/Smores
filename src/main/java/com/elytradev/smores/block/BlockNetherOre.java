@@ -37,7 +37,6 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
@@ -81,10 +80,10 @@ public class BlockNetherOre extends BlockBase implements IOreDict {
     }
 
     @Override
-    public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list) {
+    public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
         int iterator = 0;
         for (EnumNether material : EnumNether.values()) {
-            list.add(new ItemStack(itemIn, 1, iterator));
+            items.add(new ItemStack(this, 1, iterator));
             iterator++;
         }
     }

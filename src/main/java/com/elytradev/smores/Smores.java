@@ -27,24 +27,11 @@
 
 package com.elytradev.smores;
 
-import com.elytradev.smores.block.BlockAlloy;
-import com.elytradev.smores.block.BlockBase;
-import com.elytradev.smores.block.BlockGem;
-import com.elytradev.smores.block.BlockGemOre;
-import com.elytradev.smores.block.BlockMetal;
-import com.elytradev.smores.block.BlockMetalOre;
-import com.elytradev.smores.block.BlockNetherOre;
+import com.elytradev.smores.block.*;
 import com.elytradev.smores.generic.IOreDict;
 import com.elytradev.smores.generic.SmoresCreativeTab;
 import com.elytradev.smores.init.SmoresBlocks;
-import com.elytradev.smores.item.ItemBase;
-import com.elytradev.smores.item.ItemBlockSubtyped;
-import com.elytradev.smores.item.ItemDust;
-import com.elytradev.smores.item.ItemGear;
-import com.elytradev.smores.item.ItemGem;
-import com.elytradev.smores.item.ItemIngot;
-import com.elytradev.smores.item.ItemNugget;
-import com.elytradev.smores.item.ItemPlate;
+import com.elytradev.smores.item.*;
 import com.elytradev.smores.materials.EnumAlloy;
 import com.elytradev.smores.materials.EnumGem;
 import com.elytradev.smores.materials.EnumMetal;
@@ -52,7 +39,6 @@ import com.elytradev.smores.materials.EnumNether;
 import com.elytradev.smores.proxy.CommonProxy;
 import com.elytradev.smores.registries.ConfigurationRegistry;
 import com.elytradev.smores.registries.FluidRegistry;
-import com.elytradev.smores.registries.RecipeRegistry;
 import com.elytradev.smores.world.WorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
@@ -68,7 +54,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.common.registry.IForgeRegistry;
+import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -82,7 +68,7 @@ public final class Smores {
 
     public static final String MOD_ID = "smores";
     public static final String NAME = "Smores";
-    public static final String VERSION = "1.11.2-0.1.0";
+    public static final String VERSION = "1.12-0.1.0";
 
     public static final Logger LOG = LogManager.getLogger(Smores.NAME);
 
@@ -135,7 +121,6 @@ public final class Smores {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         GameRegistry.registerWorldGenerator(new WorldGen(), 3);
-        RecipeRegistry.init();
     }
 
     @Mod.EventHandler

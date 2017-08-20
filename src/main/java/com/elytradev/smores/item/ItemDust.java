@@ -29,11 +29,11 @@ package com.elytradev.smores.item;
 
 import com.elytradev.smores.Smores;
 import com.elytradev.smores.generic.IOreDict;
+import com.elytradev.smores.generic.SmoresCreativeTab;
 import com.elytradev.smores.materials.EnumAlloy;
 import com.elytradev.smores.materials.EnumMetal;
 import com.elytradev.smores.materials.EnumNether;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.relauncher.Side;
@@ -68,9 +68,11 @@ public class ItemDust extends ItemBase implements IOreDict {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
-        for (String material : materials) {
-            subItems.add(new ItemStack(this, 1, materials.indexOf(material)));
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems) {
+        if(tab instanceof SmoresCreativeTab) {
+            for (String material : materials) {
+                subItems.add(new ItemStack(this, 1, materials.indexOf(material)));
+            }
         }
     }
 

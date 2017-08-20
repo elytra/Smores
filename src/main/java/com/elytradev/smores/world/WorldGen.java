@@ -37,10 +37,10 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.chunk.IChunkGenerator;
 import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.ChunkProviderHell;
-import net.minecraft.world.gen.ChunkProviderOverworld;
+import net.minecraft.world.gen.ChunkGeneratorHell;
+import net.minecraft.world.gen.ChunkGeneratorOverworld;
+import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
@@ -52,7 +52,7 @@ public class WorldGen implements IWorldGenerator {
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-        if (chunkGenerator instanceof ChunkProviderOverworld) {
+        if (chunkGenerator instanceof ChunkGeneratorOverworld) {
             generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.COPPER),
                     10, 32, 64, 8, IS_BLOCK_ROCK);
             generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.TIN), 12,
@@ -69,7 +69,7 @@ public class WorldGen implements IWorldGenerator {
                     4, 16, 64, 5, IS_BLOCK_ROCK);
             generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.ZINC), 15,
                     16, 64, 6, IS_BLOCK_ROCK);
-        } else if (chunkGenerator instanceof ChunkProviderHell) {
+        } else if (chunkGenerator instanceof ChunkGeneratorHell) {
             generateOre(world, random, chunkX, chunkZ,
                     SmoresBlocks.nether_ore.getDefaultState().withProperty(BlockNetherOre.MATERIAL, EnumNether.NITRE), 30, 0, 128, 4,
                     IS_BLOCK_ROCK);
