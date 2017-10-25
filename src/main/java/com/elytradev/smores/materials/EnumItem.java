@@ -2,9 +2,9 @@
  * The MIT License (MIT)
  *
  * Copyright (c) 2017:
- *     Ethan Brooks (CalmBit),
- *     Isaac Ellingson (Falkreon),
- *     and contributors
+ *	 Ethan Brooks (CalmBit),
+ *	 Isaac Ellingson (Falkreon),
+ *	 and contributors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -29,21 +29,21 @@ package com.elytradev.smores.materials;
 
 public enum EnumItem {
 
-    INGOT("Ingot"),
-    GEM("Gem"),
-    ORE("Ore"),
-    DUST("Dust"),
-    PLATE("Plate"),
-    GEAR("Gear");
+	INGOT("Ingot"),
+	GEM("Gem"),
+	ORE("Ore"),
+	DUST("Dust"),
+	PLATE("Plate"),
+	GEAR("Gear");
 
-    public String name;
+	public String name;
 
-    EnumItem(String name) {
-        this.name = name;
-    }
+	EnumItem(String name) {
+		this.name = name;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
 }

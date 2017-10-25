@@ -2,9 +2,9 @@
  * The MIT License (MIT)
  *
  * Copyright (c) 2017:
- *     Ethan Brooks (CalmBit),
- *     Isaac Ellingson (Falkreon),
- *     and contributors
+ *	 Ethan Brooks (CalmBit),
+ *	 Isaac Ellingson (Falkreon),
+ *	 and contributors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -31,10 +31,10 @@ import net.minecraft.item.Item;
 
 public class CommonProxy {
 
-    public void init() {
-    }
+	public void init() {
+	}
 
-    public void registerItemRenderer(Item item, int meta, String id) {
-    }
+	public void registerItemRenderer(Item item, int meta, String id) {
+	}
 
 }

@@ -2,9 +2,9 @@
  * The MIT License (MIT)
  *
  * Copyright (c) 2017:
- *     Ethan Brooks (CalmBit),
- *     Isaac Ellingson (Falkreon),
- *     and contributors
+ *	 Ethan Brooks (CalmBit),
+ *	 Isaac Ellingson (Falkreon),
+ *	 and contributors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -43,48 +43,48 @@ import java.util.Locale;
 
 public class ItemGem extends ItemBase implements IOreDict {
 
-    private static ArrayList<String> materials;
+	private static ArrayList<String> materials;
 
-    public ItemGem() {
-        super("gem");
-        this.setMaxDamage(0);
-        this.setHasSubtypes(true);
+	public ItemGem() {
+		super("gem");
+		this.setMaxDamage(0);
+		this.setHasSubtypes(true);
 
-        if (materials == null) {
-            materials = new ArrayList<>();
-            for (EnumGem gem : EnumGem.values()) {
-                materials.add(gem.getMaterialName());
-            }
-        }
-    }
+		if (materials == null) {
+			materials = new ArrayList<>();
+			for (EnumGem gem : EnumGem.values()) {
+				materials.add(gem.getMaterialName());
+			}
+		}
+	}
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems) {
-        if (isInCreativeTab(tab)) {
-            for (String material : materials) {
-                subItems.add(new ItemStack(this, 1, materials.indexOf(material)));
-            }
-        }
-    }
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems) {
+		if (isInCreativeTab(tab)) {
+			for (String material : materials) {
+				subItems.add(new ItemStack(this, 1, materials.indexOf(material)));
+			}
+		}
+	}
 
-    @Override
-    public String getUnlocalizedName(ItemStack stack) {
-        return super.getUnlocalizedName(stack) + "_" + materials.get(stack.getItemDamage()).toLowerCase(Locale.ROOT);
-    }
+	@Override
+	public String getUnlocalizedName(ItemStack stack) {
+		return super.getUnlocalizedName(stack) + "_" + materials.get(stack.getItemDamage()).toLowerCase(Locale.ROOT);
+	}
 
-    @Override
-    public void registerOreDict() {
-        for (String material : materials) {
-            OreDictionary.registerOre("gem" + material, new ItemStack(this, 1, materials.indexOf(material)));
-        }
-    }
+	@Override
+	public void registerOreDict() {
+		for (String material : materials) {
+			OreDictionary.registerOre("gem" + material, new ItemStack(this, 1, materials.indexOf(material)));
+		}
+	}
 
-    @Override
-    public void registerItemModel() {
-        for (String material : materials) {
-            Smores.PROXY.registerItemRenderer(this, materials.indexOf(material), "gem_" + material.toLowerCase(Locale.ROOT));
-        }
-    }
+	@Override
+	public void registerItemModel() {
+		for (String material : materials) {
+			Smores.PROXY.registerItemRenderer(this, materials.indexOf(material), "gem_" + material.toLowerCase(Locale.ROOT));
+		}
+	}
 
 }

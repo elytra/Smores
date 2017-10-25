@@ -2,9 +2,9 @@
  * The MIT License (MIT)
  *
  * Copyright (c) 2017:
- *     Ethan Brooks (CalmBit),
- *     Isaac Ellingson (Falkreon),
- *     and contributors
+ *	 Ethan Brooks (CalmBit),
+ *	 Isaac Ellingson (Falkreon),
+ *	 and contributors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -35,25 +35,25 @@ import java.util.Set;
 
 public class SmoresGuiFactory implements IModGuiFactory {
 
-    // TODO: 1.12 sorta broke this, but darkevilmac has a GUI system in Concrete anyway, so...
+	// TODO: 1.12 sorta broke this, but darkevilmac has a GUI system in Concrete anyway, so...
 
-    @Override
-    public void initialize(Minecraft minecraftInstance) {
-    }
+	@Override
+	public void initialize(Minecraft minecraftInstance) {
+	}
 
-    @Override
-    public boolean hasConfigGui() {
-        return false;
-    }
+	@Override
+	public boolean hasConfigGui() {
+		return false;
+	}
 
-    @Override
-    public GuiScreen createConfigGui(GuiScreen parentScreen) {
-        return null;
-    }
+	@Override
+	public GuiScreen createConfigGui(GuiScreen parentScreen) {
+		return null;
+	}
 
-    @Override
-    public Set<RuntimeOptionCategoryElement> runtimeGuiCategories() {
-        return null;
-    }
+	@Override
+	public Set<RuntimeOptionCategoryElement> runtimeGuiCategories() {
+		return null;
+	}
 
 }

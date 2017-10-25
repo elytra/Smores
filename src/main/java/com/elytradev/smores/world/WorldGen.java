@@ -2,9 +2,9 @@
  * The MIT License (MIT)
  *
  * Copyright (c) 2017:
- *     Ethan Brooks (CalmBit),
- *     Isaac Ellingson (Falkreon),
- *     and contributors
+ *	 Ethan Brooks (CalmBit),
+ *	 Isaac Ellingson (Falkreon),
+ *	 and contributors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -48,45 +48,45 @@ import java.util.Random;
 
 public class WorldGen implements IWorldGenerator {
 
-    private static final Predicate<IBlockState> IS_BLOCK_ROCK = (blockState) -> blockState.getMaterial() == Material.ROCK;
+	private static final Predicate<IBlockState> IS_BLOCK_ROCK = (blockState) -> blockState.getMaterial() == Material.ROCK;
 
-    @Override
-    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-        if (chunkGenerator instanceof ChunkGeneratorOverworld) {
-            generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.COPPER),
-                    10, 32, 64, 8, IS_BLOCK_ROCK);
-            generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.TIN), 12,
-                    16, 48, 6, IS_BLOCK_ROCK);
-            generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.LEAD), 12,
-                    16, 64, 6, IS_BLOCK_ROCK);
-            generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.SILVER),
-                    8, 4, 24, 6, IS_BLOCK_ROCK);
-            generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.NICKEL),
-                    20, 16, 64, 4, IS_BLOCK_ROCK);
-            generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.PLATINUM),
-                    5, 4, 32, 6, IS_BLOCK_ROCK);
-            generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.MITHRIL),
-                    4, 16, 64, 5, IS_BLOCK_ROCK);
-            generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.ZINC), 15,
-                    16, 64, 6, IS_BLOCK_ROCK);
-        } else if (chunkGenerator instanceof ChunkGeneratorHell) {
-            generateOre(world, random, chunkX, chunkZ,
-                    SmoresBlocks.nether_ore.getDefaultState().withProperty(BlockNetherOre.MATERIAL, EnumNether.NITRE), 30, 0, 128, 4,
-                    IS_BLOCK_ROCK);
-            generateOre(world, random, chunkX, chunkZ,
-                    SmoresBlocks.nether_ore.getDefaultState().withProperty(BlockNetherOre.MATERIAL, EnumNether.SULFUR), 30, 0, 48, 6,
-                    IS_BLOCK_ROCK);
-        }
-    }
+	@Override
+	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
+		if (chunkGenerator instanceof ChunkGeneratorOverworld) {
+			generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.COPPER),
+					10, 32, 64, 8, IS_BLOCK_ROCK);
+			generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.TIN), 12,
+					16, 48, 6, IS_BLOCK_ROCK);
+			generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.LEAD), 12,
+					16, 64, 6, IS_BLOCK_ROCK);
+			generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.SILVER),
+					8, 4, 24, 6, IS_BLOCK_ROCK);
+			generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.NICKEL),
+					20, 16, 64, 4, IS_BLOCK_ROCK);
+			generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.PLATINUM),
+					5, 4, 32, 6, IS_BLOCK_ROCK);
+			generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.MITHRIL),
+					4, 16, 64, 5, IS_BLOCK_ROCK);
+			generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMetal.ZINC), 15,
+					16, 64, 6, IS_BLOCK_ROCK);
+		} else if (chunkGenerator instanceof ChunkGeneratorHell) {
+			generateOre(world, random, chunkX, chunkZ,
+					SmoresBlocks.nether_ore.getDefaultState().withProperty(BlockNetherOre.MATERIAL, EnumNether.NITRE), 30, 0, 128, 4,
+					IS_BLOCK_ROCK);
+			generateOre(world, random, chunkX, chunkZ,
+					SmoresBlocks.nether_ore.getDefaultState().withProperty(BlockNetherOre.MATERIAL, EnumNether.SULFUR), 30, 0, 48, 6,
+					IS_BLOCK_ROCK);
+		}
+	}
 
-    private void generateOre(World world, Random rand, int chunkX, int chunkZ, IBlockState blockState, int chances, int yMin, int yMax, int veinSize,
-            Predicate<IBlockState> replacementPredicate) {
-        int range = yMax - yMin;
-        for (int i = 0; i < chances; i++) {
-            BlockPos pos = new BlockPos((chunkX * 16) + rand.nextInt(16), yMin + rand.nextInt(range), (chunkZ * 16) + rand.nextInt(16));
-            WorldGenMinable oreGen = new WorldGenMinable(blockState, veinSize, replacementPredicate);
-            oreGen.generate(world, rand, pos);
-        }
-    }
+	private void generateOre(World world, Random rand, int chunkX, int chunkZ, IBlockState blockState, int chances, int yMin, int yMax, int veinSize,
+			Predicate<IBlockState> replacementPredicate) {
+		int range = yMax - yMin;
+		for (int i = 0; i < chances; i++) {
+			BlockPos pos = new BlockPos((chunkX * 16) + rand.nextInt(16), yMin + rand.nextInt(range), (chunkZ * 16) + rand.nextInt(16));
+			WorldGenMinable oreGen = new WorldGenMinable(blockState, veinSize, replacementPredicate);
+			oreGen.generate(world, rand, pos);
+		}
+	}
 
 }

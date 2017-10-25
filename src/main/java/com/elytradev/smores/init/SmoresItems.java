@@ -2,9 +2,9 @@
  * The MIT License (MIT)
  *
  * Copyright (c) 2017:
- *     Ethan Brooks (CalmBit),
- *     Isaac Ellingson (Falkreon),
- *     and contributors
+ *	 Ethan Brooks (CalmBit),
+ *	 Isaac Ellingson (Falkreon),
+ *	 and contributors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -37,14 +37,14 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 @GameRegistry.ObjectHolder(Smores.MOD_ID)
 public final class SmoresItems {
 
-    public static final ItemBase ingot = null;
-    public static final ItemBase gem = null;
-    public static final ItemBase dust = null;
-    public static final ItemBase nugget = null;
-    public static final ItemBase plate = null;
-    public static final ItemBase gear = null;
+	public static final ItemBase ingot = null;
+	public static final ItemBase gem = null;
+	public static final ItemBase dust = null;
+	public static final ItemBase nugget = null;
+	public static final ItemBase plate = null;
+	public static final ItemBase gear = null;
 
-    private SmoresItems() {
-    }
+	private SmoresItems() {
+	}
 
 }

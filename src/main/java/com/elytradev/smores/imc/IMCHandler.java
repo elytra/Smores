@@ -2,9 +2,9 @@
  * The MIT License (MIT)
  *
  * Copyright (c) 2017:
- *     Ethan Brooks (CalmBit),
- *     Isaac Ellingson (Falkreon),
- *     and contributors
+ *	 Ethan Brooks (CalmBit),
+ *	 Isaac Ellingson (Falkreon),
+ *	 and contributors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -32,37 +32,37 @@ import net.minecraftforge.fml.common.event.FMLInterModComms;
 
 public class IMCHandler {
 
-    public static void handleIMCMessage(FMLInterModComms.IMCMessage message) {
-        final String[] split = message.key.split("\\(");
+	public static void handleIMCMessage(FMLInterModComms.IMCMessage message) {
+		final String[] split = message.key.split("\\(");
 
-        if (split.length <= 0) {
-            Smores.LOG.error("IMC Error - " + message.key + " doesn't seem to split correctly...");
-            return;
-        }
+		if (split.length <= 0) {
+			Smores.LOG.error("IMC Error - " + message.key + " doesn't seem to split correctly...");
+			return;
+		}
 
-        switch (split[0]) {
-            case "setRecipeEnabled":
-                if (!message.isStringMessage()) {
-                    Smores.LOG.error("IMC Error - voteRecipe requires a string message, got " + message.getMessageType().toString());
-                    return;
-                }
-                handleRecipeVote(message.key, message.getStringValue());
-                break;
-        }
-    }
+		switch (split[0]) {
+			case "setRecipeEnabled":
+				if (!message.isStringMessage()) {
+					Smores.LOG.error("IMC Error - voteRecipe requires a string message, got " + message.getMessageType().toString());
+					return;
+				}
+				handleRecipeVote(message.key, message.getStringValue());
+				break;
+		}
+	}
 
-    private static void handleRecipeVote(String key, String value) {
-        RecipeVoteCandidate candidate = RecipeVoteCandidate.getRecipeCandidate(value);
+	private static void handleRecipeVote(String key, String value) {
+		RecipeVoteCandidate candidate = RecipeVoteCandidate.getRecipeCandidate(value);
 
-        // Really stupid temporary hack, plzfix
-        if (candidate != null) {
-            Boolean vote = key.matches("setRecipeEnabled\\(true\\)");
-            try {
-                RecipeBallot.INSTANCE.voteInBallot(candidate, vote);
-            } catch (IllegalArgumentException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+		// Really stupid temporary hack, plzfix
+		if (candidate != null) {
+			Boolean vote = key.matches("setRecipeEnabled\\(true\\)");
+			try {
+				RecipeBallot.INSTANCE.voteInBallot(candidate, vote);
+			} catch (IllegalArgumentException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
 }

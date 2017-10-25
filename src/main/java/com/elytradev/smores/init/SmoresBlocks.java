@@ -2,9 +2,9 @@
  * The MIT License (MIT)
  *
  * Copyright (c) 2017:
- *     Ethan Brooks (CalmBit),
- *     Isaac Ellingson (Falkreon),
- *     and contributors
+ *	 Ethan Brooks (CalmBit),
+ *	 Isaac Ellingson (Falkreon),
+ *	 and contributors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -37,14 +37,14 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 @GameRegistry.ObjectHolder(Smores.MOD_ID)
 public final class SmoresBlocks {
 
-    public static final BlockBase metal_ore = null;
-    public static final BlockBase gem_ore = null;
-    public static final BlockBase nether_ore = null;
-    public static final BlockBase metal_block = null;
-    public static final BlockBase alloy_block = null;
-    public static final BlockBase gem_block = null;
+	public static final BlockBase metal_ore = null;
+	public static final BlockBase gem_ore = null;
+	public static final BlockBase nether_ore = null;
+	public static final BlockBase metal_block = null;
+	public static final BlockBase alloy_block = null;
+	public static final BlockBase gem_block = null;
 
-    private SmoresBlocks() {
-    }
+	private SmoresBlocks() {
+	}
 
 }

@@ -2,9 +2,9 @@
  * The MIT License (MIT)
  *
  * Copyright (c) 2017:
- *     Ethan Brooks (CalmBit),
- *     Isaac Ellingson (Falkreon),
- *     and contributors
+ *	 Ethan Brooks (CalmBit),
+ *	 Isaac Ellingson (Falkreon),
+ *	 and contributors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -33,22 +33,22 @@ import net.minecraft.item.Item;
 
 public abstract class ItemBase extends Item {
 
-    protected String name;
+	protected String name;
 
-    protected ItemBase(String name) {
-        this.name = name;
-        this.setUnlocalizedName(Smores.MOD_ID + "." + name);
-        this.setRegistryName(name);
-    }
+	protected ItemBase(String name) {
+		this.name = name;
+		this.setUnlocalizedName(Smores.MOD_ID + "." + name);
+		this.setRegistryName(name);
+	}
 
-    public void registerItemModel() {
-        Smores.PROXY.registerItemRenderer(this, 0, name);
-    }
+	public void registerItemModel() {
+		Smores.PROXY.registerItemRenderer(this, 0, name);
+	}
 
-    @Override
-    public ItemBase setCreativeTab(CreativeTabs tab) {
-        super.setCreativeTab(tab);
-        return this;
-    }
+	@Override
+	public ItemBase setCreativeTab(CreativeTabs tab) {
+		super.setCreativeTab(tab);
+		return this;
+	}
 
 }

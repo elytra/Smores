@@ -2,9 +2,9 @@
  * The MIT License (MIT)
  *
  * Copyright (c) 2017:
- *     Ethan Brooks (CalmBit),
- *     Isaac Ellingson (Falkreon),
- *     and contributors
+ *	 Ethan Brooks (CalmBit),
+ *	 Isaac Ellingson (Falkreon),
+ *	 and contributors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -35,24 +35,24 @@ import java.util.Locale;
 
 public class ItemBlockSubtyped<T extends Enum<T>> extends ItemBlock {
 
-    private T[] typedEnumConstants;
+	private T[] typedEnumConstants;
 
-    public ItemBlockSubtyped(Block block, Class<T> enumClass) {
-        super(block);
-        this.setRegistryName(block.getRegistryName());
-        this.setMaxDamage(0);
-        this.setHasSubtypes(true);
-        typedEnumConstants = enumClass.getEnumConstants();
-    }
+	public ItemBlockSubtyped(Block block, Class<T> enumClass) {
+		super(block);
+		this.setRegistryName(block.getRegistryName());
+		this.setMaxDamage(0);
+		this.setHasSubtypes(true);
+		typedEnumConstants = enumClass.getEnumConstants();
+	}
 
-    @Override
-    public String getUnlocalizedName(ItemStack stack) {
-        return this.getUnlocalizedName() + "_" + typedEnumConstants[stack.getItemDamage()].toString().toLowerCase(Locale.ROOT);
-    }
+	@Override
+	public String getUnlocalizedName(ItemStack stack) {
+		return this.getUnlocalizedName() + "_" + typedEnumConstants[stack.getItemDamage()].toString().toLowerCase(Locale.ROOT);
+	}
 
-    @Override
-    public int getMetadata(int damage) {
-        return damage;
-    }
+	@Override
+	public int getMetadata(int damage) {
+		return damage;
+	}
 
 }

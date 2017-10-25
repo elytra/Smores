@@ -2,9 +2,9 @@
  * The MIT License (MIT)
  *
  * Copyright (c) 2017:
- *     Ethan Brooks (CalmBit),
- *     Isaac Ellingson (Falkreon),
- *     and contributors
+ *	 Ethan Brooks (CalmBit),
+ *	 Isaac Ellingson (Falkreon),
+ *	 and contributors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -33,28 +33,28 @@ import java.util.Optional;
 
 public class RecipeBallot {
 
-    public static RecipeBallot INSTANCE = new RecipeBallot();
+	public static RecipeBallot INSTANCE = new RecipeBallot();
 
-    private HashMap<RecipeVoteCandidate, ArrayList<Optional<Boolean>>> ballotBox;
+	private HashMap<RecipeVoteCandidate, ArrayList<Optional<Boolean>>> ballotBox;
 
-    private RecipeBallot() {
-        this.ballotBox = new HashMap<>();
-    }
+	private RecipeBallot() {
+		this.ballotBox = new HashMap<>();
+	}
 
-    public void registerCandidate(RecipeVoteCandidate candidate) {
-        this.ballotBox.put(candidate, new ArrayList<>());
-    }
+	public void registerCandidate(RecipeVoteCandidate candidate) {
+		this.ballotBox.put(candidate, new ArrayList<>());
+	}
 
-    public void voteInBallot(RecipeVoteCandidate candidate, Boolean option) {
-        if (!ballotBox.containsKey(candidate)) {
-            throw new IllegalArgumentException("Candidate " + candidate.recipeName + " hasn't been registered in the ballot");
-        }
-        this.ballotBox.get(candidate).add(Optional.ofNullable(option));
-    }
+	public void voteInBallot(RecipeVoteCandidate candidate, Boolean option) {
+		if (!ballotBox.containsKey(candidate)) {
+			throw new IllegalArgumentException("Candidate " + candidate.recipeName + " hasn't been registered in the ballot");
+		}
+		this.ballotBox.get(candidate).add(Optional.ofNullable(option));
+	}
 
-    public boolean tallyVotes(RecipeVoteCandidate candidate) {
-        //Optional<Boolean> result =  ballotBox.get(candidate).stream().reduce(Optional.empty(), )
-        return false;
-    }
+	public boolean tallyVotes(RecipeVoteCandidate candidate) {
+		//Optional<Boolean> result =  ballotBox.get(candidate).stream().reduce(Optional.empty(), )
+		return false;
+	}
 
 }

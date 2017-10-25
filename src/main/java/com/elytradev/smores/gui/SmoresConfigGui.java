@@ -2,9 +2,9 @@
  * The MIT License (MIT)
  *
  * Copyright (c) 2017:
- *     Ethan Brooks (CalmBit),
- *     Isaac Ellingson (Falkreon),
- *     and contributors
+ *	 Ethan Brooks (CalmBit),
+ *	 Isaac Ellingson (Falkreon),
+ *	 and contributors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -42,23 +42,23 @@ import java.util.Locale;
 
 public class SmoresConfigGui extends GuiConfig {
 
-    public SmoresConfigGui(GuiScreen parentScreen) {
-        super(parentScreen, getCategories(), Smores.MOD_ID, false, true, "Smores Config");
-    }
+	public SmoresConfigGui(GuiScreen parentScreen) {
+		super(parentScreen, getCategories(), Smores.MOD_ID, false, true, "Smores Config");
+	}
 
-    public static List<IConfigElement> getCategories() {
-        List<IConfigElement> categories = new ArrayList<>();
+	public static List<IConfigElement> getCategories() {
+		List<IConfigElement> categories = new ArrayList<>();
 
-        categories.addAll(new ConfigElement(Smores.CONFIG.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements());
+		categories.addAll(new ConfigElement(Smores.CONFIG.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements());
 
-        ConfigElement overrides = new ConfigElement(Smores.CONFIG.getCategory(ConfigurationRegistry.CATEGORY_OVERRIDES));
-        for (EnumItem item : EnumItem.values()) {
-            overrides.getChildElements().add(new ConfigElement(
-                    Smores.CONFIG.getCategory(ConfigurationRegistry.CATEGORY_OVERRIDES + "." + item.getName().toLowerCase(Locale.ROOT))));
-        }
+		ConfigElement overrides = new ConfigElement(Smores.CONFIG.getCategory(ConfigurationRegistry.CATEGORY_OVERRIDES));
+		for (EnumItem item : EnumItem.values()) {
+			overrides.getChildElements().add(new ConfigElement(
+					Smores.CONFIG.getCategory(ConfigurationRegistry.CATEGORY_OVERRIDES + "." + item.getName().toLowerCase(Locale.ROOT))));
+		}
 
-        categories.add(overrides);
-        return categories;
-    }
+		categories.add(overrides);
+		return categories;
+	}
 
 }
