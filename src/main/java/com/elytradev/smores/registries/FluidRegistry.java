@@ -27,9 +27,60 @@
 
 package com.elytradev.smores.registries;
 
+import com.elytradev.smores.Smores;
+import com.elytradev.smores.materials.EnumMetal;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fluids.Fluid;
+
 public class FluidRegistry {
 
+	private static final int[] MOLTEN_METAL_DENSITIES = {
+			8020,
+			6990,
+			10660,
+			9320,
+			7810,
+			19770,
+			4110,
+			6570,
+			6980,
+			17310
+	};
+
+	private static final int[] MOLTEN_METAL_MP = {
+			1357,
+			505,
+			600,
+			1234,
+			1728,
+			2041,
+			1941,
+			692,
+			1811,
+			1337
+	};
+
+	public static Fluid[] molten_metals;
+
 	public static void init() {
+		for(EnumMetal metal : EnumMetal.values()) {
+			int i = metal.id;
+			molten_metals[i] = new Fluid(Smores.MOD_ID+"."+metal.getName(),
+					new ResourceLocation("smores",
+							"blocks/fluid_molten_"+metal.getName()+"_still"),
+					new ResourceLocation("smores",
+							"blocks/fluid_molten_"+metal.getName()+"_flowing"))
+					.setLuminosity(15).setDensity(MOLTEN_METAL_DENSITIES[i]).setViscosity(6000)
+					.setTemperature(MOLTEN_METAL_MP[i]);
+
+			registerFluid(molten_metals[i]);
+		}
+
+	}
+
+	private static void registerFluid(Fluid fluid) {
+		net.minecraftforge.fluids.FluidRegistry.registerFluid(fluid);
+		net.minecraftforge.fluids.FluidRegistry.addBucketForFluid(fluid);
 	}
 
 }
