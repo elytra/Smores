@@ -1,0 +1,54 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "forge:fluid",
+		"transform": "forge:default-item"
+	},
+	"variants": {
+		"molten_copper": [{
+			"custom": {"fluid": "smores.molten_copper"}
+		}],
+		"molten_tin": [{
+			"custom": {"fluid": "smores.molten_tin"}
+		}],
+		"molten_lead": [{
+			"custom": {"fluid": "smores.molten_lead"}
+		}],
+		"molten_silver": [{
+			"custom": {"fluid": "smores.molten_silver"}
+		}],
+		"molten_nickel": [{
+			"custom": {"fluid": "smores.molten_nickel"}
+		}],
+		"molten_platinum": [{
+			"custom": {"fluid": "smores.molten_platinum"}
+		}],
+		"molten_mithril": [{
+			"custom": {"fluid": "smores.molten_mithril"}
+		}],
+		"molten_zinc": [{
+			"custom": {"fluid": "smores.molten_zinc"}
+		}],
+		"molten_iron": [{
+			"custom": {"fluid": "smores.molten_iron"}
+		}],
+		"molten_gold": [{
+			"custom": {"fluid": "smores.molten_gold"}
+		}],
+		"molten_electrum": [{
+			"custom": {"fluid": "smores.molten_electrum"}
+		}],
+		"molten_invar": [{
+			"custom": {"fluid": "smores.molten_invar"}
+		}],
+		"molten_steel": [{
+			"custom": {"fluid": "smores.molten_steel"}
+		}],
+		"molten_bronze": [{
+			"custom": {"fluid": "smores.molten_bronze"}
+		}],
+		"molten_brass": [{
+			"custom": {"fluid": "smores.molten_brass"}
+		}]
+	}
+}

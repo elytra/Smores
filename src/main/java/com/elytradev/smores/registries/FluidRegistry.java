@@ -28,9 +28,14 @@
 package com.elytradev.smores.registries;
 
 import com.elytradev.smores.Smores;
+import com.elytradev.smores.block.BlockFluidSmores;
+import com.elytradev.smores.materials.EnumAlloy;
 import com.elytradev.smores.materials.EnumMetal;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FluidRegistry {
 
@@ -60,20 +65,56 @@ public class FluidRegistry {
 			1337
 	};
 
-	public static Fluid[] molten_metals;
+	private static final int[] MOLTEN_ALLOY_DENSITIES = {
+			13750,
+			8055,
+			7800,
+			8800,
+			8520
+	};
+
+	private static final int[] MOLTEN_ALLOY_MP = {
+			1336,
+			1700,
+			1644,
+			1186,
+			1200
+	};
+
+	public static List<Fluid> molten_metals;
+	public static List<BlockFluidSmores> molten_metal_blocks;
+
+	public static List<Fluid> molten_alloys;
+	public static List<BlockFluidSmores> molten_alloy_blocks;
 
 	public static void init() {
+		molten_metals = new ArrayList<>();
+		molten_metal_blocks = new ArrayList<>();
+		molten_alloys = new ArrayList<>();
+		molten_alloy_blocks = new ArrayList<>();
+
 		for(EnumMetal metal : EnumMetal.values()) {
-			int i = metal.id;
-			molten_metals[i] = new Fluid(Smores.MOD_ID+"."+metal.getName(),
+			molten_metals.add(metal.getId(), new Fluid(Smores.MOD_ID+".molten_"+metal.getName(),
 					new ResourceLocation("smores",
 							"blocks/fluid_molten_"+metal.getName()+"_still"),
 					new ResourceLocation("smores",
 							"blocks/fluid_molten_"+metal.getName()+"_flowing"))
-					.setLuminosity(15).setDensity(MOLTEN_METAL_DENSITIES[i]).setViscosity(6000)
-					.setTemperature(MOLTEN_METAL_MP[i]);
+					.setLuminosity(15).setDensity(MOLTEN_METAL_DENSITIES[metal.getId()]).setViscosity(6000)
+					.setTemperature(MOLTEN_METAL_MP[metal.getId()]));
 
-			registerFluid(molten_metals[i]);
+			registerFluid(molten_metals.get(metal.getId()));
+		}
+
+		for(EnumAlloy alloy : EnumAlloy.values()) {
+			molten_alloys.add(alloy.getId(), new Fluid(Smores.MOD_ID+".molten_"+alloy.getName(),
+					new ResourceLocation("smores",
+							"blocks/fluid_molten_"+alloy.getName()+"_still"),
+					new ResourceLocation("smores",
+							"blocks/fluid_molten_"+alloy.getName()+"_flowing"))
+					.setLuminosity(15).setDensity(MOLTEN_ALLOY_DENSITIES[alloy.getId()]).setViscosity(6000)
+					.setTemperature(MOLTEN_ALLOY_MP[alloy.getId()]));
+
+			registerFluid(molten_alloys.get(alloy.getId()));
 		}
 
 	}

@@ -28,11 +28,13 @@
 package com.elytradev.smores.proxy;
 
 import com.elytradev.smores.Smores;
+import com.elytradev.smores.block.BlockFluidSmores;
 import com.elytradev.smores.item.ItemBlockSubtyped;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.model.ModelLoader;
 
 import java.util.regex.Matcher;
@@ -58,6 +60,8 @@ public class ClientProxy extends CommonProxy {
 				ModelLoader.setCustomModelResourceLocation(subtyped, meta,
 						new ModelResourceLocation(Item.REGISTRY.getNameForObject(subtyped), matcher.group(1)));
 			}
+		} else if (item instanceof ItemBlock && ((ItemBlock)item).getBlock() instanceof BlockFluidSmores) {
+			ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation("forge:fluid"));
 		} else {
 			ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(Smores.MOD_ID + ":" + id, "inventory"));
 		}

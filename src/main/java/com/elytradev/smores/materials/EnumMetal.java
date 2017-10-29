@@ -33,23 +33,25 @@ import java.util.Locale;
 
 public enum EnumMetal implements IStringSerializable {
 
-	COPPER("Copper", 0),
-	TIN("Tin", 1),
-	LEAD("Lead", 2),
-	SILVER("Silver", 3),
-	NICKEL("Nickel", 4),
-	PLATINUM("Platinum", 5),
-	MITHRIL("Mithril", 6),
-	ZINC("Zinc", 7),
-	IRON("Iron", 8),
-	GOLD("Gold", 9),;
+	COPPER("Copper", 0, 0xFFB47129),
+	TIN("Tin", 1, 0xFFCACACA),
+	LEAD("Lead", 2, 0xF55557B),
+	SILVER("Silver", 3, 0xFFC9C9E6),
+	NICKEL("Nickel", 4, 0xFF9F9285),
+	PLATINUM("Platinum", 5, 0xFF6FA9DD),
+	MITHRIL("Mithril", 6, 0xFFBE94B2),
+	ZINC("Zinc", 7, 0xFFC5D098),
+	IRON("Iron", 8, 0xF969696),
+	GOLD("Gold", 9, 0xFFFFFF0B),;
 
 	private String materialName;
-	public int id;
+	private int id;
+	private int color;
 
-	EnumMetal(String materialName, int id) {
+	EnumMetal(String materialName, int id, int color) {
 		this.id = id;
 		this.materialName = materialName;
+		this.color = color;
 	}
 
 	public String getName() {
@@ -66,6 +68,10 @@ public enum EnumMetal implements IStringSerializable {
 
 	public EnumItem[] getTypes() {
 		return new EnumItem[]{EnumItem.INGOT, EnumItem.ORE, EnumItem.DUST, EnumItem.PLATE, EnumItem.GEAR};
+	}
+
+	public int getColor() {
+		return this.color;
 	}
 
 }
