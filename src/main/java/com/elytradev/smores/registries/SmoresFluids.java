@@ -37,49 +37,7 @@ import net.minecraftforge.fluids.Fluid;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FluidRegistry {
-
-	private static final int[] MOLTEN_METAL_DENSITIES = {
-			8020,
-			6990,
-			10660,
-			9320,
-			7810,
-			19770,
-			4110,
-			6570,
-			6980,
-			17310
-	};
-
-	private static final int[] MOLTEN_METAL_MP = {
-			1357,
-			505,
-			600,
-			1234,
-			1728,
-			2041,
-			1941,
-			692,
-			1811,
-			1337
-	};
-
-	private static final int[] MOLTEN_ALLOY_DENSITIES = {
-			13750,
-			8055,
-			7800,
-			8800,
-			8520
-	};
-
-	private static final int[] MOLTEN_ALLOY_MP = {
-			1336,
-			1700,
-			1644,
-			1186,
-			1200
-	};
+public class SmoresFluids {
 
 	public static List<Fluid> molten_metals;
 	public static List<BlockFluidSmores> molten_metal_blocks;
@@ -99,8 +57,8 @@ public class FluidRegistry {
 							"blocks/fluid_molten_"+metal.getName()+"_still"),
 					new ResourceLocation("smores",
 							"blocks/fluid_molten_"+metal.getName()+"_flowing"))
-					.setLuminosity(15).setDensity(MOLTEN_METAL_DENSITIES[metal.getId()]).setViscosity(6000)
-					.setTemperature(MOLTEN_METAL_MP[metal.getId()]));
+					.setLuminosity(15).setDensity(metal.getDensity()).setViscosity(6000)
+					.setTemperature(metal.getMeltingPoint()));
 
 			registerFluid(molten_metals.get(metal.getId()));
 		}
@@ -111,8 +69,8 @@ public class FluidRegistry {
 							"blocks/fluid_molten_"+alloy.getName()+"_still"),
 					new ResourceLocation("smores",
 							"blocks/fluid_molten_"+alloy.getName()+"_flowing"))
-					.setLuminosity(15).setDensity(MOLTEN_ALLOY_DENSITIES[alloy.getId()]).setViscosity(6000)
-					.setTemperature(MOLTEN_ALLOY_MP[alloy.getId()]));
+					.setLuminosity(15).setDensity(alloy.getDensity()).setViscosity(6000)
+					.setTemperature(alloy.getMeltingPoint()));
 
 			registerFluid(molten_alloys.get(alloy.getId()));
 		}
