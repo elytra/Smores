@@ -28,8 +28,14 @@
 package com.elytradev.smores.generic;
 
 import com.elytradev.smores.init.SmoresItems;
+import com.elytradev.smores.materials.EnumAlloy;
+import com.elytradev.smores.materials.EnumMetal;
+import com.elytradev.smores.registries.SmoresFluids;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.FluidUtil;
 
 public class SmoresCreativeTab extends CreativeTabs {
 
@@ -42,4 +48,18 @@ public class SmoresCreativeTab extends CreativeTabs {
 		return new ItemStack(SmoresItems.ingot, 1, 0);
 	}
 
+	@Override
+	public void displayAllRelevantItems(NonNullList<ItemStack> itemList) {
+		for(EnumMetal metal : EnumMetal.values()) {
+			itemList.add(FluidUtil.getFilledBucket(
+					new FluidStack(SmoresFluids.molten_metals.get(metal.getId()), 1000)));
+		}
+
+		for(EnumAlloy alloy : EnumAlloy.values()) {
+			itemList.add(FluidUtil.getFilledBucket(
+					new FluidStack(SmoresFluids.molten_alloys.get(alloy.getId()), 1000)));
+		}
+
+		super.displayAllRelevantItems(itemList);
+	}
 }

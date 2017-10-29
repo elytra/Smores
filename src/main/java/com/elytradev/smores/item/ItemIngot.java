@@ -29,7 +29,6 @@ package com.elytradev.smores.item;
 
 import com.elytradev.smores.Smores;
 import com.elytradev.smores.generic.IOreDict;
-import com.elytradev.smores.generic.SmoresCreativeTab;
 import com.elytradev.smores.materials.EnumAlloy;
 import com.elytradev.smores.materials.EnumMetal;
 import com.elytradev.smores.materials.EnumMisc;

@@ -38,7 +38,7 @@ import com.elytradev.smores.materials.EnumMetal;
 import com.elytradev.smores.materials.EnumNether;
 import com.elytradev.smores.proxy.CommonProxy;
 import com.elytradev.smores.registries.ConfigurationRegistry;
-import com.elytradev.smores.registries.FluidRegistry;
+import com.elytradev.smores.registries.SmoresFluids;
 import com.elytradev.smores.world.WorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
@@ -72,6 +72,10 @@ public final class Smores {
 
 	public static final Logger LOG = LogManager.getLogger(Smores.NAME);
 
+	static {
+		net.minecraftforge.fluids.FluidRegistry.enableUniversalBucket();
+	}
+
 	@SidedProxy(
 			clientSide = "com.elytradev.smores.proxy.ClientProxy",
 			serverSide = "com.elytradev.smores.proxy.CommonProxy")
@@ -89,6 +93,21 @@ public final class Smores {
 		registerBlock(event.getRegistry(), new BlockMetal().setCreativeTab(CREATIVE_TAB));
 		registerBlock(event.getRegistry(), new BlockAlloy().setCreativeTab(CREATIVE_TAB));
 		registerBlock(event.getRegistry(), new BlockGem().setCreativeTab(CREATIVE_TAB));
+
+
+		for(EnumMetal metal : EnumMetal.values()) {
+			SmoresFluids.molten_metal_blocks.add(metal.getId(),
+					new BlockFluidMetal(SmoresFluids.molten_metals.get(metal.getId()), metal,
+							"molten_"+ metal.getName()));
+			registerBlock(event.getRegistry(), SmoresFluids.molten_metal_blocks.get(metal.getId()));
+		}
+
+		for(EnumAlloy alloy : EnumAlloy.values()) {
+			SmoresFluids.molten_alloy_blocks.add(alloy.getId(),
+					new BlockFluidAlloy(SmoresFluids.molten_alloys.get(alloy.getId()), alloy,
+							"molten_"+ alloy.getName()));
+			registerBlock(event.getRegistry(), SmoresFluids.molten_alloy_blocks.get(alloy.getId()));
+		}
 	}
 
 	@SubscribeEvent
@@ -100,6 +119,14 @@ public final class Smores {
 		registerItemBlock(event.getRegistry(), SmoresBlocks.metal_block, EnumMetal.class);
 		registerItemBlock(event.getRegistry(), SmoresBlocks.alloy_block, EnumAlloy.class);
 		registerItemBlock(event.getRegistry(), SmoresBlocks.gem_block, EnumGem.class);
+
+		for(EnumMetal metal : EnumMetal.values()) {
+			registerItemBlock(event.getRegistry(), SmoresFluids.molten_metal_blocks.get(metal.getId()));
+		}
+
+		for(EnumAlloy alloy : EnumAlloy.values()) {
+			registerItemBlock(event.getRegistry(), SmoresFluids.molten_alloy_blocks.get(alloy.getId()));
+		}
 
 		// items
 		registerItem(event.getRegistry(), new ItemIngot().setCreativeTab(CREATIVE_TAB));
@@ -114,7 +141,7 @@ public final class Smores {
 	public void preInit(FMLPreInitializationEvent event) {
 		CONFIG = new Configuration(event.getSuggestedConfigurationFile());
 		ConfigurationRegistry.init(CONFIG);
-		FluidRegistry.init();
+		SmoresFluids.init();
 		PROXY.init();
 	}
 
@@ -136,9 +163,12 @@ public final class Smores {
 
 		if (item instanceof ItemBase) {
 			((ItemBase) item).registerItemModel();
-		} else if (item instanceof ItemBlock &&
-				((ItemBlock) item).getBlock() instanceof BlockBase) {
-			((BlockBase) ((ItemBlock) item).getBlock()).registerItemModel(((ItemBlock) item));
+		} else if (item instanceof ItemBlock) {
+			ItemBlock itemBlock = (ItemBlock)item;
+			if (itemBlock.getBlock() instanceof BlockBase)
+				((BlockBase)itemBlock.getBlock()).registerItemModel(((ItemBlock) item));
+			else if (itemBlock.getBlock() instanceof BlockFluidSmores)
+				((BlockFluidSmores)itemBlock.getBlock()).registerItemModel(((ItemBlock) item));
 		} else {
 			final ResourceLocation loc = Item.REGISTRY.getNameForObject(item);
 			PROXY.registerItemRenderer(item, 0, loc.getResourcePath());
@@ -154,6 +184,10 @@ public final class Smores {
 
 	private static <V extends Enum<V>> void registerItemBlock(IForgeRegistry<Item> registry, Block block, Class<V> enumClass) {
 		registerItem(registry, new ItemBlockSubtyped<>(block, enumClass));
+	}
+
+	private static void registerItemBlock(IForgeRegistry<Item> registry, BlockFluidSmores block) {
+		registerItem(registry, new ItemBlock(block).setRegistryName(block.getRegistryName()));
 	}
 
 }

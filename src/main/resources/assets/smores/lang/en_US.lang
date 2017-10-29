@@ -45,6 +45,23 @@ tile.smores.gem_block_ruby.name=Block of Ruby
 tile.smores.gem_block_sapphire.name=Block of Sapphire
 tile.smores.gem_block_peridot.name=Block of Peridot
 
+############# FLUIDS #############
+fluid.smores.molten_copper=Molten Copper
+fluid.smores.molten_tin=Molten Tin
+fluid.smores.molten_lead=Molten Lead
+fluid.smores.molten_nickel=Molten Nickel
+fluid.smores.molten_silver=Molten Silver
+fluid.smores.molten_platinum=Molten Platinum
+fluid.smores.molten_mithril=Molten Mithril
+fluid.smores.molten_zinc=Molten Zinc
+fluid.smores.molten_electrum=Molten Electrum
+fluid.smores.molten_invar=Molten Invar
+fluid.smores.molten_steel=Molten Steel
+fluid.smores.molten_bronze=Molten Bronze
+fluid.smores.molten_brass=Molten Brass
+fluid.smores.molten_iron=Molten Iron
+fluid.smores.molten_gold=Molten Gold
+
 ############# GEMS #############
 item.smores.gem_ruby.name=Ruby
 item.smores.gem_sapphire.name=Sapphire
