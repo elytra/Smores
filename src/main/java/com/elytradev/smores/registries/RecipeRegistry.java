@@ -42,9 +42,6 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Mod.EventBusSubscriber
 public class RecipeRegistry {
 

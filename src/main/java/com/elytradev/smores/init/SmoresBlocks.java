@@ -29,7 +29,6 @@ package com.elytradev.smores.init;
 
 import com.elytradev.smores.Smores;
 import com.elytradev.smores.block.BlockBase;
-import com.elytradev.smores.block.BlockFluidMetal;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**

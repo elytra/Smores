@@ -29,7 +29,6 @@ package com.elytradev.smores.item;
 
 import com.elytradev.smores.Smores;
 import com.elytradev.smores.generic.IOreDict;
-import com.elytradev.smores.generic.SmoresCreativeTab;
 import com.elytradev.smores.materials.EnumGem;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
