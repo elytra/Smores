@@ -148,6 +148,21 @@ public class RecipeRegistry {
 
 			constructSmeltingRecipe("ore" + gem.getMaterialName(), "gem" + gem.getMaterialName(), 1.0f);
 		}
+
+		// Custom Dust Recipes
+
+		constructShapelessOreRecipe(event, "dustBronzeAlloy", "dustBronze", 4,
+				new Object[]{"dustCopper","dustCopper","dustCopper","dustTin"});
+
+		constructShapelessOreRecipe(event, "dustBrassAlloy", "dustBrass", 3,
+				new Object[]{"dustCopper", "dustCopper", "dustZinc"});
+
+		constructShapelessOreRecipe(event, "dustInvarAlloy", "dustInvar", 3,
+				new Object[]{"dustIron", "dustIron", "dustNickel"});
+
+		constructShapelessOreRecipe(event, "dustElectrumAlloy", "dustElectrum", 2,
+				new Object[]{"dustGold", "dustSilver"});
+
 	}
 
 }
