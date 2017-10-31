@@ -31,6 +31,7 @@ import com.elytradev.smores.Smores;
 import com.elytradev.smores.generic.IOreDict;
 import com.elytradev.smores.materials.EnumAlloy;
 import com.elytradev.smores.materials.EnumMetal;
+import com.elytradev.smores.materials.EnumMisc;
 import com.elytradev.smores.materials.EnumNether;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -62,6 +63,7 @@ public class ItemDust extends ItemBase implements IOreDict {
 			for (EnumNether nether : EnumNether.values()) {
 				materials.add(nether.getMaterialName());
 			}
+			materials.add(EnumMisc.LAPIS.getMaterialName());
 		}
 	}
 

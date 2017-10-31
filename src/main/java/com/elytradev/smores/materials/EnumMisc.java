@@ -34,7 +34,8 @@ import java.util.Locale;
 
 public enum EnumMisc implements IStringSerializable {
 
-	MERCURY("Mercury", 0);
+	MERCURY("Mercury", 0),
+	LAPIS("Lapis", 1);
 
 	private String materialName;
 	private int id;

@@ -94,6 +94,8 @@ item.smores.dust_brass.name=Brass Dust
 item.smores.dust_sulfur.name=Sulfur
 item.smores.dust_nitre.name=Nitre
 
+item.smores.dust_lapis.name=Lapis Dust
+
 ############# PLATES #############
 item.smores.plate_iron.name=Iron Plate
 item.smores.plate_gold.name=Gold Plate

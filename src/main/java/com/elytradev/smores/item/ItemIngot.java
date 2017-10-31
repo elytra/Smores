@@ -62,9 +62,7 @@ public class ItemIngot extends ItemBase implements IOreDict {
 			for (EnumAlloy alloy : EnumAlloy.values()) {
 				materials.add(alloy.getMaterialName());
 			}
-			for (EnumMisc misc : EnumMisc.values()) {
-				materials.add(misc.getMaterialName());
-			}
+			materials.add(EnumMisc.MERCURY.getMaterialName());
 		}
 	}
 
