@@ -25,40 +25,29 @@
  * SOFTWARE.
  */
 
-package com.elytradev.smores.materials;
+package com.elytradev.smores.block;
 
+import com.elytradev.smores.materials.EnumMaterial;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
+import net.minecraftforge.fluids.Fluid;
 
-import net.minecraft.util.IStringSerializable;
+public class BlockFluidMaterial extends BlockFluidSmores {
 
-import java.util.Locale;
+	private EnumMaterial material;
 
-public enum EnumMisc implements IStringSerializable {
-
-	MERCURY("Mercury", 0),
-	LAPIS("Lapis", 1);
-
-	private String materialName;
-	private int id;
-
-	EnumMisc(String materialName, int id) {
-		this.materialName = materialName;
-		this.id = id;
+	public BlockFluidMaterial(Fluid fluid, EnumMaterial material, String name) {
+		super(fluid, Material.LAVA, name);
+		this.material = material;
 	}
 
-	public int getId() {
-		return id;
-	}
 
-	public String getName() {
-		return this.materialName.toLowerCase(Locale.ROOT);
+	@Override
+	public Vec3d getFogColor(World world, BlockPos pos, IBlockState state, Entity entity, Vec3d originalColor, float partialTicks) {
+		return convertToFogColor(material.getColor());
 	}
-
-	public String getMaterialName() {
-		return this.materialName;
-	}
-
-	public EnumItem[] getTypes() {
-		return new EnumItem[]{EnumItem.INGOT, EnumItem.ORE};
-	}
-
 }

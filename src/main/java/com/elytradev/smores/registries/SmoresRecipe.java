@@ -28,9 +28,7 @@
 package com.elytradev.smores.registries;
 
 import com.elytradev.smores.Smores;
-import com.elytradev.smores.materials.EnumAlloy;
-import com.elytradev.smores.materials.EnumGem;
-import com.elytradev.smores.materials.EnumMetal;
+import com.elytradev.smores.materials.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.NonNullList;
@@ -43,7 +41,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 @Mod.EventBusSubscriber
-public class RecipeRegistry {
+public class SmoresRecipe {
 
 	private static void constructShapedOreRecipe(RegistryEvent.Register<IRecipe> event, String registryName, String product, int count, Object[] recipe) {
 		NonNullList<ItemStack> products = OreDictionary.getOres(product);
@@ -84,70 +82,55 @@ public class RecipeRegistry {
 
 		// TODO: Disable the shit out of these.
 
-		for (EnumMetal metal : EnumMetal.values()) {
+		for(EnumMaterial material : EnumMaterial.values()){
+			if (material.hasProduct(EnumProduct.GEAR)) {
+				constructShapedOreRecipe(event, "gear" + material.getMaterialName(),
+						"gear" + material.getMaterialName(), 1,
+						new Object[]{" M ", "MIM", " M ", 'M', "ingot" + material.getMaterialName(), 'I', "ingotIron"});
+			}
 
-			constructShapedOreRecipe(event, "gear" + metal.getMaterialName(),
-					"gear" + metal.getMaterialName(), 1,
-					new Object[]{" M ", "MIM", " M ", 'M', "ingot" + metal.getMaterialName(), 'I', "ingotIron"});
+			if (material.hasProduct(EnumProduct.INGOT) && material.hasProduct(EnumProduct.DUST)) {
+				constructSmeltingRecipe("dust"+material.getMaterialName(),
+						"ingot"+material.getMaterialName(), 0.7f);
+			}
 
-			constructSmeltingRecipe("dust"+metal.getMaterialName(),
-					"ingot"+metal.getMaterialName(), 0.7f);
+			if(material.hasProduct(EnumProduct.NUGGET)) {
+				constructShapedOreRecipe(event, "ingot" + material.getMaterialName() + "FromNugget",
+						"ingot" + material.getMaterialName(), 1,
+						new Object[]{"NNN", "NNN", "NNN", 'N', "nugget" + material.getMaterialName()});
 
-			// Subverting vanilla recipes (or attempting to) is a Bad Thing(TM)
-			if (metal != EnumMetal.IRON && metal != EnumMetal.GOLD) {
+				constructShapelessOreRecipe(event, "nugget" + material.getMaterialName(),
+						"nugget" + material.getMaterialName(), 9, new Object[]{"ingot" + material.getMaterialName()});
 
-				constructShapedOreRecipe(event, "ingot" + metal.getMaterialName() + "FromNugget",
-						"ingot" + metal.getMaterialName(), 1,
-						new Object[]{"NNN", "NNN", "NNN", 'N', "nugget" + metal.getMaterialName()});
+			}
 
-				constructShapelessOreRecipe(event, "nugget" + metal.getMaterialName(),
-						"nugget" + metal.getMaterialName(), 9, new Object[]{"ingot" + metal.getMaterialName()});
+			if((material.hasProduct(EnumProduct.METAL_BLOCK) || material.hasProduct(EnumProduct.ALLOY_BLOCK))
+					&& material.hasProduct(EnumProduct.INGOT)) {
+				constructShapedOreRecipe(event, "block" + material.getMaterialName(),
+						"block" + material.getMaterialName(), 1,
+						new Object[]{"III", "III", "III", 'I', "ingot" + material.getMaterialName()});
 
-				constructShapedOreRecipe(event, "block" + metal.getMaterialName(), "block" + metal.getMaterialName(), 1,
-						new Object[]{"III", "III", "III", 'I', "ingot" + metal.getMaterialName()});
+				constructShapelessOreRecipe(event, "ingot" + material.getMaterialName()+ "FromBlock",
+						"ingot" + material.getMaterialName(), 9, new Object[]{"block" + material.getMaterialName()});
+			}
 
-				constructShapelessOreRecipe(event, "ingot" + metal.getMaterialName()+ "FromBlock",
-						"ingot" + metal.getMaterialName(), 9, new Object[]{"block" + metal.getMaterialName()});
+			if(material.hasProduct(EnumProduct.METAL_ORE) || material.hasProduct(EnumProduct.INGOT)) {
+				constructSmeltingRecipe("ore" + material.getMaterialName(), "ingot" + material.getMaterialName(), 0.7f);
+			}
 
-				constructSmeltingRecipe("ore" + metal.getMaterialName(), "ingot" + metal.getMaterialName(), 0.7f);
+			if(material.hasProduct(EnumProduct.GEM_BLOCK) && material.hasProduct(EnumProduct.GEM)) {
+				constructShapedOreRecipe(event, "block" + material.getMaterialName(),
+						"block" + material.getMaterialName(), 1, new Object[]{"GGG", "GGG", "GGG", 'G', "gem" + material.getMaterialName()});
+
+				constructShapelessOreRecipe(event, "gem" + material.getMaterialName(),
+						"gem" + material.getMaterialName(), 9, new Object[]{"block" + material.getMaterialName()});
+			}
+
+			if(material.hasProduct(EnumProduct.GEM_ORE) && material.hasProduct(EnumProduct.GEM)) {
+				constructSmeltingRecipe("ore" + material.getMaterialName(), "gem" + material.getMaterialName(), 1.0f);
 			}
 		}
-
-		for (EnumAlloy alloy : EnumAlloy.values()) {
-	
-			constructShapedOreRecipe(event, "gear" + alloy.getMaterialName(),
-					"gear" + alloy.getMaterialName(), 1,
-					new Object[]{" M ", "MIM", " M ", 'M', "ingot" + alloy.getMaterialName(), 'I', "ingotIron"});
-
-			constructSmeltingRecipe("dust"+alloy.getMaterialName(),
-					"ingot"+alloy.getMaterialName(), 0.7f);
-			
-			constructShapedOreRecipe(event, "ingot" + alloy.getMaterialName()+"FromNugget",
-					"ingot" + alloy.getMaterialName(), 1,
-					new Object[]{"NNN", "NNN", "NNN", 'N', "nugget" + alloy.getMaterialName()});
-
-			constructShapelessOreRecipe(event, "nugget" + alloy.getMaterialName(),
-					"nugget" + alloy.getMaterialName(), 9, new Object[]{"ingot" + alloy.getMaterialName()});
-
-			constructShapedOreRecipe(event, "block" + alloy.getMaterialName(),
-					"block" + alloy.getMaterialName(), 1,
-					new Object[]{"III", "III", "III", 'I', "ingot" + alloy.getMaterialName()});
-
-			constructShapelessOreRecipe(event, "ingot" + alloy.getMaterialName()+"FromBlock",
-					"ingot" + alloy.getMaterialName(), 9, new Object[]{"block" + alloy.getMaterialName()});
-
-			constructSmeltingRecipe("ore" + alloy.getMaterialName(), "ingot" + alloy.getMaterialName(), 0.7f);
-		}
-
-		for (EnumGem gem : EnumGem.values()) {
-			constructShapedOreRecipe(event, "block" + gem.getMaterialName(),
-					"block" + gem.getMaterialName(), 1, new Object[]{"GGG", "GGG", "GGG", 'G', "gem" + gem.getMaterialName()});
-
-			constructShapelessOreRecipe(event, "gem" + gem.getMaterialName(),
-					"gem" + gem.getMaterialName(), 9, new Object[]{"block" + gem.getMaterialName()});
-
-			constructSmeltingRecipe("ore" + gem.getMaterialName(), "gem" + gem.getMaterialName(), 1.0f);
-		}
+		
 
 		// Custom Dust Recipes
 

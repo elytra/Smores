@@ -27,27 +27,41 @@
 
 package com.elytradev.smores.block;
 
-import com.elytradev.smores.materials.EnumMetal;
-import net.minecraft.block.material.Material;
+import com.elytradev.smores.generic.IOreDict;
+import com.elytradev.smores.materials.EnumMaterial;
+import com.elytradev.smores.materials.EnumProduct;
+import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.World;
-import net.minecraftforge.fluids.Fluid;
 
-public class BlockFluidMetal extends BlockFluidSmores {
+import java.util.function.Function;
 
-	private EnumMetal metal;
+import javax.annotation.Nullable;
 
-	public BlockFluidMetal(Fluid fluid, EnumMetal metal, String name) {
-		super(fluid, Material.LAVA, name);
-		this.metal = metal;
+public class BlockOre extends BlockSubtyped implements IOreDict {
+
+	public Function<EnumMaterial, Integer> harvestLevelFunction;
+
+
+
+	public BlockOre(String name, PropertyEnum<EnumMaterial> materialProperty, EnumMaterial defaultMaterial) {
+		super(name, materialProperty, defaultMaterial);
+		this.setHardness(3.0f);
+		this.harvestLevelFunction = material -> 2;
 	}
 
+	public BlockOre setHarvestLevelFunction(Function<EnumMaterial, Integer> harvestLevelFunction) {
+		this.harvestLevelFunction = harvestLevelFunction;
+		return this;
+	}
 
 	@Override
-	public Vec3d getFogColor(World world, BlockPos pos, IBlockState state, Entity entity, Vec3d originalColor, float partialTicks) {
-		return convertToFogColor(metal.getColor());
+	public int getHarvestLevel(IBlockState state) {
+		return harvestLevelFunction.apply(state.getValue(materialProperty));
+	}
+
+	@Nullable
+	@Override
+	public String getHarvestTool(IBlockState state) {
+		return "pickaxe";
 	}
 }

@@ -28,8 +28,8 @@
 package com.elytradev.smores.generic;
 
 import com.elytradev.smores.init.SmoresItems;
-import com.elytradev.smores.materials.EnumAlloy;
-import com.elytradev.smores.materials.EnumMetal;
+import com.elytradev.smores.materials.EnumMaterial;
+import com.elytradev.smores.materials.EnumProduct;
 import com.elytradev.smores.registries.SmoresFluids;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -50,14 +50,19 @@ public class SmoresCreativeTab extends CreativeTabs {
 
 	@Override
 	public void displayAllRelevantItems(NonNullList<ItemStack> itemList) {
-		for(EnumMetal metal : EnumMetal.values()) {
-			itemList.add(FluidUtil.getFilledBucket(
-					new FluidStack(SmoresFluids.molten_metals.get(metal.getId()), 1000)));
-		}
 
-		for(EnumAlloy alloy : EnumAlloy.values()) {
-			itemList.add(FluidUtil.getFilledBucket(
-					new FluidStack(SmoresFluids.molten_alloys.get(alloy.getId()), 1000)));
+		int metalFluidIterator = 0, alloyFluidIterator = 0;
+
+		for (EnumMaterial material : EnumMaterial.values()) {
+			if (material.hasProduct(EnumProduct.METAL_FLUID)) {
+				itemList.add(FluidUtil.getFilledBucket(
+						new FluidStack(SmoresFluids.molten_metals.get(metalFluidIterator), 1000)));
+				metalFluidIterator++;
+			} else if(material.hasProduct(EnumProduct.ALLOY_FLUID)) {
+				itemList.add(FluidUtil.getFilledBucket(
+						new FluidStack(SmoresFluids.molten_alloys.get(alloyFluidIterator), 1000)));
+				alloyFluidIterator++;
+			}
 		}
 
 		super.displayAllRelevantItems(itemList);

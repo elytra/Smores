@@ -31,13 +31,13 @@ import com.elytradev.smores.block.*;
 import com.elytradev.smores.generic.IOreDict;
 import com.elytradev.smores.generic.SmoresCreativeTab;
 import com.elytradev.smores.init.SmoresBlocks;
-import com.elytradev.smores.item.*;
-import com.elytradev.smores.materials.EnumAlloy;
-import com.elytradev.smores.materials.EnumGem;
-import com.elytradev.smores.materials.EnumMetal;
-import com.elytradev.smores.materials.EnumNether;
+import com.elytradev.smores.item.ItemBase;
+import com.elytradev.smores.item.ItemBlockSubtyped;
+import com.elytradev.smores.item.ItemSubtyped;
+import com.elytradev.smores.materials.EnumMaterial;
+import com.elytradev.smores.materials.EnumProduct;
 import com.elytradev.smores.proxy.CommonProxy;
-import com.elytradev.smores.registries.ConfigurationRegistry;
+import com.elytradev.smores.registries.SmoresConfiguration;
 import com.elytradev.smores.registries.SmoresFluids;
 import com.elytradev.smores.world.WorldGen;
 import net.minecraft.block.Block;
@@ -90,57 +90,67 @@ public final class Smores {
 		registerBlock(event.getRegistry(), new BlockMetalOre().setCreativeTab(CREATIVE_TAB));
 		registerBlock(event.getRegistry(), new BlockGemOre().setCreativeTab(CREATIVE_TAB));
 		registerBlock(event.getRegistry(), new BlockNetherOre().setCreativeTab(CREATIVE_TAB));
+
 		registerBlock(event.getRegistry(), new BlockMetal().setCreativeTab(CREATIVE_TAB));
 		registerBlock(event.getRegistry(), new BlockAlloy().setCreativeTab(CREATIVE_TAB));
 		registerBlock(event.getRegistry(), new BlockGem().setCreativeTab(CREATIVE_TAB));
 
+		int metalFluidIterator = 0, alloyFluidIterator = 0;
 
-		for(EnumMetal metal : EnumMetal.values()) {
-			SmoresFluids.molten_metal_blocks.add(metal.getId(),
-					new BlockFluidMetal(SmoresFluids.molten_metals.get(metal.getId()), metal,
-							"molten_"+ metal.getName()));
-			registerBlock(event.getRegistry(), SmoresFluids.molten_metal_blocks.get(metal.getId()));
-		}
-
-		for(EnumAlloy alloy : EnumAlloy.values()) {
-			SmoresFluids.molten_alloy_blocks.add(alloy.getId(),
-					new BlockFluidAlloy(SmoresFluids.molten_alloys.get(alloy.getId()), alloy,
-							"molten_"+ alloy.getName()));
-			registerBlock(event.getRegistry(), SmoresFluids.molten_alloy_blocks.get(alloy.getId()));
+		for(EnumMaterial material : EnumMaterial.values()) {
+			if(material.hasProduct(EnumProduct.METAL_FLUID)) {
+				SmoresFluids.molten_metal_blocks.add(metalFluidIterator,
+						new BlockFluidMaterial(SmoresFluids.molten_metals.get(metalFluidIterator), material,
+								"molten_" + material.getName()));
+				registerBlock(event.getRegistry(), SmoresFluids.molten_metal_blocks.get(metalFluidIterator));
+				metalFluidIterator++;
+			} else if(material.hasProduct(EnumProduct.ALLOY_FLUID)) {
+				SmoresFluids.molten_alloy_blocks.add(alloyFluidIterator,
+						new BlockFluidMaterial(SmoresFluids.molten_alloys.get(alloyFluidIterator), material,
+								"molten_"+ material.getName()));
+				registerBlock(event.getRegistry(), SmoresFluids.molten_alloy_blocks.get(alloyFluidIterator));
+				alloyFluidIterator++;
+			}
 		}
 	}
 
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event) {
 		// item blocks
-		registerItemBlock(event.getRegistry(), SmoresBlocks.metal_ore, EnumMetal.class);
-		registerItemBlock(event.getRegistry(), SmoresBlocks.gem_ore, EnumGem.class);
-		registerItemBlock(event.getRegistry(), SmoresBlocks.nether_ore, EnumNether.class);
-		registerItemBlock(event.getRegistry(), SmoresBlocks.metal_block, EnumMetal.class);
-		registerItemBlock(event.getRegistry(), SmoresBlocks.alloy_block, EnumAlloy.class);
-		registerItemBlock(event.getRegistry(), SmoresBlocks.gem_block, EnumGem.class);
+		registerItemBlock(event.getRegistry(), SmoresBlocks.metal_ore);
+		registerItemBlock(event.getRegistry(), SmoresBlocks.gem_ore);
+		registerItemBlock(event.getRegistry(), SmoresBlocks.nether_ore);
+		registerItemBlock(event.getRegistry(), SmoresBlocks.metal_block);
+		registerItemBlock(event.getRegistry(), SmoresBlocks.alloy_block);
+		registerItemBlock(event.getRegistry(), SmoresBlocks.gem_block);
 
-		for(EnumMetal metal : EnumMetal.values()) {
-			registerItemBlock(event.getRegistry(), SmoresFluids.molten_metal_blocks.get(metal.getId()));
-		}
+		int metalFluidIterator = 0, alloyFluidIterator = 0;
 
-		for(EnumAlloy alloy : EnumAlloy.values()) {
-			registerItemBlock(event.getRegistry(), SmoresFluids.molten_alloy_blocks.get(alloy.getId()));
+		for(EnumMaterial material : EnumMaterial.values()) {
+			if (material.hasProduct(EnumProduct.METAL_FLUID)) {
+				registerItemBlock(event.getRegistry(), SmoresFluids.molten_metal_blocks.get(metalFluidIterator));
+				metalFluidIterator++;
+			} else if(material.hasProduct(EnumProduct.ALLOY_FLUID)) {
+				registerItemBlock(event.getRegistry(), SmoresFluids.molten_alloy_blocks.get(alloyFluidIterator));
+				alloyFluidIterator++;
+			}
 		}
 
 		// items
-		registerItem(event.getRegistry(), new ItemIngot().setCreativeTab(CREATIVE_TAB));
-		registerItem(event.getRegistry(), new ItemGem().setCreativeTab(CREATIVE_TAB));
-		registerItem(event.getRegistry(), new ItemDust().setCreativeTab(CREATIVE_TAB));
-		registerItem(event.getRegistry(), new ItemNugget().setCreativeTab(CREATIVE_TAB));
-		registerItem(event.getRegistry(), new ItemPlate().setCreativeTab(CREATIVE_TAB));
-		registerItem(event.getRegistry(), new ItemGear().setCreativeTab(CREATIVE_TAB));
+		registerItem(event.getRegistry(), new ItemSubtyped("ingot", 	EnumProduct.INGOT).setCreativeTab(CREATIVE_TAB));
+		registerItem(event.getRegistry(), new ItemSubtyped("gem", 	EnumProduct.GEM).setCreativeTab(CREATIVE_TAB));
+		registerItem(event.getRegistry(), new ItemSubtyped("dust", 	EnumProduct.DUST).setCreativeTab(CREATIVE_TAB));
+		registerItem(event.getRegistry(), new ItemSubtyped("nugget",	EnumProduct.NUGGET).setCreativeTab(CREATIVE_TAB));
+		registerItem(event.getRegistry(), new ItemSubtyped("plate",	EnumProduct.PLATE).setCreativeTab(CREATIVE_TAB));
+		registerItem(event.getRegistry(), new ItemSubtyped("gear",	EnumProduct.GEAR).setCreativeTab(CREATIVE_TAB));
+		registerItem(event.getRegistry(), new ItemSubtyped("glob",	EnumProduct.GLOB).setCreativeTab(CREATIVE_TAB));
+		registerItem(event.getRegistry(), new ItemSubtyped("rod",		EnumProduct.ROD).setCreativeTab(CREATIVE_TAB));
 	}
 
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		CONFIG = new Configuration(event.getSuggestedConfigurationFile());
-		ConfigurationRegistry.init(CONFIG);
+		SmoresConfiguration.init(CONFIG);
 		SmoresFluids.init();
 		PROXY.init();
 	}
@@ -182,8 +192,12 @@ public final class Smores {
 		}
 	}
 
-	private static <V extends Enum<V>> void registerItemBlock(IForgeRegistry<Item> registry, Block block, Class<V> enumClass) {
-		registerItem(registry, new ItemBlockSubtyped<>(block, enumClass));
+	private static <V extends Enum<V>> void registerItemBlock(IForgeRegistry<Item> registry, BlockSubtyped block) {
+		registerItem(registry, new ItemBlockSubtyped(block));
+	}
+
+	private static void registerItemBlock(IForgeRegistry<Item> registry, Block block) {
+		registerItem(registry, new ItemBlock(block).setRegistryName(block.getRegistryName()));
 	}
 
 	private static void registerItemBlock(IForgeRegistry<Item> registry, BlockFluidSmores block) {

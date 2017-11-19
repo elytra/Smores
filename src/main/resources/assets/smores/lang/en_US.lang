@@ -10,6 +10,7 @@ item.smores.ingot_zinc.name=Zinc Ingot
 
 ############# ODDBALL #############
 item.smores.ingot_mercury.name=Mercury
+item.smores.ingot_uranium.name=Uranium Ingot
 
 ############# ORES #############
 tile.smores.metal_ore_copper.name=Copper Ore
@@ -44,6 +45,7 @@ tile.smores.alloy_block_brass.name=Block of Brass
 tile.smores.gem_block_ruby.name=Block of Ruby
 tile.smores.gem_block_sapphire.name=Block of Sapphire
 tile.smores.gem_block_peridot.name=Block of Peridot
+tile.smores.block_uranium.name=Block of Uranium
 
 ############# FLUIDS #############
 fluid.smores.molten_copper=Molten Copper
@@ -93,6 +95,7 @@ item.smores.dust_brass.name=Brass Dust
 
 item.smores.dust_sulfur.name=Sulfur
 item.smores.dust_nitre.name=Nitre
+item.smores.dust_uranium.name=Uranium Dust
 
 item.smores.dust_lapis.name=Lapis Dust
 
@@ -129,6 +132,7 @@ item.smores.gear_invar.name=Invar Gear
 item.smores.gear_steel.name=Steel Gear
 item.smores.gear_bronze.name=Bronze Gear
 item.smores.gear_brass.name=Brass Gear
+item.smores.gear_uranium.name=Uranium Gear
 
 ############# NUGGETS #############
 item.smores.nugget_copper.name=Copper Nugget
@@ -144,6 +148,10 @@ item.smores.nugget_invar.name=Invar Nugget
 item.smores.nugget_steel.name=Steel Nugget
 item.smores.nugget_bronze.name=Bronze Nugget
 item.smores.nugget_brass.name=Brass Nugget
+item.smores.nugget_uranium.name=Uranium Nugget
+
+############# RODS #############
+item.smores.rod_uranium.name=Uranium Rod
 
 ############# MISC #############
 itemGroup.smores=Smores
