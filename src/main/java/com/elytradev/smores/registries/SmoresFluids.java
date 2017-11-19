@@ -53,8 +53,8 @@ public class SmoresFluids {
 
 		int metalFluidIterator = 0, alloyFluidIterator = 0;
 
-		for(EnumMaterial material : EnumMaterial.values()) {
-			if(material.hasProduct(EnumProduct.METAL_FLUID)) {
+		for (EnumMaterial material : EnumMaterial.values()) {
+			if (material.hasProduct(EnumProduct.METAL_FLUID)) {
 				molten_metals.add(metalFluidIterator, new Fluid(Smores.MOD_ID + ".molten_" + material.getName(),
 						new ResourceLocation("smores",
 								"blocks/fluid_molten_" + material.getName() + "_still"),
@@ -65,7 +65,7 @@ public class SmoresFluids {
 
 				registerFluid(molten_metals.get(metalFluidIterator));
 				metalFluidIterator++;
-			} else if(material.hasProduct(EnumProduct.ALLOY_FLUID)) {
+			} else if (material.hasProduct(EnumProduct.ALLOY_FLUID)) {
 				molten_alloys.add(alloyFluidIterator, new Fluid(Smores.MOD_ID+".molten_"+material.getName(),
 						new ResourceLocation("smores",
 								"blocks/fluid_molten_"+material.getName()+"_still"),

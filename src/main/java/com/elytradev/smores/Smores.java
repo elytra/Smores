@@ -97,14 +97,14 @@ public final class Smores {
 
 		int metalFluidIterator = 0, alloyFluidIterator = 0;
 
-		for(EnumMaterial material : EnumMaterial.values()) {
-			if(material.hasProduct(EnumProduct.METAL_FLUID)) {
+		for (EnumMaterial material : EnumMaterial.values()) {
+			if (material.hasProduct(EnumProduct.METAL_FLUID)) {
 				SmoresFluids.molten_metal_blocks.add(metalFluidIterator,
 						new BlockFluidMaterial(SmoresFluids.molten_metals.get(metalFluidIterator), material,
 								"molten_" + material.getName()));
 				registerBlock(event.getRegistry(), SmoresFluids.molten_metal_blocks.get(metalFluidIterator));
 				metalFluidIterator++;
-			} else if(material.hasProduct(EnumProduct.ALLOY_FLUID)) {
+			} else if (material.hasProduct(EnumProduct.ALLOY_FLUID)) {
 				SmoresFluids.molten_alloy_blocks.add(alloyFluidIterator,
 						new BlockFluidMaterial(SmoresFluids.molten_alloys.get(alloyFluidIterator), material,
 								"molten_"+ material.getName()));
@@ -126,11 +126,11 @@ public final class Smores {
 
 		int metalFluidIterator = 0, alloyFluidIterator = 0;
 
-		for(EnumMaterial material : EnumMaterial.values()) {
+		for (EnumMaterial material : EnumMaterial.values()) {
 			if (material.hasProduct(EnumProduct.METAL_FLUID)) {
 				registerItemBlock(event.getRegistry(), SmoresFluids.molten_metal_blocks.get(metalFluidIterator));
 				metalFluidIterator++;
-			} else if(material.hasProduct(EnumProduct.ALLOY_FLUID)) {
+			} else if (material.hasProduct(EnumProduct.ALLOY_FLUID)) {
 				registerItemBlock(event.getRegistry(), SmoresFluids.molten_alloy_blocks.get(alloyFluidIterator));
 				alloyFluidIterator++;
 			}

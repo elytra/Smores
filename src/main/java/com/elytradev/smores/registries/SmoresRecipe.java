@@ -82,7 +82,7 @@ public class SmoresRecipe {
 
 		// TODO: Disable the shit out of these.
 
-		for(EnumMaterial material : EnumMaterial.values()){
+		for (EnumMaterial material : EnumMaterial.values()){
 			if (material.hasProduct(EnumProduct.GEAR)) {
 				constructShapedOreRecipe(event, "gear" + material.getMaterialName(),
 						"gear" + material.getMaterialName(), 1,
@@ -94,7 +94,7 @@ public class SmoresRecipe {
 						"ingot"+material.getMaterialName(), 0.7f);
 			}
 
-			if(material.hasProduct(EnumProduct.NUGGET)) {
+			if (material.hasProduct(EnumProduct.NUGGET)) {
 				constructShapedOreRecipe(event, "ingot" + material.getMaterialName() + "FromNugget",
 						"ingot" + material.getMaterialName(), 1,
 						new Object[]{"NNN", "NNN", "NNN", 'N', "nugget" + material.getMaterialName()});
@@ -104,7 +104,7 @@ public class SmoresRecipe {
 
 			}
 
-			if((material.hasProduct(EnumProduct.METAL_BLOCK) || material.hasProduct(EnumProduct.ALLOY_BLOCK))
+			if ((material.hasProduct(EnumProduct.METAL_BLOCK) || material.hasProduct(EnumProduct.ALLOY_BLOCK))
 					&& material.hasProduct(EnumProduct.INGOT)) {
 				constructShapedOreRecipe(event, "block" + material.getMaterialName(),
 						"block" + material.getMaterialName(), 1,
@@ -114,11 +114,11 @@ public class SmoresRecipe {
 						"ingot" + material.getMaterialName(), 9, new Object[]{"block" + material.getMaterialName()});
 			}
 
-			if(material.hasProduct(EnumProduct.METAL_ORE) || material.hasProduct(EnumProduct.INGOT)) {
+			if (material.hasProduct(EnumProduct.METAL_ORE) || material.hasProduct(EnumProduct.INGOT)) {
 				constructSmeltingRecipe("ore" + material.getMaterialName(), "ingot" + material.getMaterialName(), 0.7f);
 			}
 
-			if(material.hasProduct(EnumProduct.GEM_BLOCK) && material.hasProduct(EnumProduct.GEM)) {
+			if (material.hasProduct(EnumProduct.GEM_BLOCK) && material.hasProduct(EnumProduct.GEM)) {
 				constructShapedOreRecipe(event, "block" + material.getMaterialName(),
 						"block" + material.getMaterialName(), 1, new Object[]{"GGG", "GGG", "GGG", 'G', "gem" + material.getMaterialName()});
 
@@ -126,7 +126,7 @@ public class SmoresRecipe {
 						"gem" + material.getMaterialName(), 9, new Object[]{"block" + material.getMaterialName()});
 			}
 
-			if(material.hasProduct(EnumProduct.GEM_ORE) && material.hasProduct(EnumProduct.GEM)) {
+			if (material.hasProduct(EnumProduct.GEM_ORE) && material.hasProduct(EnumProduct.GEM)) {
 				constructSmeltingRecipe("ore" + material.getMaterialName(), "gem" + material.getMaterialName(), 1.0f);
 			}
 		}

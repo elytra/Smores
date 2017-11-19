@@ -58,7 +58,7 @@ public class ItemSubtyped extends ItemBase implements IOreDict {
 			materials = new HashMap<>();
 		}
 
-		if(!materials.containsKey(productType)) {
+		if (!materials.containsKey(productType)) {
 			materials.put(productType, new ArrayList<>());
 			for (EnumMaterial material : EnumMaterial.values()) {
 				if (material.hasProduct(productType)) {

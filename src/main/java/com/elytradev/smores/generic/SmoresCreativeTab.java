@@ -58,7 +58,7 @@ public class SmoresCreativeTab extends CreativeTabs {
 				itemList.add(FluidUtil.getFilledBucket(
 						new FluidStack(SmoresFluids.molten_metals.get(metalFluidIterator), 1000)));
 				metalFluidIterator++;
-			} else if(material.hasProduct(EnumProduct.ALLOY_FLUID)) {
+			} else if (material.hasProduct(EnumProduct.ALLOY_FLUID)) {
 				itemList.add(FluidUtil.getFilledBucket(
 						new FluidStack(SmoresFluids.molten_alloys.get(alloyFluidIterator), 1000)));
 				alloyFluidIterator++;
