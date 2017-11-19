@@ -66,6 +66,13 @@
                     "bottom": "smores:blocks/block_nickel_bottom",
                     "side": "smores:blocks/block_nickel_side"
                 }
+            },
+            "uranium": {
+                "textures": {
+                    "top": "smores:blocks/block_uranium_top",
+                    "bottom": "smores:blocks/block_uranium_bottom",
+                    "side": "smores:blocks/block_uranium_side"
+                }
             }
         },
         "inventory": [{}]

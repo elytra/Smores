@@ -27,85 +27,29 @@
 
 package com.elytradev.smores.block;
 
-import com.elytradev.smores.Smores;
-import com.elytradev.smores.generic.IOreDict;
-import com.elytradev.smores.materials.EnumMetal;
-import net.minecraft.block.material.Material;
+import com.elytradev.smores.materials.EnumMaterial;
+import com.elytradev.smores.materials.EnumProduct;
+import net.minecraft.block.Block;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
-import net.minecraftforge.oredict.OreDictionary;
 
-import java.util.Locale;
+import java.util.function.Function;
 
-import javax.annotation.Nullable;
+public class BlockMetalOre extends BlockOre {
 
-public class BlockMetalOre extends BlockBase implements IOreDict {
+	public static PropertyEnum<EnumMaterial> METAL = PropertyEnum.create("metal", EnumMaterial.class,
+			(material) -> material.hasProduct(EnumProduct.METAL_ORE));
 
-	public static PropertyEnum<EnumMetal> METAL = BlockMetal.METAL;
+	public static final Function<EnumMaterial, Integer> METAL_HARVEST_FUNCTION =
+			(material -> (material == EnumMaterial.COPPER || material == EnumMaterial.TIN) ? 1 : 2);
 
 	public BlockMetalOre() {
-		super(Material.ROCK, "metal_ore");
-		this.setHardness(3.0f);
-		this.setDefaultState(this.getDefaultState().withProperty(METAL, EnumMetal.COPPER));
+		super("metal_ore", METAL, EnumMaterial.COPPER);
+		this.setHarvestLevelFunction(METAL_HARVEST_FUNCTION);
 	}
 
 	@Override
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, METAL);
 	}
-
-	@Override
-	public int getHarvestLevel(IBlockState state) {
-		return (state.getValue(METAL) == EnumMetal.COPPER || state.getValue(METAL) == EnumMetal.TIN) ? 1 : 2;
-	}
-
-	@Nullable
-	@Override
-	public String getHarvestTool(IBlockState state) {
-		return "pickaxe";
-	}
-
-	@Override
-	public int getMetaFromState(IBlockState state) {
-		return state.getValue(METAL).getId();
-	}
-
-	@Override
-	public int damageDropped(IBlockState state) {
-		return getMetaFromState(state);
-	}
-
-	@Override
-	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(METAL, EnumMetal.values()[meta]);
-	}
-
-	@Override
-	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
-		for (EnumMetal metal : METAL.getAllowedValues()) {
-			items.add(new ItemStack(this, 1, metal.getId()));
-		}
-	}
-
-	@Override
-	public void registerItemModel(ItemBlock block) {
-		int iterator = 0;
-		for (EnumMetal metal : METAL.getAllowedValues()) {
-			Smores.PROXY.registerItemRenderer(block, iterator, super.getUnlocalizedName() + "_" + metal.toString().toLowerCase(Locale.ROOT));
-			iterator++;
-		}
-	}
-
-	@Override
-	public void registerOreDict() {
-		for (EnumMetal metal : METAL.getAllowedValues()) {
-			OreDictionary.registerOre("ore" + metal.getMaterialName(), new ItemStack(this, 1, metal.getId()));
-		}
-	}
-
 }

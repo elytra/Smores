@@ -43,6 +43,8 @@ public final class SmoresItems {
 	public static final ItemBase nugget = null;
 	public static final ItemBase plate = null;
 	public static final ItemBase gear = null;
+	public static final ItemBase glob = null;
+	public static final ItemBase rod = null;
 
 	private SmoresItems() {
 	}

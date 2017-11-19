@@ -28,7 +28,7 @@
 package com.elytradev.smores.init;
 
 import com.elytradev.smores.Smores;
-import com.elytradev.smores.block.BlockBase;
+import com.elytradev.smores.block.BlockSubtyped;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
@@ -37,12 +37,12 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 @GameRegistry.ObjectHolder(Smores.MOD_ID)
 public final class SmoresBlocks {
 
-	public static final BlockBase metal_ore = null;
-	public static final BlockBase gem_ore = null;
-	public static final BlockBase nether_ore = null;
-	public static final BlockBase metal_block = null;
-	public static final BlockBase alloy_block = null;
-	public static final BlockBase gem_block = null;
+	public static final BlockSubtyped metal_ore = null;
+	public static final BlockSubtyped gem_ore = null;
+	public static final BlockSubtyped nether_ore = null;
+	public static final BlockSubtyped metal_block = null;
+	public static final BlockSubtyped alloy_block = null;
+	public static final BlockSubtyped gem_block = null;
 
 	private SmoresBlocks() {
 	}

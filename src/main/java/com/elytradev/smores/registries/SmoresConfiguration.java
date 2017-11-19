@@ -29,19 +29,13 @@ package com.elytradev.smores.registries;
 
 import com.elytradev.smores.Smores;
 import com.elytradev.smores.imc.EnumResourceSelection;
-import com.elytradev.smores.materials.EnumAlloy;
-import com.elytradev.smores.materials.EnumGem;
-import com.elytradev.smores.materials.EnumItem;
-import com.elytradev.smores.materials.EnumMetal;
-import com.elytradev.smores.materials.EnumMisc;
-import com.elytradev.smores.materials.EnumNether;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 
 import java.util.HashMap;
 import java.util.Locale;
 
-public class ConfigurationRegistry {
+public class SmoresConfiguration {
 
 	public static final String CATEGORY_OVERRIDES = "overrides";
 
@@ -50,7 +44,7 @@ public class ConfigurationRegistry {
 	public static HashMap<String, EnumResourceSelection> overridingDefaults = new HashMap<>();
 
 	public static void init(Configuration config) {
-		try {
+		/*try {
 			config.load();
 
 			Property defaultProperty = config.get(Configuration.CATEGORY_GENERAL, "default", "imc");
@@ -108,7 +102,6 @@ public class ConfigurationRegistry {
 			}
 		} catch (Exception e) {
 			Smores.LOG.error(e.getMessage());
-		}
+		}*/
 	}
-
 }

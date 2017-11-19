@@ -29,8 +29,8 @@ package com.elytradev.smores.item;
 
 import com.elytradev.smores.Smores;
 import com.elytradev.smores.generic.IOreDict;
-import com.elytradev.smores.materials.EnumAlloy;
-import com.elytradev.smores.materials.EnumMetal;
+import com.elytradev.smores.materials.EnumMaterial;
+import com.elytradev.smores.materials.EnumProduct;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
@@ -39,27 +39,31 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.ArrayList;
-import java.util.Locale;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-public class ItemNugget extends ItemBase implements IOreDict {
+public class ItemSubtyped extends ItemBase implements IOreDict {
 
-	private static ArrayList<String> materials;
+	private static Map<EnumProduct, List<EnumMaterial>> materials;
+	private EnumProduct productType;
 
-	public ItemNugget() {
-		super("nugget");
+	public ItemSubtyped(String name, EnumProduct productType) {
+		super(name);
+		this.productType = productType;
 		this.setMaxDamage(0);
 		this.setHasSubtypes(true);
 
 		if (materials == null) {
-			materials = new ArrayList<>();
-			for (EnumMetal metal : EnumMetal.values()) {
-				if (metal == EnumMetal.IRON || metal == EnumMetal.GOLD) {
-					continue;
+			materials = new HashMap<>();
+		}
+
+		if (!materials.containsKey(productType)) {
+			materials.put(productType, new ArrayList<>());
+			for (EnumMaterial material : EnumMaterial.values()) {
+				if (material.hasProduct(productType)) {
+					materials.get(productType).add(material);
 				}
-				materials.add(metal.getMaterialName());
-			}
-			for (EnumAlloy alloy : EnumAlloy.values()) {
-				materials.add(alloy.getMaterialName());
 			}
 		}
 	}
@@ -68,28 +72,30 @@ public class ItemNugget extends ItemBase implements IOreDict {
 	@SideOnly(Side.CLIENT)
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems) {
 		if (isInCreativeTab(tab)) {
-			for (String material : materials) {
-				subItems.add(new ItemStack(this, 1, materials.indexOf(material)));
+			for (EnumMaterial material : materials.get(productType)) {
+				subItems.add(new ItemStack(this, 1, materials.get(productType).indexOf(material)));
 			}
 		}
 	}
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		return super.getUnlocalizedName(stack) + "_" + materials.get(stack.getItemDamage()).toLowerCase(Locale.ROOT);
+		return super.getUnlocalizedName(stack) + "_" + materials.get(productType).get(stack.getItemDamage()).getName();
 	}
 
 	@Override
 	public void registerOreDict() {
-		for (String material : materials) {
-			OreDictionary.registerOre("nugget" + material, new ItemStack(this, 1, materials.indexOf(material)));
+		for (EnumMaterial material : materials.get(productType)) {
+			OreDictionary.registerOre(this.name + material.getMaterialName(),
+					new ItemStack(this, 1, materials.get(productType).indexOf(material)));
 		}
 	}
 
 	@Override
 	public void registerItemModel() {
-		for (String material : materials) {
-			Smores.PROXY.registerItemRenderer(this, materials.indexOf(material), "nugget_" + material.toLowerCase(Locale.ROOT));
+		for (EnumMaterial material : materials.get(productType)) {
+			Smores.PROXY.registerItemRenderer(this, materials.get(productType).indexOf(material),
+					name + "_" + material.getName());
 		}
 	}
 

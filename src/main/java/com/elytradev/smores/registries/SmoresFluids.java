@@ -29,8 +29,8 @@ package com.elytradev.smores.registries;
 
 import com.elytradev.smores.Smores;
 import com.elytradev.smores.block.BlockFluidSmores;
-import com.elytradev.smores.materials.EnumAlloy;
-import com.elytradev.smores.materials.EnumMetal;
+import com.elytradev.smores.materials.EnumMaterial;
+import com.elytradev.smores.materials.EnumProduct;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 
@@ -51,28 +51,32 @@ public class SmoresFluids {
 		molten_alloys = new ArrayList<>();
 		molten_alloy_blocks = new ArrayList<>();
 
-		for(EnumMetal metal : EnumMetal.values()) {
-			molten_metals.add(metal.getId(), new Fluid(Smores.MOD_ID+".molten_"+metal.getName(),
-					new ResourceLocation("smores",
-							"blocks/fluid_molten_"+metal.getName()+"_still"),
-					new ResourceLocation("smores",
-							"blocks/fluid_molten_"+metal.getName()+"_flowing"))
-					.setLuminosity(15).setDensity(metal.getDensity()).setViscosity(6000)
-					.setTemperature(metal.getMeltingPoint()));
+		int metalFluidIterator = 0, alloyFluidIterator = 0;
 
-			registerFluid(molten_metals.get(metal.getId()));
-		}
+		for (EnumMaterial material : EnumMaterial.values()) {
+			if (material.hasProduct(EnumProduct.METAL_FLUID)) {
+				molten_metals.add(metalFluidIterator, new Fluid(Smores.MOD_ID + ".molten_" + material.getName(),
+						new ResourceLocation("smores",
+								"blocks/fluid_molten_" + material.getName() + "_still"),
+						new ResourceLocation("smores",
+								"blocks/fluid_molten_" + material.getName() + "_flowing"))
+						.setLuminosity(15).setDensity(material.getDensity()).setViscosity(6000)
+						.setTemperature(material.getMeltingPoint()));
 
-		for(EnumAlloy alloy : EnumAlloy.values()) {
-			molten_alloys.add(alloy.getId(), new Fluid(Smores.MOD_ID+".molten_"+alloy.getName(),
-					new ResourceLocation("smores",
-							"blocks/fluid_molten_"+alloy.getName()+"_still"),
-					new ResourceLocation("smores",
-							"blocks/fluid_molten_"+alloy.getName()+"_flowing"))
-					.setLuminosity(15).setDensity(alloy.getDensity()).setViscosity(6000)
-					.setTemperature(alloy.getMeltingPoint()));
+				registerFluid(molten_metals.get(metalFluidIterator));
+				metalFluidIterator++;
+			} else if (material.hasProduct(EnumProduct.ALLOY_FLUID)) {
+				molten_alloys.add(alloyFluidIterator, new Fluid(Smores.MOD_ID+".molten_"+material.getName(),
+						new ResourceLocation("smores",
+								"blocks/fluid_molten_"+material.getName()+"_still"),
+						new ResourceLocation("smores",
+								"blocks/fluid_molten_"+material.getName()+"_flowing"))
+						.setLuminosity(15).setDensity(material.getDensity()).setViscosity(6000)
+						.setTemperature(material.getMeltingPoint()));
 
-			registerFluid(molten_alloys.get(alloy.getId()));
+				registerFluid(molten_alloys.get(alloyFluidIterator));
+				alloyFluidIterator++;
+			}
 		}
 
 	}

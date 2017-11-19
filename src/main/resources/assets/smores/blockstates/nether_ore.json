@@ -8,7 +8,7 @@
     },
     "variants": {
         "normal": [{}],
-        "material": {
+        "mineral": {
             "sulfur": {
                 "textures": {
                     "all": "smores:blocks/ore_sulfur"
@@ -17,6 +17,16 @@
             "nitre": {
                 "textures": {
                     "all": "smores:blocks/ore_nitre"
+                }
+            },
+            "uranium": {
+                "textures": {
+                    "all": "smores:blocks/ore_uranium"
+                }
+            },
+            "mercury": {
+                "textures": {
+                    "all": "smores:blocks/ore_mercury"
                 }
             }
         },

@@ -28,8 +28,7 @@
 package com.elytradev.smores.gui;
 
 import com.elytradev.smores.Smores;
-import com.elytradev.smores.materials.EnumItem;
-import com.elytradev.smores.registries.ConfigurationRegistry;
+import com.elytradev.smores.registries.SmoresConfiguration;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
@@ -49,15 +48,16 @@ public class SmoresConfigGui extends GuiConfig {
 	public static List<IConfigElement> getCategories() {
 		List<IConfigElement> categories = new ArrayList<>();
 
-		categories.addAll(new ConfigElement(Smores.CONFIG.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements());
+		// TODO: New Concrete config system?
+		/*categories.addAll(new ConfigElement(Smores.CONFIG.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements());
 
-		ConfigElement overrides = new ConfigElement(Smores.CONFIG.getCategory(ConfigurationRegistry.CATEGORY_OVERRIDES));
+		ConfigElement overrides = new ConfigElement(Smores.CONFIG.getCategory(SmoresConfiguration.CATEGORY_OVERRIDES));
 		for (EnumItem item : EnumItem.values()) {
 			overrides.getChildElements().add(new ConfigElement(
-					Smores.CONFIG.getCategory(ConfigurationRegistry.CATEGORY_OVERRIDES + "." + item.getName().toLowerCase(Locale.ROOT))));
+					Smores.CONFIG.getCategory(SmoresConfiguration.CATEGORY_OVERRIDES + "." + item.getName().toLowerCase(Locale.ROOT))));
 		}
 
-		categories.add(overrides);
+		categories.add(overrides);*/
 		return categories;
 	}
 
