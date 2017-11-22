@@ -1,16 +1,22 @@
-############# PURE METALS #############
-item.smores.ingot_copper.name=Copper Ingot
-item.smores.ingot_tin.name=Tin Ingot
-item.smores.ingot_lead.name=Lead Ingot
-item.smores.ingot_nickel.name=Nickel Ingot
-item.smores.ingot_silver.name=Silver Ingot
-item.smores.ingot_platinum.name=Platinum Ingot
-item.smores.ingot_mithril.name=Mithril Ingot
-item.smores.ingot_zinc.name=Zinc Ingot
+############# INGOTS #############
+item.smores.copper_ingot.name=Copper Ingot
+item.smores.tin_ingot.name=Tin Ingot
+item.smores.lead_ingot.name=Lead Ingot
+item.smores.nickel_ingot.name=Nickel Ingot
+item.smores.silver_ingot.name=Silver Ingot
+item.smores.platinum_ingot.name=Platinum Ingot
+item.smores.mithril_ingot.name=Mithril Ingot
+item.smores.zinc_ingot.name=Zinc Ingot
+item.smores.uranium_ingot.name=Uranium Ingot
+item.smores.electrum_ingot.name=Electrum Ingot
+item.smores.invar_ingot.name=Invar Ingot
+item.smores.steel_ingot.name=Steel Ingot
+item.smores.bronze_ingot.name=Bronze Ingot
+item.smores.brass_ingot.name=Brass Ingot
+item.smores.plutonium_ingot.name=Plutonium Ingot
 
-############# ODDBALL #############
-item.smores.ingot_mercury.name=Mercury
-item.smores.ingot_uranium.name=Uranium Ingot
+############# GLOBS #############
+item.smores.mercury_glob.name=Mercury
 
 ############# ORES #############
 tile.smores.metal_ore_copper.name=Copper Ore
@@ -27,6 +33,8 @@ tile.smores.gem_ore_peridot.name=Peridot Ore
 tile.smores.nether_ore_mercury.name=Mercury Ore
 tile.smores.nether_ore_sulfur.name=Sulfur Ore
 tile.smores.nether_ore_nitre.name=Nitre Ore
+tile.smores.nether_ore_uranium.name=Uranium Ore
+tile.smores.nether_ore_plutonium.name=Plutonium Ore
 
 ############# MATERIAL BLOCKS #############
 tile.smores.metal_block_copper.name=Block of Copper
@@ -45,7 +53,8 @@ tile.smores.alloy_block_brass.name=Block of Brass
 tile.smores.gem_block_ruby.name=Block of Ruby
 tile.smores.gem_block_sapphire.name=Block of Sapphire
 tile.smores.gem_block_peridot.name=Block of Peridot
-tile.smores.block_uranium.name=Block of Uranium
+tile.smores.metal_block_uranium.name=Block of Uranium
+tile.smores.metal_block_plutonium.name=Block of Plutonium
 
 ############# FLUIDS #############
 fluid.smores.molten_copper=Molten Copper
@@ -65,93 +74,92 @@ fluid.smores.molten_iron=Molten Iron
 fluid.smores.molten_gold=Molten Gold
 
 ############# GEMS #############
-item.smores.gem_ruby.name=Ruby
-item.smores.gem_sapphire.name=Sapphire
-item.smores.gem_peridot.name=Peridot
-
-############# ALLOYS #############
-item.smores.ingot_electrum.name=Electrum Ingot
-item.smores.ingot_invar.name=Invar Ingot
-item.smores.ingot_steel.name=Steel Ingot
-item.smores.ingot_bronze.name=Bronze Ingot
-item.smores.ingot_brass.name=Brass Ingot
+item.smores.ruby_gem.name=Ruby
+item.smores.sapphire_gem.name=Sapphire
+item.smores.peridot_gem.name=Peridot
 
 ############# DUSTS #############
-item.smores.dust_iron.name=Iron Dust
-item.smores.dust_gold.name=Gold Dust
-item.smores.dust_copper.name=Copper Dust
-item.smores.dust_tin.name=Tin Dust
-item.smores.dust_lead.name=Lead Dust
-item.smores.dust_nickel.name=Nickel Dust
-item.smores.dust_silver.name=Silver Dust
-item.smores.dust_platinum.name=Platinum Dust
-item.smores.dust_mithril.name=Mithril Dust
-item.smores.dust_zinc.name=Zinc Dust
-item.smores.dust_electrum.name=Electrum Dust
-item.smores.dust_invar.name=Invar Dust
-item.smores.dust_steel.name=Steel Dust
-item.smores.dust_bronze.name=Bronze Dust
-item.smores.dust_brass.name=Brass Dust
+item.smores.iron_dust.name=Iron Dust
+item.smores.gold_dust.name=Gold Dust
+item.smores.copper_dust.name=Copper Dust
+item.smores.tin_dust.name=Tin Dust
+item.smores.lead_dust.name=Lead Dust
+item.smores.nickel_dust.name=Nickel Dust
+item.smores.silver_dust.name=Silver Dust
+item.smores.platinum_dust.name=Platinum Dust
+item.smores.mithril_dust.name=Mithril Dust
+item.smores.zinc_dust.name=Zinc Dust
+item.smores.electrum_dust.name=Electrum Dust
+item.smores.invar_dust.name=Invar Dust
+item.smores.steel_dust.name=Steel Dust
+item.smores.bronze_dust.name=Bronze Dust
+item.smores.brass_dust.name=Brass Dust
 
-item.smores.dust_sulfur.name=Sulfur
-item.smores.dust_nitre.name=Nitre
-item.smores.dust_uranium.name=Uranium Dust
+item.smores.sulfur_dust.name=Sulfur
+item.smores.nitre_dust.name=Nitre
+item.smores.uranium_dust.name=Uranium Dust
+item.smores.plutonium_dust.name=Plutonium Dust
 
-item.smores.dust_lapis.name=Lapis Dust
+item.smores.lapis_dust.name=Lapis Dust
 
 ############# PLATES #############
-item.smores.plate_iron.name=Iron Plate
-item.smores.plate_gold.name=Gold Plate
-item.smores.plate_copper.name=Copper Plate
-item.smores.plate_tin.name=Tin Plate
-item.smores.plate_lead.name=Lead Plate
-item.smores.plate_nickel.name=Nickel Plate
-item.smores.plate_silver.name=Silver Plate
-item.smores.plate_platinum.name=Platinum Plate
-item.smores.plate_mithril.name=Mithril Plate
-item.smores.plate_zinc.name=Zinc Plate
-item.smores.plate_electrum.name=Electrum Plate
-item.smores.plate_invar.name=Invar Plate
-item.smores.plate_steel.name=Steel Plate
-item.smores.plate_bronze.name=Bronze Plate
-item.smores.plate_brass.name=Brass Plate
+item.smores.iron_plate.name=Iron Plate
+item.smores.gold_plate.name=Gold Plate
+item.smores.copper_plate.name=Copper Plate
+item.smores.tin_plate.name=Tin Plate
+item.smores.lead_plate.name=Lead Plate
+item.smores.nickel_plate.name=Nickel Plate
+item.smores.silver_plate.name=Silver Plate
+item.smores.platinum_plate.name=Platinum Plate
+item.smores.mithril_plate.name=Mithril Plate
+item.smores.zinc_plate.name=Zinc Plate
+item.smores.electrum_plate.name=Electrum Plate
+item.smores.invar_plate.name=Invar Plate
+item.smores.steel_plate.name=Steel Plate
+item.smores.bronze_plate.name=Bronze Plate
+item.smores.brass_plate.name=Brass Plate
+item.smores.uranium_plate.name=Uranium Plate
+item.smores.plutonium_plate.name=Plutonium Plate
 
 ############# GEARS #############
-item.smores.gear_iron.name=Iron Gear
-item.smores.gear_gold.name=Gold Gear
-item.smores.gear_copper.name=Copper Gear
-item.smores.gear_tin.name=Tin Gear
-item.smores.gear_lead.name=Lead Gear
-item.smores.gear_nickel.name=Nickel Gear
-item.smores.gear_silver.name=Silver Gear
-item.smores.gear_platinum.name=Platinum Gear
-item.smores.gear_mithril.name=Mithril Gear
-item.smores.gear_zinc.name=Zinc Gear
-item.smores.gear_electrum.name=Electrum Gear
-item.smores.gear_invar.name=Invar Gear
-item.smores.gear_steel.name=Steel Gear
-item.smores.gear_bronze.name=Bronze Gear
-item.smores.gear_brass.name=Brass Gear
-item.smores.gear_uranium.name=Uranium Gear
+item.smores.iron_gear.name=Iron Gear
+item.smores.gold_gear.name=Gold Gear
+item.smores.copper_gear.name=Copper Gear
+item.smores.tin_gear.name=Tin Gear
+item.smores.lead_gear.name=Lead Gear
+item.smores.nickel_gear.name=Nickel Gear
+item.smores.silver_gear.name=Silver Gear
+item.smores.platinum_gear.name=Platinum Gear
+item.smores.mithril_gear.name=Mithril Gear
+item.smores.zinc_gear.name=Zinc Gear
+item.smores.electrum_gear.name=Electrum Gear
+item.smores.invar_gear.name=Invar Gear
+item.smores.steel_gear.name=Steel Gear
+item.smores.bronze_gear.name=Bronze Gear
+item.smores.brass_gear.name=Brass Gear
+item.smores.uranium_gear.name=Uranium Gear
+item.smores.plutonium_gear.name=Plutonium Gear
 
 ############# NUGGETS #############
-item.smores.nugget_copper.name=Copper Nugget
-item.smores.nugget_tin.name=Tin Nugget
-item.smores.nugget_lead.name=Lead Nugget
-item.smores.nugget_nickel.name=Nickel Nugget
-item.smores.nugget_silver.name=Silver Nugget
-item.smores.nugget_platinum.name=Platinum Nugget
-item.smores.nugget_mithril.name=Mithril Nugget
-item.smores.nugget_zinc.name=Zinc Nugget
-item.smores.nugget_electrum.name=Electrum Nugget
-item.smores.nugget_invar.name=Invar Nugget
-item.smores.nugget_steel.name=Steel Nugget
-item.smores.nugget_bronze.name=Bronze Nugget
-item.smores.nugget_brass.name=Brass Nugget
-item.smores.nugget_uranium.name=Uranium Nugget
+item.smores.copper_nugget.name=Copper Nugget
+item.smores.tin_nugget.name=Tin Nugget
+item.smores.lead_nugget.name=Lead Nugget
+item.smores.nickel_nugget.name=Nickel Nugget
+item.smores.silver_nugget.name=Silver Nugget
+item.smores.platinum_nugget.name=Platinum Nugget
+item.smores.mithril_nugget.name=Mithril Nugget
+item.smores.zinc_nugget.name=Zinc Nugget
+item.smores.electrum_nugget.name=Electrum Nugget
+item.smores.invar_nugget.name=Invar Nugget
+item.smores.steel_nugget.name=Steel Nugget
+item.smores.bronze_nugget.name=Bronze Nugget
+item.smores.brass_nugget.name=Brass Nugget
+item.smores.uranium_nugget.name=Uranium Nugget
+item.smores.plutonium_nugget.name=Plutonium Nugget
 
 ############# RODS #############
-item.smores.rod_uranium.name=Uranium Rod
+item.smores.uranium_rod.name=Uranium Rod
+item.smores.plutonium_rod.name=Plutonium Rod
 
 ############# MISC #############
 itemGroup.smores=Smores

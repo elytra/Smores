@@ -31,9 +31,9 @@ import com.elytradev.smores.block.BlockSubtyped;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
-public class ItemBlockSubtyped<T extends Enum<T>> extends ItemBlock {
+public class ItemBlockProduct extends ItemBlock {
 
-	public ItemBlockSubtyped(BlockSubtyped block) {
+	public ItemBlockProduct(BlockSubtyped block) {
 		super(block);
 		this.setRegistryName(block.getRegistryName());
 		this.setMaxDamage(0);
@@ -44,8 +44,8 @@ public class ItemBlockSubtyped<T extends Enum<T>> extends ItemBlock {
 	public String getUnlocalizedName(ItemStack stack) {
 		// Please forigve me for this.
 		return this.getUnlocalizedName() + "_" + ((BlockSubtyped)((ItemBlock)stack.getItem()).getBlock())
-						.getMaterialFromIndex(stack.getItemDamage())
-						.getMaterialName();
+				.getMaterialFromIndex(stack.getItemDamage())
+				.getName();
 	}
 
 	@Override

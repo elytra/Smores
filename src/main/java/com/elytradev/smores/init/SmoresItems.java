@@ -27,26 +27,31 @@
 
 package com.elytradev.smores.init;
 
-import com.elytradev.smores.Smores;
-import com.elytradev.smores.item.ItemBase;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import com.elytradev.smores.item.ItemProduct;
+import com.elytradev.smores.materials.EnumProduct;
 
-/**
- * A final class containing all of the various items in Smores.
- */
-@GameRegistry.ObjectHolder(Smores.MOD_ID)
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public final class SmoresItems {
 
-	public static final ItemBase ingot = null;
-	public static final ItemBase gem = null;
-	public static final ItemBase dust = null;
-	public static final ItemBase nugget = null;
-	public static final ItemBase plate = null;
-	public static final ItemBase gear = null;
-	public static final ItemBase glob = null;
-	public static final ItemBase rod = null;
+	private static Map<EnumProduct, List<ItemProduct>> itemList = new HashMap<>();
 
 	private SmoresItems() {
+	}
+
+	public static ItemProduct addItem(EnumProduct productType, ItemProduct product) {
+		if (!itemList.containsKey(productType)) {
+			itemList.put(productType, new ArrayList<>());
+		}
+		itemList.get(productType).add(product);
+		return product;
+	}
+
+	public static List<ItemProduct> getItemList(EnumProduct product) {
+		return itemList.get(product);
 	}
 
 }

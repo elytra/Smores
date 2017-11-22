@@ -24,6 +24,11 @@
                     "all": "smores:blocks/ore_uranium"
                 }
             },
+            "plutonium": {
+                "textures": {
+                    "all": "smores:blocks/ore_plutonium"
+                }
+            },
             "mercury": {
                 "textures": {
                     "all": "smores:blocks/ore_mercury"

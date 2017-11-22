@@ -27,13 +27,10 @@
 
 package com.elytradev.smores.registries;
 
-import com.elytradev.smores.Smores;
 import com.elytradev.smores.imc.EnumResourceSelection;
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.common.config.Property;
 
 import java.util.HashMap;
-import java.util.Locale;
 
 public class SmoresConfiguration {
 

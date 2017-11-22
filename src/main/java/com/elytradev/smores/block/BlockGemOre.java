@@ -27,7 +27,6 @@
 
 package com.elytradev.smores.block;
 
-import com.elytradev.smores.init.SmoresItems;
 import com.elytradev.smores.materials.EnumMaterial;
 import com.elytradev.smores.materials.EnumProduct;
 import net.minecraft.block.properties.PropertyEnum;
@@ -37,11 +36,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class BlockGemOre extends BlockOre {
 
 	public static PropertyEnum<EnumMaterial> GEM = PropertyEnum.create("gem", EnumMaterial.class,
-			(material) -> material.hasProduct(EnumProduct.GEM_ORE));
+			EnumProduct.GEM_ORE::hasMaterial);
 
 	public BlockGemOre() {
 		super("gem_ore", GEM, EnumMaterial.RUBY);
@@ -54,6 +54,6 @@ public class BlockGemOre extends BlockOre {
 
 	@Override
 	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
-		drops.add(new ItemStack(SmoresItems.gem, 1,  getIndexOfMaterial(state.getValue(GEM))));
+		drops.add(OreDictionary.getOres("gem"+state.getValue(GEM).getMaterialName()).get(0));
 	}
 }
