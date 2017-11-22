@@ -57,24 +57,24 @@ public class SmoresCreativeTab extends CreativeTabs {
 	public void displayAllRelevantItems(NonNullList<ItemStack> itemList) {
 		int metalFluidIterator = 0, alloyFluidIterator = 0;
 
-		for(EnumMaterial material : EnumProduct.METAL_FLUID.materials) {
+		for (EnumMaterial material : EnumProduct.METAL_FLUID.materials) {
 			itemList.add(FluidUtil.getFilledBucket(
 					new FluidStack(SmoresFluids.molten_metals.get(metalFluidIterator), 1000)));
 			metalFluidIterator++;
 		}
 
-		for(EnumMaterial material : EnumProduct.ALLOY_FLUID.materials) {
+		for (EnumMaterial material : EnumProduct.ALLOY_FLUID.materials) {
 			itemList.add(FluidUtil.getFilledBucket(
 					new FluidStack(SmoresFluids.molten_alloys.get(alloyFluidIterator), 1000)));
 			alloyFluidIterator++;
 		}
 
-		for(EnumProduct product : EnumProduct.values()) {
+		for (EnumProduct product : EnumProduct.values()) {
 			if (product.type != EnumProduct.EnumProductType.ITEM)
 				continue;
 
 			List<ItemProduct> list = SmoresItems.getItemList(product);
-			for(ItemProduct item : list) {
+			for (ItemProduct item : list) {
 				itemList.add(new ItemStack(item, 1));
 			}
 		}
