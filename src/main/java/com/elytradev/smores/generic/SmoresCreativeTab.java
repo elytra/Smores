@@ -49,8 +49,7 @@ public class SmoresCreativeTab extends CreativeTabs {
 
 	@Override
 	public ItemStack getTabIconItem() {
-		// TODO: Fix this again. SmoresItems breaks with the newest update.
-		return OreDictionary.getOres("ingotCopper").get(0);
+		return new ItemStack(SmoresItems.getItemList(EnumProduct.INGOT).get(0), 1);
 	}
 
 	@Override
