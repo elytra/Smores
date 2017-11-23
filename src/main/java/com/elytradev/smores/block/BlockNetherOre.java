@@ -35,7 +35,7 @@ import net.minecraft.block.state.BlockStateContainer;
 public class BlockNetherOre extends BlockOre {
 
 	public static PropertyEnum<EnumMaterial> MINERAL = PropertyEnum.create("mineral", EnumMaterial.class,
-			(material) -> material.hasProduct(EnumProduct.NETHER_ORE));
+			EnumProduct.NETHER_ORE::hasMaterial);
 
 	public BlockNetherOre() {
 		super("nether_ore", MINERAL, EnumMaterial.SULFUR);

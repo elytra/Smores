@@ -35,7 +35,7 @@ import net.minecraft.block.state.BlockStateContainer;
 public class BlockMetal extends BlockSubtyped {
 
 	public static PropertyEnum<EnumMaterial> METAL = PropertyEnum.create("metal", EnumMaterial.class,
-			(material) -> material.hasProduct(EnumProduct.METAL_BLOCK));
+			EnumProduct.METAL_BLOCK::hasMaterial);
 
 	public BlockMetal() {
 		super("metal_block", METAL, EnumMaterial.COPPER);

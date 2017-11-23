@@ -34,54 +34,50 @@ public enum EnumProduct {
 
 	// Why (n) definitions?
 	// Blocks still only have 16 metadata values, so we're stuck making at least (n). Fuck.
-	METAL_BLOCK("Metal_Block"),
-	ALLOY_BLOCK("Alloy_Block"),
-	GEM_BLOCK("Gem_Block"),
-	METAL_ORE("Metal_Ore"),
-	GEM_ORE("Gem_Ore"),
-	NETHER_ORE("Nether_Ore"),
-	METAL_FLUID("Metal_Fluid"),
-	ALLOY_FLUID("Alloy_Fluid"),
-	INGOT("Ingot"),
-	GEM("Gem"),
-	DUST("Dust"),
-	NUGGET("Nugget"),
-	PLATE("Plate"),
-	GLOB("Glob"), // For mercury, because not technically an ingot?
-	GEAR("Gear"),
-	ROD("Rod");
+	METAL_BLOCK("Metal_Block", EnumMaterial.SMORES_ELEMENTAL_METALS, EnumProductType.BLOCK),
+	ALLOY_BLOCK("Alloy_Block", EnumMaterial.SMORES_ALLOYS, EnumProductType.BLOCK),
+	GEM_BLOCK("Gem_Block", EnumMaterial.SMORES_GEMS, EnumProductType.BLOCK),
+	METAL_ORE("Metal_Ore", EnumMaterial.SMORES_METALS, EnumProductType.BLOCK),
+	GEM_ORE("Gem_Ore", EnumMaterial.SMORES_GEMS, EnumProductType.BLOCK),
+	NETHER_ORE("Nether_Ore", EnumSet.of(EnumMaterial.SULFUR, EnumMaterial.NITRE,
+			EnumMaterial.URANIUM, EnumMaterial.PLUTONIUM), EnumProductType.BLOCK),
+	METAL_FLUID("Metal_Fluid", EnumMaterial.SMORES_METALS_WITH_VANILLA, EnumProductType.FLUID),
+	ALLOY_FLUID("Alloy_Fluid", EnumMaterial.SMORES_ALLOYS, EnumProductType.FLUID),
+	INGOT("Ingot", EnumMaterial.SMORES_METALLIC, EnumProductType.ITEM),
+	GEM("Gem", EnumMaterial.SMORES_GEMS, EnumProductType.ITEM),
+	DUST("Dust", EnumMaterial.SMORES_DUSTABLE, EnumProductType.ITEM),
+	NUGGET("Nugget", EnumMaterial.SMORES_METALLIC, EnumProductType.ITEM),
+	PLATE("Plate", EnumMaterial.SMORES_METALLIC_WITH_VANILLA, EnumProductType.ITEM),
+	GLOB("Glob", EnumSet.of(EnumMaterial.MERCURY), EnumProductType.ITEM), // For mercury, because not technically an ingot?
+	GEAR("Gear", EnumMaterial.SMORES_METALLIC_WITH_VANILLA, EnumProductType.ITEM),
+	ROD("Rod", EnumSet.of(EnumMaterial.URANIUM, EnumMaterial.PLUTONIUM), EnumProductType.ITEM);
+
+	public enum EnumProductType {
+		BLOCK,
+		FLUID,
+		ITEM
+	}
 
 	public String name;
+	public EnumSet<EnumMaterial> materials;
+	public EnumProductType type;
 
-	public static final EnumSet<EnumProduct> DEFAULT_METAL =
-			EnumSet.of(EnumProduct.METAL_BLOCK, EnumProduct.METAL_ORE, EnumProduct.METAL_FLUID, EnumProduct.INGOT, EnumProduct.DUST,
-					EnumProduct.NUGGET, EnumProduct.PLATE, EnumProduct.GEAR);
-
-	public static final EnumSet<EnumProduct> VANILLA_METAL =
-			EnumSet.of(EnumProduct.METAL_FLUID, EnumProduct.DUST, EnumProduct.PLATE, EnumProduct.GEAR);
-
-	public static final EnumSet<EnumProduct> DEFAULT_ALLOY =
-			EnumSet.of(EnumProduct.ALLOY_BLOCK, EnumProduct.ALLOY_FLUID, EnumProduct.INGOT, EnumProduct.DUST, EnumProduct.NUGGET,
-					EnumProduct.PLATE, EnumProduct.GEAR);
-
-	public static final EnumSet<EnumProduct> DEFAULT_NETHER =
-			EnumSet.of(EnumProduct.NETHER_ORE, EnumProduct.DUST);
-
-	public static final EnumSet<EnumProduct> DEFAULT_GEM =
-			EnumSet.of(EnumProduct.GEM_BLOCK, EnumProduct.GEM_ORE, EnumProduct.GEM);
-
-	EnumProduct(String name) {
+	EnumProduct(String name, EnumSet<EnumMaterial> materials, EnumProductType type) {
 		this.name = name;
+		this.materials = materials.clone();
+		this.type = type;
 	}
 
 	public String getName() {
-		return name;
-	}
-
-	public String getProductName() {
 		return name.toLowerCase(Locale.ROOT);
 	}
 
+	public String getProductName() {
+		return name;
+	}
 
+	public boolean hasMaterial(EnumMaterial material) {
+		return materials.contains(material);
+	}
 
 }

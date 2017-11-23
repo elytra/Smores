@@ -35,7 +35,7 @@ import net.minecraft.block.state.BlockStateContainer;
 public class BlockGem extends BlockSubtyped {
 
 	public static PropertyEnum<EnumMaterial> GEM = PropertyEnum.create("gem", EnumMaterial.class,
-			(material) -> material.hasProduct(EnumProduct.GEM_BLOCK));
+			EnumProduct.GEM_BLOCK::hasMaterial);
 
 	public BlockGem() {
 		super("gem_block", GEM, EnumMaterial.RUBY);

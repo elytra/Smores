@@ -25,36 +25,32 @@
  * SOFTWARE.
  */
 
-package com.elytradev.smores.gui;
+package com.elytradev.smores.item;
 
 import com.elytradev.smores.Smores;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraftforge.fml.client.config.GuiConfig;
-import net.minecraftforge.fml.client.config.IConfigElement;
+import com.elytradev.smores.generic.IOreDict;
+import com.elytradev.smores.materials.EnumMaterial;
+import com.elytradev.smores.materials.EnumProduct;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
-import java.util.ArrayList;
-import java.util.List;
+public class ItemProduct extends ItemBase implements IOreDict {
+	private EnumProduct productType;
+	private EnumMaterial material;
 
-public class SmoresConfigGui extends GuiConfig {
-
-	public SmoresConfigGui(GuiScreen parentScreen) {
-		super(parentScreen, getCategories(), Smores.MOD_ID, false, true, "Smores Config");
+	public ItemProduct(EnumProduct productType, EnumMaterial material) {
+		super(material.getName() + "_" + productType.getName());
+		this.productType = productType;
+		this.material = material;
 	}
 
-	public static List<IConfigElement> getCategories() {
-		List<IConfigElement> categories = new ArrayList<>();
-
-		// TODO: New Concrete config system?
-		/*categories.addAll(new ConfigElement(Smores.CONFIG.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements());
-
-		ConfigElement overrides = new ConfigElement(Smores.CONFIG.getCategory(SmoresConfiguration.CATEGORY_OVERRIDES));
-		for (EnumItem item : EnumItem.values()) {
-			overrides.getChildElements().add(new ConfigElement(
-					Smores.CONFIG.getCategory(SmoresConfiguration.CATEGORY_OVERRIDES + "." + item.getName().toLowerCase(Locale.ROOT))));
-		}
-
-		categories.add(overrides);*/
-		return categories;
+	@Override
+	public void registerOreDict() {
+		OreDictionary.registerOre(productType.getName()+material.getMaterialName(), new ItemStack(this, 1));
 	}
 
+	@Override
+	public void registerItemModel() {
+		Smores.PROXY.registerItemRenderer(this, 0, this.name);
+	}
 }

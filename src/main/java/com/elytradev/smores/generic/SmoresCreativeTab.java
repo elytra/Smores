@@ -28,6 +28,7 @@
 package com.elytradev.smores.generic;
 
 import com.elytradev.smores.init.SmoresItems;
+import com.elytradev.smores.item.ItemProduct;
 import com.elytradev.smores.materials.EnumMaterial;
 import com.elytradev.smores.materials.EnumProduct;
 import com.elytradev.smores.registries.SmoresFluids;
@@ -36,6 +37,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidUtil;
+import net.minecraftforge.oredict.OreDictionary;
+
+import java.util.List;
 
 public class SmoresCreativeTab extends CreativeTabs {
 
@@ -45,25 +49,36 @@ public class SmoresCreativeTab extends CreativeTabs {
 
 	@Override
 	public ItemStack getTabIconItem() {
-		return new ItemStack(SmoresItems.ingot, 1, 0);
+		return new ItemStack(SmoresItems.getItemList(EnumProduct.INGOT).get(0), 1);
 	}
 
 	@Override
 	public void displayAllRelevantItems(NonNullList<ItemStack> itemList) {
-
 		int metalFluidIterator = 0, alloyFluidIterator = 0;
 
-		for (EnumMaterial material : EnumMaterial.values()) {
-			if (material.hasProduct(EnumProduct.METAL_FLUID)) {
-				itemList.add(FluidUtil.getFilledBucket(
-						new FluidStack(SmoresFluids.molten_metals.get(metalFluidIterator), 1000)));
-				metalFluidIterator++;
-			} else if (material.hasProduct(EnumProduct.ALLOY_FLUID)) {
-				itemList.add(FluidUtil.getFilledBucket(
-						new FluidStack(SmoresFluids.molten_alloys.get(alloyFluidIterator), 1000)));
-				alloyFluidIterator++;
+		for (EnumMaterial material : EnumProduct.METAL_FLUID.materials) {
+			itemList.add(FluidUtil.getFilledBucket(
+					new FluidStack(SmoresFluids.molten_metals.get(metalFluidIterator), 1000)));
+			metalFluidIterator++;
+		}
+
+		for (EnumMaterial material : EnumProduct.ALLOY_FLUID.materials) {
+			itemList.add(FluidUtil.getFilledBucket(
+					new FluidStack(SmoresFluids.molten_alloys.get(alloyFluidIterator), 1000)));
+			alloyFluidIterator++;
+		}
+
+		for (EnumProduct product : EnumProduct.values()) {
+			if (product.type != EnumProduct.EnumProductType.ITEM)
+				continue;
+
+			List<ItemProduct> list = SmoresItems.getItemList(product);
+			for (ItemProduct item : list) {
+				itemList.add(new ItemStack(item, 1));
 			}
 		}
+
+
 
 		super.displayAllRelevantItems(itemList);
 	}

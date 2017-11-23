@@ -29,7 +29,6 @@ package com.elytradev.smores.world;
 
 import com.elytradev.smores.block.BlockMetalOre;
 import com.elytradev.smores.block.BlockNetherOre;
-import com.elytradev.smores.block.BlockOre;
 import com.elytradev.smores.init.SmoresBlocks;
 import com.elytradev.smores.materials.EnumMaterial;
 import com.google.common.base.Predicate;

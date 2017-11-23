@@ -29,9 +29,10 @@ package com.elytradev.smores.block;
 
 import com.elytradev.smores.generic.IOreDict;
 import com.elytradev.smores.materials.EnumMaterial;
-import com.elytradev.smores.materials.EnumProduct;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.function.Function;
 
@@ -40,8 +41,6 @@ import javax.annotation.Nullable;
 public class BlockOre extends BlockSubtyped implements IOreDict {
 
 	public Function<EnumMaterial, Integer> harvestLevelFunction;
-
-
 
 	public BlockOre(String name, PropertyEnum<EnumMaterial> materialProperty, EnumMaterial defaultMaterial) {
 		super(name, materialProperty, defaultMaterial);
@@ -63,5 +62,13 @@ public class BlockOre extends BlockSubtyped implements IOreDict {
 	@Override
 	public String getHarvestTool(IBlockState state) {
 		return "pickaxe";
+	}
+
+	@Override
+	public void registerOreDict() {
+		for (EnumMaterial material : materialProperty.getAllowedValues()) {
+			OreDictionary.registerOre("ore" + material.getMaterialName(),
+					new ItemStack(this, 1, getIndexOfMaterial(material)));
+		}
 	}
 }

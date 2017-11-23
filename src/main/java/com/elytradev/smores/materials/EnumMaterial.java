@@ -34,31 +34,62 @@ import java.util.Locale;
 
 public enum EnumMaterial implements IStringSerializable {
 
-	COPPER("Copper",        0,  0xFFB47129, 8020,   1357,   EnumProduct.DEFAULT_METAL),
-	TIN("Tin",              1,  0xFFCACACA, 6990,   505,    EnumProduct.DEFAULT_METAL),
-	LEAD("Lead",            2,  0xFF55557B, 10660,  600,    EnumProduct.DEFAULT_METAL),
-	SILVER("Silver",        3,  0xFFC9C9E6, 9320,   1234,   EnumProduct.DEFAULT_METAL),
-	NICKEL("Nickel",        4,  0xFF9F9285, 7810,   1728,   EnumProduct.DEFAULT_METAL),
-	PLATINUM("Platinum",    5,  0xFF6FA9DD, 19770,  2041,   EnumProduct.DEFAULT_METAL),
-	MITHRIL("Mithril",      6,  0xFFBE94B2, 4110,   1941,   EnumProduct.DEFAULT_METAL),
-	ZINC("Zinc",            7,  0xFFC5D098, 6570,   692,    EnumProduct.DEFAULT_METAL),
-	URANIUM("Uranium",      8,  0xFF95FF4F, 17300,  1405,   EnumSet.of(EnumProduct.METAL_BLOCK, EnumProduct.NETHER_ORE,
-			EnumProduct.DUST, EnumProduct.GEAR, EnumProduct.INGOT, EnumProduct.ROD)),
-	IRON("Iron",            9,  0xFF969696, 6980,   1811,   EnumProduct.VANILLA_METAL),
-	GOLD("Gold",            10, 0xFFFFFF0B, 17310,  1337,   EnumProduct.VANILLA_METAL),
-	ELECTRUM("Electrum",    11, 0xFFFCFE3A, 13750,  1336,   EnumProduct.DEFAULT_ALLOY),
-	INVAR("Invar",          12, 0xFFC3BAA9, 8055,   1700,   EnumProduct.DEFAULT_ALLOY),
-	STEEL("Steel",          13, 0xFFA4B6BD, 7800,   1644,   EnumProduct.DEFAULT_ALLOY),
-	BRONZE("Bronze",        14, 0xFFFC8E00, 8800,   1186,   EnumProduct.DEFAULT_ALLOY),
-	BRASS("Brass",          15, 0xFFFCC400, 8520,   1200,   EnumProduct.DEFAULT_ALLOY),
-	RUBY("Ruby",            16, 0xFF000000, -1,     -1,     EnumProduct.DEFAULT_GEM),
-	SAPPHIRE("Sapphire",    17, 0xFF000000, -1,     -1,     EnumProduct.DEFAULT_GEM),
-	PERIDOT("Peridot",      18, 0xFF000000, -1,     -1,     EnumProduct.DEFAULT_GEM),
-	SULFUR("Sulfur",        19, 0xFF000000, -1,     -1,     EnumProduct.DEFAULT_NETHER),
-	NITRE("Nitre",          20, 0xFF000000, -1,     -1,     EnumProduct.DEFAULT_NETHER),
-	MERCURY("Mercury",      21, 0xFF000000, -1,     -1,     EnumSet.of(EnumProduct.GLOB)),
-	LAPIS("Lapis",          22, 0xFF000000, -1,     -1,     EnumSet.of(EnumProduct.DUST));
+	// Hey there person in the future!
+	// Quick note about how this sytem works -
+	// if you put new enums anywhere other than at the
+	// end of this list, you're going to break saves.
+	// Don't do that! Thank you.
+	COPPER("Copper",        0,  0xFFB47129, 8020,   1357),
+	TIN("Tin",              1,  0xFFCACACA, 6990,   505),
+	LEAD("Lead",            2,  0xFF55557B, 10660,  600),
+	SILVER("Silver",        3,  0xFFC9C9E6, 9320,   1234),
+	NICKEL("Nickel",        4,  0xFF9F9285, 7810,   1728),
+	PLATINUM("Platinum",    5,  0xFF6FA9DD, 19770,  2041),
+	MITHRIL("Mithril",      6,  0xFFBE94B2, 4110,   1941),
+	ZINC("Zinc",            7,  0xFFC5D098, 6570,   692),
+	URANIUM("Uranium",      8,  0xFF95FF4F, 17300,  1405),
+	IRON("Iron",            9,  0xFF969696, 6980,   1811),
+	GOLD("Gold",            10, 0xFFFFFF0B, 17310,  1337),
+	ELECTRUM("Electrum",    11, 0xFFFCFE3A, 13750,  1336),
+	INVAR("Invar",          12, 0xFFC3BAA9, 8055,   1700),
+	STEEL("Steel",          13, 0xFFA4B6BD, 7800,   1644),
+	BRONZE("Bronze",        14, 0xFFFC8E00, 8800,   1186),
+	BRASS("Brass",          15, 0xFFFCC400, 8520,   1200),
+	RUBY("Ruby",            16, 0xFFFF1C1C, -1,     -1),
+	SAPPHIRE("Sapphire",    17, 0xFF194FFF, -1,     -1),
+	PERIDOT("Peridot",      18, 0xFF5EAE1E, -1,     -1),
+	SULFUR("Sulfur",        19, 0xFF000000, -1,     -1),
+	NITRE("Nitre",          20, 0xFF000000, -1,     -1),
+	MERCURY("Mercury",      21, 0xFF000000, -1,     -1),
+	LAPIS("Lapis",          22, 0xFF3030EF, -1,     -1),
+	PLUTONIUM("Plutonium",	23, 0xFF6849DB, -1,		-1);
 
+	public static EnumSet<EnumMaterial> SMORES_METALS = EnumSet.of(COPPER, TIN, LEAD, SILVER, NICKEL, PLATINUM,
+			MITHRIL, ZINC);
+
+	// Smores Metals + Vanilla
+	public static EnumSet<EnumMaterial> SMORES_METALS_WITH_VANILLA = EnumSet.of(COPPER, TIN, LEAD, SILVER, NICKEL,
+			PLATINUM, MITHRIL, ZINC, IRON, GOLD);
+
+	public static EnumSet<EnumMaterial> SMORES_ALLOYS = EnumSet.of(ELECTRUM, INVAR, STEEL, BRONZE, BRASS);
+
+	public static EnumSet<EnumMaterial> SMORES_GEMS = EnumSet.of(RUBY, SAPPHIRE, PERIDOT);
+
+	// Smores Metals + Irregular Metals
+	public static EnumSet<EnumMaterial> SMORES_ELEMENTAL_METALS = EnumSet.of(COPPER, TIN, LEAD, SILVER, NICKEL,
+			PLATINUM, MITHRIL, ZINC, URANIUM, PLUTONIUM);
+
+	// Smores Elemental Metals + Alloys
+	public static EnumSet<EnumMaterial> SMORES_METALLIC = EnumSet.of(COPPER, TIN, LEAD, SILVER, NICKEL, PLATINUM,
+			MITHRIL, ZINC, URANIUM, PLUTONIUM, ELECTRUM, INVAR, STEEL, BRONZE, BRASS);
+
+	// Smores Metallic + Vanilla
+	public static EnumSet<EnumMaterial> SMORES_METALLIC_WITH_VANILLA = EnumSet.of(COPPER, TIN, LEAD, SILVER, NICKEL,
+			PLATINUM, MITHRIL, ZINC, URANIUM, PLUTONIUM, ELECTRUM, INVAR, STEEL, BRONZE, BRASS, IRON, GOLD);
+
+	public static EnumSet<EnumMaterial> SMORES_DUSTABLE = EnumSet.of(COPPER, TIN, LEAD, SILVER, NICKEL,
+			PLATINUM, MITHRIL, ZINC, URANIUM, PLUTONIUM, ELECTRUM, INVAR, STEEL, BRONZE, BRASS, IRON, GOLD, LAPIS,
+			SULFUR, NITRE);
 
 	private String materialName;
 	private int id;
@@ -71,14 +102,12 @@ public enum EnumMaterial implements IStringSerializable {
 				 int id,
 				 int color,
 				 int density,
-				 int meltingPoint,
-				 EnumSet<EnumProduct> productSet) {
+				 int meltingPoint) {
 		this.id = id;
 		this.materialName = materialName;
 		this.color = color;
 		this.density = density;
 		this.meltingPoint = meltingPoint;
-		this.productSet = productSet.clone();
 	}
 
 	public String getName() {
@@ -103,9 +132,5 @@ public enum EnumMaterial implements IStringSerializable {
 
 	public int getMeltingPoint() {
 		return meltingPoint;
-	}
-
-	public boolean hasProduct(EnumProduct product) {
-		return this.productSet.contains(product);
 	}
 }
