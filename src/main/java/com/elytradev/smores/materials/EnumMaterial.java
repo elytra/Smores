@@ -39,6 +39,7 @@ public enum EnumMaterial implements IStringSerializable {
 	// if you put new enums anywhere other than at the
 	// end of this list, you're going to break saves.
 	// Don't do that! Thank you.
+	// | Name             | ID | Colour   | Density | Melting Point |
 	COPPER("Copper",        0,  0xFFB47129, 8020,   1357),
 	TIN("Tin",              1,  0xFFCACACA, 6990,   505),
 	LEAD("Lead",            2,  0xFF55557B, 10660,  600),
