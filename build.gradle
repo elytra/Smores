@@ -21,7 +21,7 @@ sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 
 group = 'com.elytradev'
-version = '0.1.0'
+version = '0.2.0'
 
 repositories {
     mavenCentral()
@@ -31,8 +31,8 @@ dependencies {
 }
 
 minecraft {
-    version = '1.12.1-14.22.0.2446'
-    mappings = 'snapshot_20170806'
+    version = '1.12.2-14.23.0.2491'
+    mappings = 'snapshot_20171123'
 
     runDir = 'run'
 }
