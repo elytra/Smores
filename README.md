@@ -28,6 +28,33 @@ We're trying to make the "perfect" substratum for *us* - one that doesn't do all
 ### Q. Why should I use this if my favourite mod already adds ores?
 Don't! This is primarily to establish a precedent of mods that offload the task of ore/metals/materials generation onto other, more flexible mods, and reduce the cruft of duplicated ores. If your favourite mod already generates ores, then this mod only adds noise.
 
+### Q. What does this mod currently add?
+
+* Copper
+* Tin
+* Lead
+* Silver
+* Nickel
+* Platinum
+* Mithril
+* Zinc
+* Iron (products)
+* Gold (products)
+* Uranium
+* Electrum
+* Invar
+* Steel
+* Bronze
+* Brass
+* Ruby
+* Sapphire
+* Peridot
+* Sulfur
+* Nitre
+* Mercury
+* Lapis (products)
+* Plutonium
+
 
 ## Credits
 
