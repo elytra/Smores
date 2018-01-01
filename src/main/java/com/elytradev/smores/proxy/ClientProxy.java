@@ -30,22 +30,39 @@ package com.elytradev.smores.proxy;
 
 import com.elytradev.smores.Smores;
 import com.elytradev.smores.block.BlockFluidSmores;
+import com.elytradev.smores.generic.IItemModelRegisterable;
 import com.elytradev.smores.item.ItemBlockProduct;
+import com.google.common.collect.Lists;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@SuppressWarnings("MethodCallSideOnly")
 public class ClientProxy extends CommonProxy {
 
+	private static class ModelRegistrationCandidate {
+		public final Item item;
+		public final IItemModelRegisterable registerable;
+		public ModelRegistrationCandidate(Item item, IItemModelRegisterable registerable) {
+			this.item = item;
+			this.registerable = registerable;
+		}
+	}
+
+	private List<ModelRegistrationCandidate> modelRegistrationCandidates = Lists.newArrayList();
+	
+	@Override
 	public void init() {
-		super.init();
+		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	@Override
@@ -65,6 +82,18 @@ public class ClientProxy extends CommonProxy {
 			ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation("forge:fluid"));
 		} else {
 			ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(Smores.MOD_ID + ":" + id, "inventory"));
+		}
+	}
+	
+	@Override
+	public void addModelRegistrationCandidate(Item item, IItemModelRegisterable registerable) {
+		modelRegistrationCandidates.add(new ModelRegistrationCandidate(item, registerable));
+	}
+	
+	@SubscribeEvent
+	public void onRegisterModels(ModelRegistryEvent e) {
+		for (ModelRegistrationCandidate candidate : modelRegistrationCandidates) {
+			candidate.registerable.registerItemModel(candidate.item);
 		}
 	}
 

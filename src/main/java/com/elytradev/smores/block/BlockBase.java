@@ -29,12 +29,16 @@
 package com.elytradev.smores.block;
 
 import com.elytradev.smores.Smores;
+import com.elytradev.smores.generic.IItemModelRegisterable;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemBlock;
+import net.minecraft.item.Item;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public abstract class BlockBase extends Block {
+public abstract class BlockBase extends Block implements IItemModelRegisterable {
 
 	protected String name;
 
@@ -46,8 +50,10 @@ public abstract class BlockBase extends Block {
 		this.setRegistryName(name);
 	}
 
-	public void registerItemModel(ItemBlock itemBlock) {
-		Smores.PROXY.registerItemRenderer(itemBlock, 0, name);
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerItemModel(Item item) {
+		Smores.PROXY.registerItemRenderer(item, 0, name);
 	}
 
 	@Override

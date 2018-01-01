@@ -36,9 +36,11 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemBlock;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class BlockSubtyped extends BlockBase implements IOreDict {
@@ -84,10 +86,11 @@ public class BlockSubtyped extends BlockBase implements IOreDict {
 	}
 
 	@Override
-	public void registerItemModel(ItemBlock block) {
+	@SideOnly(Side.CLIENT)
+	public void registerItemModel(Item item) {
 		int iterator = 0;
 		for (EnumMaterial material : materialProperty.getAllowedValues()) {
-			Smores.PROXY.registerItemRenderer(block, iterator, super.getUnlocalizedName() + "_" + material.getName());
+			Smores.PROXY.registerItemRenderer(item, iterator, super.getUnlocalizedName() + "_" + material.getName());
 			iterator++;
 		}
 	}

@@ -32,6 +32,8 @@ import com.elytradev.smores.Smores;
 import com.elytradev.smores.generic.IOreDict;
 import com.elytradev.smores.materials.EnumMaterial;
 import com.elytradev.smores.materials.EnumProduct;
+
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -51,7 +53,7 @@ public class ItemProduct extends ItemBase implements IOreDict {
 	}
 
 	@Override
-	public void registerItemModel() {
-		Smores.PROXY.registerItemRenderer(this, 0, this.name);
+	public void registerItemModel(Item item) {
+		Smores.PROXY.registerItemRenderer(item, 0, this.name);
 	}
 }

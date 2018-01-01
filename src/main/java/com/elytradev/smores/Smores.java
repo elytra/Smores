@@ -29,11 +29,11 @@
 package com.elytradev.smores;
 
 import com.elytradev.smores.block.*;
+import com.elytradev.smores.generic.IItemModelRegisterable;
 import com.elytradev.smores.generic.IOreDict;
 import com.elytradev.smores.generic.SmoresCreativeTab;
 import com.elytradev.smores.init.SmoresBlocks;
 import com.elytradev.smores.init.SmoresItems;
-import com.elytradev.smores.item.ItemBase;
 import com.elytradev.smores.item.ItemBlockProduct;
 import com.elytradev.smores.item.ItemProduct;
 import com.elytradev.smores.materials.EnumMaterial;
@@ -46,7 +46,6 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -182,24 +181,20 @@ public final class Smores {
 
 	private static void registerItem(IForgeRegistry<Item> registry, Item item) {
 		registry.register(item);
-
-		if (item instanceof ItemBase) {
-			((ItemBase) item).registerItemModel();
-		} else if (item instanceof ItemBlock) {
-			ItemBlock itemBlock = (ItemBlock)item;
-			if (itemBlock.getBlock() instanceof BlockBase)
-				((BlockBase)itemBlock.getBlock()).registerItemModel(((ItemBlock) item));
-			else if (itemBlock.getBlock() instanceof BlockFluidSmores)
-				((BlockFluidSmores)itemBlock.getBlock()).registerItemModel(((ItemBlock) item));
+		
+		if (item instanceof IItemModelRegisterable) {
+			Smores.PROXY.addModelRegistrationCandidate(item, (IItemModelRegisterable)item);
+		} else if (item instanceof ItemBlock && ((ItemBlock) item).getBlock() instanceof IItemModelRegisterable) {
+			Smores.PROXY.addModelRegistrationCandidate(item, (IItemModelRegisterable)((ItemBlock)item).getBlock());
 		} else {
-			final ResourceLocation loc = Item.REGISTRY.getNameForObject(item);
-			PROXY.registerItemRenderer(item, 0, loc.getResourcePath());
+			Smores.PROXY.addModelRegistrationCandidate(item, (i) -> {
+				PROXY.registerItemRenderer(i, 0, Item.REGISTRY.getNameForObject(i).getResourcePath());
+			});
 		}
 
 		if (item instanceof IOreDict) {
 			((IOreDict) item).registerOreDict();
-		} else if (item instanceof ItemBlock &&
-				((ItemBlock) item).getBlock() instanceof IOreDict) {
+		} else if (item instanceof ItemBlock && ((ItemBlock) item).getBlock() instanceof IOreDict) {
 			((IOreDict) ((ItemBlock) item).getBlock()).registerOreDict();
 		}
 	}

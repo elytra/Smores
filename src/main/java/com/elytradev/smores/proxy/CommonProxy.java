@@ -28,6 +28,8 @@
 
 package com.elytradev.smores.proxy;
 
+import com.elytradev.smores.generic.IItemModelRegisterable;
+
 import net.minecraft.item.Item;
 
 public class CommonProxy {
@@ -36,6 +38,10 @@ public class CommonProxy {
 	}
 
 	public void registerItemRenderer(Item item, int meta, String id) {
+	}
+
+	public void addModelRegistrationCandidate(Item item, IItemModelRegisterable registerable) {
+		
 	}
 
 }

@@ -29,18 +29,23 @@
 package com.elytradev.smores.block;
 
 import com.elytradev.smores.Smores;
+import com.elytradev.smores.generic.IItemModelRegisterable;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public abstract class BlockFluidSmores extends BlockFluidClassic {
+public abstract class BlockFluidSmores extends BlockFluidClassic implements IItemModelRegisterable {
 	protected String name;
 
 	public BlockFluidSmores(Fluid fluid, Material material, String name) {
@@ -54,15 +59,15 @@ public abstract class BlockFluidSmores extends BlockFluidClassic {
 		this.setLightLevel(1.0f);
 	}
 
-	public void registerItemModel(ItemBlock itemBlock) {
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerItemModel(Item item) {
 		ModelResourceLocation fluidLocation = new ModelResourceLocation(Smores.MOD_ID + ":fluid", name);
-		ModelLoader.registerItemVariants(itemBlock);
-		ModelLoader.setCustomMeshDefinition(itemBlock, stack -> fluidLocation);
-		ModelLoader.setCustomStateMapper(itemBlock.getBlock(), new StateMapperBase()
-		{
+		ModelLoader.registerItemVariants(item);
+		ModelLoader.setCustomMeshDefinition(item, stack -> fluidLocation);
+		ModelLoader.setCustomStateMapper(((ItemBlock)item).getBlock(), new StateMapperBase() {
 			@Override
-			protected ModelResourceLocation getModelResourceLocation(IBlockState state)
-			{
+			protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
 				return fluidLocation;
 			}
 		});
