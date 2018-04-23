@@ -45,6 +45,7 @@ public class ItemProduct extends ItemBase implements IOreDict {
 		super(material.getName() + "_" + productType.getName());
 		this.productType = productType;
 		this.material = material;
+		this.setCreativeTab(Smores.CREATIVE_TAB);
 	}
 
 	@Override
