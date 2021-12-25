@@ -17,6 +17,9 @@
 *.ipr
 *.iws
 
+# other
+log4j2.xml
+
 # Sekrit files
 private.properties
 

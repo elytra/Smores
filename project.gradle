@@ -4,32 +4,18 @@ ext {
 	group = 'com.elytradev'
 	projectName = 'Smores'
 
-	useElytraVersionFormat = false
 	version = '0.2.0'
 
-	concreteVersion = '0.3.4-SNAPSHOT'
+	concreteVersion = '0.4.46'
 	concreteModules = [ 'common' ]
-
-	coremod = null
-	miniVersion = null
 
 	language = 'java'
 
-	forge = '1.12.2-14.23.1.2557'
-	mappings = 'snapshot_20171130'
+	//forge = '1.12.2-14.23.5.2768'
+	//mappings = 'snapshot_20171130'
+	//mappings = 'stable_39'
 
 	enforceLicenseHeaders = true
 
 	verbose = false
-}
-
-if (!ext.early) {
-repositories {
-	// the skeleton already defines mavenCentral, jcenter, and the Elytra repo
-	// will also have Shadowfacts' maven if the language is set to kotlin
-}
-
-dependencies {
-
-}
 }

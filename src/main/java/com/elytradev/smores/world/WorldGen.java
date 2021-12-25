@@ -52,33 +52,43 @@ public class WorldGen implements IWorldGenerator {
 
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-		if (chunkGenerator instanceof ChunkGeneratorOverworld) {
-			generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMaterial.COPPER),
-					10, 32, 64, 8, IS_BLOCK_ROCK);
-			generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMaterial.TIN), 12,
-					16, 48, 6, IS_BLOCK_ROCK);
-			generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMaterial.LEAD), 12,
-					16, 64, 6, IS_BLOCK_ROCK);
-			generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMaterial.SILVER),
-					8, 4, 24, 6, IS_BLOCK_ROCK);
-			generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMaterial.NICKEL),
-					20, 16, 64, 4, IS_BLOCK_ROCK);
-			generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMaterial.PLATINUM),
-					5, 4, 32, 6, IS_BLOCK_ROCK);
-			generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMaterial.MITHRIL),
-					4, 16, 64, 5, IS_BLOCK_ROCK);
-			generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMaterial.ZINC), 15,
-					16, 64, 6, IS_BLOCK_ROCK);
-		} else if (chunkGenerator instanceof ChunkGeneratorHell) {
-			generateOre(world, random, chunkX, chunkZ,
-					SmoresBlocks.nether_ore.getDefaultState().withProperty(BlockNetherOre.MINERAL, EnumMaterial.NITRE), 30, 0, 128, 4,
-					IS_BLOCK_ROCK);
-			generateOre(world, random, chunkX, chunkZ,
-					SmoresBlocks.nether_ore.getDefaultState().withProperty(BlockNetherOre.MINERAL, EnumMaterial.SULFUR), 30, 0, 48, 6,
-					IS_BLOCK_ROCK);
+		if (world.provider.isSurfaceWorld()) {
+			generateOverworld(world, random, chunkX, chunkZ);
+		} else if (world.provider.isNether()) {
+			generateHell(world, random, chunkX, chunkZ);
+		} else {
+			//System.out.println("UNKOWN CHUNKGENERATOR TYPE: "+chunkGenerator.getClass().getCanonicalName());
 		}
 	}
-
+	
+	private void generateOverworld(World world, Random random, int chunkX, int chunkZ) {
+		generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMaterial.COPPER),
+				5, 32, 64, 8, IS_BLOCK_ROCK);
+		generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMaterial.TIN), 12,
+				5, 48, 6, IS_BLOCK_ROCK);
+		generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMaterial.LEAD), 12,
+				8, 64, 6, IS_BLOCK_ROCK);
+		generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMaterial.SILVER),
+				3, 4, 24, 6, IS_BLOCK_ROCK);
+		generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMaterial.NICKEL),
+				5, 16, 64, 4, IS_BLOCK_ROCK);
+		generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMaterial.PLATINUM),
+				2, 4, 32, 6, IS_BLOCK_ROCK);
+		generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMaterial.MITHRIL),
+				1, 16, 64, 5, IS_BLOCK_ROCK);
+		generateOre(world, random, chunkX, chunkZ, SmoresBlocks.metal_ore.getDefaultState().withProperty(BlockMetalOre.METAL, EnumMaterial.ZINC), 15,
+				4, 64, 6, IS_BLOCK_ROCK);
+	}
+	
+	private void generateHell(World world, Random random, int chunkX, int chunkZ) {
+		generateOre(world, random, chunkX, chunkZ,
+				SmoresBlocks.nether_ore.getDefaultState().withProperty(BlockNetherOre.MINERAL, EnumMaterial.NITRE), 30, 0, 128, 4,
+				IS_BLOCK_ROCK);
+		generateOre(world, random, chunkX, chunkZ,
+				SmoresBlocks.nether_ore.getDefaultState().withProperty(BlockNetherOre.MINERAL, EnumMaterial.SULFUR), 30, 0, 48, 6,
+				IS_BLOCK_ROCK);
+	}
+	
 	private void generateOre(World world, Random rand, int chunkX, int chunkZ, IBlockState blockState, int chances, int yMin, int yMax, int veinSize,
 			Predicate<IBlockState> replacementPredicate) {
 		int range = yMax - yMin;
