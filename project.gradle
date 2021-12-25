@@ -4,7 +4,7 @@ ext {
 	group = 'com.elytradev'
 	projectName = 'Smores'
 
-	version = '0.2.0'
+	version = '0.2.1'
 
 	concreteVersion = '0.4.46'
 	concreteModules = [ 'common' ]
